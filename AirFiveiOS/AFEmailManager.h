@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSString *position;
 @property (strong, nonatomic) NSString *organization;
 @property (strong, nonatomic) NSString *industry;
-@property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSString *emailAddress;
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSString *website;
 

@@ -28,7 +28,7 @@
     self.position = @"Founder & CEO";
     self.organization = @"AirFive";
     self.industry = @"Entrepreneur";
-    self.email = @"Jeremy@airfive.com";
+    self.emailAddress = @"Jeremy@airfive.com";
     self.website = @"airfive.com";
 }
 
@@ -43,7 +43,7 @@
     self.fullNameTextField.text = self.fullName;
     self.positionAndOrgTextField.text = [NSString stringWithFormat:@"%@, %@", self.position, self.organization];
     self.industryTextField.text = self.industry;
-    self.emailTextField.text = self.email;
+    self.emailTextField.text = self.emailAddress;
     self.websiteTextField.text = self.website;
 }
 
@@ -53,7 +53,7 @@
     [AFEmailManager sharedInstance].position = self.position;
     [AFEmailManager sharedInstance].organization = self.organization;
     [AFEmailManager sharedInstance].industry = self.industry;
-    [AFEmailManager sharedInstance].email = self.email;
+    [AFEmailManager sharedInstance].emailAddress = self.emailAddress;
     [AFEmailManager sharedInstance].website = self.website;
     [[AFEmailManager sharedInstance] sendEmail];
 }
@@ -73,7 +73,7 @@
         self.industry = self.industryTextField.text;
     }
     else if(textField == self.emailTextField){
-        self.email = self.emailTextField.text;
+        self.emailAddress = self.emailTextField.text;
     }
     else if(textField == self.websiteTextField){
         self.website = self.websiteTextField.text;
