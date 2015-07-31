@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4394C46524ABD0B908444DFE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C635FE35714DED4E90D60E /* libPods.a */; };
 		5F832DE71B6C02E100D9AD2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DE61B6C02E100D9AD2E /* main.m */; };
 		5F832DEA1B6C02E100D9AD2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DE91B6C02E100D9AD2E /* AppDelegate.m */; };
 		5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DEC1B6C02E100D9AD2E /* AFCardViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DD9B26F489E36BA915EC372 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		38C635FE35714DED4E90D60E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F832DE11B6C02E000D9AD2E /* AirFiveiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirFiveiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F832DE51B6C02E000D9AD2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F832DE61B6C02E100D9AD2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		5F832E001B6C02E100D9AD2E /* AirFiveiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirFiveiOSTests.m; sourceTree = "<group>"; };
 		8B2D19F91B6C1C8600C62B49 /* AFEmailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFEmailManager.h; sourceTree = "<group>"; };
 		8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFEmailManager.m; sourceTree = "<group>"; };
+		F3446B775C9EA510F4749F88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4394C46524ABD0B908444DFE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +68,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07CB027BA7AA455B1BF0D49B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3446B775C9EA510F4749F88 /* Pods.debug.xcconfig */,
+				2DD9B26F489E36BA915EC372 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5F832DD81B6C02E000D9AD2E = {
 			isa = PBXGroup;
 			children = (
 				5F832DE31B6C02E000D9AD2E /* AirFiveiOS */,
 				5F832DFD1B6C02E100D9AD2E /* AirFiveiOSTests */,
 				5F832DE21B6C02E000D9AD2E /* Products */,
+				07CB027BA7AA455B1BF0D49B /* Pods */,
+				6CD305C3CA7B823251D77BA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +140,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6CD305C3CA7B823251D77BA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38C635FE35714DED4E90D60E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8B2D19F41B6C03AA00C62B49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F832E041B6C02E100D9AD2E /* Build configuration list for PBXNativeTarget "AirFiveiOS" */;
 			buildPhases = (
+				E883D5D1C8C9FFB027E6C0BA /* Check Pods Manifest.lock */,
 				5F832DDD1B6C02E000D9AD2E /* Sources */,
 				5F832DDE1B6C02E000D9AD2E /* Frameworks */,
 				5F832DDF1B6C02E000D9AD2E /* Resources */,
+				22E89CC62E6D5D744396E858 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,6 +284,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22E89CC62E6D5D744396E858 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E883D5D1C8C9FFB027E6C0BA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F832DDD1B6C02E000D9AD2E /* Sources */ = {
@@ -391,6 +450,7 @@
 		};
 		5F832E051B6C02E100D9AD2E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3446B775C9EA510F4749F88 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AirFiveiOS/Info.plist;
@@ -401,6 +461,7 @@
 		};
 		5F832E061B6C02E100D9AD2E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DD9B26F489E36BA915EC372 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AirFiveiOS/Info.plist;

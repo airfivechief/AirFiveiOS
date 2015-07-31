@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05055A3689E535CF61CB5EFA /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD8298402AC8AD185AF9B2F /* NSData+Base64Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139283E66E463E9C187DC407 /* NSStream+SKPSMTPExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9020E0EF5FE45CD9938388DC /* NSStream+SKPSMTPExtensions.h */; };
+		3938DF2910AD533511D43758 /* Pods-skpsmtpmessage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0913EFC254EE13827FA885 /* Pods-skpsmtpmessage-dummy.m */; };
+		3BDB119DC23B213C1CED9E83 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FAD6A5EADC8F65557A3633 /* Base64Transcoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44020BEE77398C9164B55B41 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27450DACB5C9D3178C6F62 /* Pods-dummy.m */; };
+		6B3C6A8BCE9CE5775AAB9BF5 /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCF5B6A0478DE6BD163C4B4 /* Base64Transcoder.h */; };
+		6D0D8A3725FCA45C6514D465 /* HSK_CFUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 969D4AA734E79949464993A0 /* HSK_CFUtilities.h */; };
+		7424BE1C66EB7494241BBBAB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AE535211909BBFD3B4EDCB /* Foundation.framework */; };
+		8285F76C5C7941C63803BCE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AE535211909BBFD3B4EDCB /* Foundation.framework */; };
+		83337CBED37B6757D25479BF /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FAA748F8BB01D7D4287147 /* SKPSMTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		881F6E3574AEBB06788965C5 /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D02B1109FD83B84413FC38 /* HSK_CFUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DD44F2934D68814DD8347F01 /* SKPSMTPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = E1E17F7599363F854CE2FE7E /* SKPSMTPMessage.h */; };
+		E53FA425B5AF8DF21E30FB93 /* NSData+Base64Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8200D41EAB4788A9425F9D8 /* NSData+Base64Additions.h */; };
+		EF8BBAAA05C6FA62F0C3C290 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FB60191F01BE3026B11B39E6 /* NSStream+SKPSMTPExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F8F032670E6EC92BD17FDF66 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412C090DD5CD25D3B3D723F7 /* CFNetwork.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		47987B75DAABD5D4BD2CEC80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8466B40536F18255D2175B1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E10496DAA4AD33F0D1A12FDC;
+			remoteInfo = "Pods-skpsmtpmessage";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04DCDCD4FC3FCFB38D33EBAC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCF5B6A0478DE6BD163C4B4 /* Base64Transcoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Base64Transcoder.h; path = SMTPLibrary/Base64Transcoder.h; sourceTree = "<group>"; };
+		23B7896F4E4B9D87A0293329 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		29E4D5EF3BF0F5AED5C6230E /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2B27450DACB5C9D3178C6F62 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		40AE535211909BBFD3B4EDCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		412C090DD5CD25D3B3D723F7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		4C420236735C202B2365BA06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		70C76ACAA072CD0F5D1E61D2 /* Pods-skpsmtpmessage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-skpsmtpmessage-prefix.pch"; sourceTree = "<group>"; };
+		7712489698A762E7776BC679 /* Pods-skpsmtpmessage-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-skpsmtpmessage-Private.xcconfig"; sourceTree = "<group>"; };
+		80D02B1109FD83B84413FC38 /* HSK_CFUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HSK_CFUtilities.m; path = SMTPLibrary/HSK_CFUtilities.m; sourceTree = "<group>"; };
+		8F9B61A4E59B1FE05B49FA72 /* Pods-skpsmtpmessage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-skpsmtpmessage.xcconfig"; sourceTree = "<group>"; };
+		9020E0EF5FE45CD9938388DC /* NSStream+SKPSMTPExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSStream+SKPSMTPExtensions.h"; path = "SMTPLibrary/NSStream+SKPSMTPExtensions.h"; sourceTree = "<group>"; };
+		969D4AA734E79949464993A0 /* HSK_CFUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HSK_CFUtilities.h; path = SMTPLibrary/HSK_CFUtilities.h; sourceTree = "<group>"; };
+		9FD8298402AC8AD185AF9B2F /* NSData+Base64Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64Additions.m"; path = "SMTPLibrary/NSData+Base64Additions.m"; sourceTree = "<group>"; };
+		B46C7E9C26EBCA17E4CE0BC9 /* libPods-skpsmtpmessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-skpsmtpmessage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8200D41EAB4788A9425F9D8 /* NSData+Base64Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64Additions.h"; path = "SMTPLibrary/NSData+Base64Additions.h"; sourceTree = "<group>"; };
+		CA3F0311523D0B4F0AC62872 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		CC1E98DC7167A92E4A5B9674 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		D9FAD6A5EADC8F65557A3633 /* Base64Transcoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Base64Transcoder.m; path = SMTPLibrary/Base64Transcoder.m; sourceTree = "<group>"; };
+		DBF623F4307FA25D33DECC11 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		E1E17F7599363F854CE2FE7E /* SKPSMTPMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SKPSMTPMessage.h; path = SMTPLibrary/SKPSMTPMessage.h; sourceTree = "<group>"; };
+		E4F8C40B675CDFC063411A58 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		E7FAA748F8BB01D7D4287147 /* SKPSMTPMessage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SKPSMTPMessage.m; path = SMTPLibrary/SKPSMTPMessage.m; sourceTree = "<group>"; };
+		ED0913EFC254EE13827FA885 /* Pods-skpsmtpmessage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-skpsmtpmessage-dummy.m"; sourceTree = "<group>"; };
+		FB60191F01BE3026B11B39E6 /* NSStream+SKPSMTPExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSStream+SKPSMTPExtensions.m"; path = "SMTPLibrary/NSStream+SKPSMTPExtensions.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		70959C0F05780C8FDB07F36B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7424BE1C66EB7494241BBBAB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DED567EDF4CB51B4A288F769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8F032670E6EC92BD17FDF66 /* CFNetwork.framework in Frameworks */,
+				8285F76C5C7941C63803BCE5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10CE9D893C65DEB38DD4F2FE /* skpsmtpmessage */ = {
+			isa = PBXGroup;
+			children = (
+				1FCF5B6A0478DE6BD163C4B4 /* Base64Transcoder.h */,
+				D9FAD6A5EADC8F65557A3633 /* Base64Transcoder.m */,
+				969D4AA734E79949464993A0 /* HSK_CFUtilities.h */,
+				80D02B1109FD83B84413FC38 /* HSK_CFUtilities.m */,
+				B8200D41EAB4788A9425F9D8 /* NSData+Base64Additions.h */,
+				9FD8298402AC8AD185AF9B2F /* NSData+Base64Additions.m */,
+				9020E0EF5FE45CD9938388DC /* NSStream+SKPSMTPExtensions.h */,
+				FB60191F01BE3026B11B39E6 /* NSStream+SKPSMTPExtensions.m */,
+				E1E17F7599363F854CE2FE7E /* SKPSMTPMessage.h */,
+				E7FAA748F8BB01D7D4287147 /* SKPSMTPMessage.m */,
+				2EFAE1F7E727941D0A7C4FC8 /* Support Files */,
+			);
+			path = skpsmtpmessage;
+			sourceTree = "<group>";
+		};
+		166AA963634DED0043CBF891 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10CE9D893C65DEB38DD4F2FE /* skpsmtpmessage */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2EFAE1F7E727941D0A7C4FC8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8F9B61A4E59B1FE05B49FA72 /* Pods-skpsmtpmessage.xcconfig */,
+				7712489698A762E7776BC679 /* Pods-skpsmtpmessage-Private.xcconfig */,
+				ED0913EFC254EE13827FA885 /* Pods-skpsmtpmessage-dummy.m */,
+				70C76ACAA072CD0F5D1E61D2 /* Pods-skpsmtpmessage-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-skpsmtpmessage";
+			sourceTree = "<group>";
+		};
+		36BD460ACE3445F7FE047051 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB4B30320D7DB88EE8D206E9 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		484E6987A528CDCEDAEA2FE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23B7896F4E4B9D87A0293329 /* Pods-acknowledgements.markdown */,
+				CC1E98DC7167A92E4A5B9674 /* Pods-acknowledgements.plist */,
+				2B27450DACB5C9D3178C6F62 /* Pods-dummy.m */,
+				CA3F0311523D0B4F0AC62872 /* Pods-environment.h */,
+				DBF623F4307FA25D33DECC11 /* Pods-resources.sh */,
+				4C420236735C202B2365BA06 /* Pods.debug.xcconfig */,
+				E4F8C40B675CDFC063411A58 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		9E8D47C7227B6F140527A893 = {
+			isa = PBXGroup;
+			children = (
+				29E4D5EF3BF0F5AED5C6230E /* Podfile */,
+				36BD460ACE3445F7FE047051 /* Frameworks */,
+				166AA963634DED0043CBF891 /* Pods */,
+				D432953DB3ADB06B3AA1AAE4 /* Products */,
+				CCE525AA12D974E11A5422AC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		BB4B30320D7DB88EE8D206E9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				412C090DD5CD25D3B3D723F7 /* CFNetwork.framework */,
+				40AE535211909BBFD3B4EDCB /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CCE525AA12D974E11A5422AC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				484E6987A528CDCEDAEA2FE9 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		D432953DB3ADB06B3AA1AAE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04DCDCD4FC3FCFB38D33EBAC /* libPods.a */,
+				B46C7E9C26EBCA17E4CE0BC9 /* libPods-skpsmtpmessage.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8A9C5C29FA74506A31E71D2A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B3C6A8BCE9CE5775AAB9BF5 /* Base64Transcoder.h in Headers */,
+				6D0D8A3725FCA45C6514D465 /* HSK_CFUtilities.h in Headers */,
+				E53FA425B5AF8DF21E30FB93 /* NSData+Base64Additions.h in Headers */,
+				139283E66E463E9C187DC407 /* NSStream+SKPSMTPExtensions.h in Headers */,
+				DD44F2934D68814DD8347F01 /* SKPSMTPMessage.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9F0FA562D7BDD3B92C05DE90 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 303D9580E27840649299FFA1 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				289776B2DBE10EB179A6A10B /* Sources */,
+				70959C0F05780C8FDB07F36B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE78CB02CE89997FE30472DC /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 04DCDCD4FC3FCFB38D33EBAC /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E10496DAA4AD33F0D1A12FDC /* Pods-skpsmtpmessage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D98EE395F2D0B3BB74680234 /* Build configuration list for PBXNativeTarget "Pods-skpsmtpmessage" */;
+			buildPhases = (
+				A5FC754B8B7533F80B9B96D0 /* Sources */,
+				DED567EDF4CB51B4A288F769 /* Frameworks */,
+				8A9C5C29FA74506A31E71D2A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-skpsmtpmessage";
+			productName = "Pods-skpsmtpmessage";
+			productReference = B46C7E9C26EBCA17E4CE0BC9 /* libPods-skpsmtpmessage.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8466B40536F18255D2175B1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = 7A22051D2D3AB4763AB2AED3 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9E8D47C7227B6F140527A893;
+			productRefGroup = D432953DB3ADB06B3AA1AAE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F0FA562D7BDD3B92C05DE90 /* Pods */,
+				E10496DAA4AD33F0D1A12FDC /* Pods-skpsmtpmessage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		289776B2DBE10EB179A6A10B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44020BEE77398C9164B55B41 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5FC754B8B7533F80B9B96D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BDB119DC23B213C1CED9E83 /* Base64Transcoder.m in Sources */,
+				881F6E3574AEBB06788965C5 /* HSK_CFUtilities.m in Sources */,
+				05055A3689E535CF61CB5EFA /* NSData+Base64Additions.m in Sources */,
+				EF8BBAAA05C6FA62F0C3C290 /* NSStream+SKPSMTPExtensions.m in Sources */,
+				3938DF2910AD533511D43758 /* Pods-skpsmtpmessage-dummy.m in Sources */,
+				83337CBED37B6757D25479BF /* SKPSMTPMessage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FE78CB02CE89997FE30472DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-skpsmtpmessage";
+			target = E10496DAA4AD33F0D1A12FDC /* Pods-skpsmtpmessage */;
+			targetProxy = 47987B75DAABD5D4BD2CEC80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B7238A5011A55FF569134DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16C331F0219A205A54CA083D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7712489698A762E7776BC679 /* Pods-skpsmtpmessage-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-skpsmtpmessage/Pods-skpsmtpmessage-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2A0B076E088098874025416C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7712489698A762E7776BC679 /* Pods-skpsmtpmessage-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-skpsmtpmessage/Pods-skpsmtpmessage-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		644F26C4DB6DCB28CF5FC2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4F8C40B675CDFC063411A58 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		65D16528DAA8C40B24889A26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C420236735C202B2365BA06 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		661D4E227F79D29E80F509C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		303D9580E27840649299FFA1 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65D16528DAA8C40B24889A26 /* Debug */,
+				644F26C4DB6DCB28CF5FC2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A22051D2D3AB4763AB2AED3 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				661D4E227F79D29E80F509C9 /* Debug */,
+				0B7238A5011A55FF569134DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D98EE395F2D0B3BB74680234 /* Build configuration list for PBXNativeTarget "Pods-skpsmtpmessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A0B076E088098874025416C /* Debug */,
+				16C331F0219A205A54CA083D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8466B40536F18255D2175B1C /* Project object */;
+}
