@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Card View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="AFCardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +16,60 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="airfive" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s1-Qg-hLC" userLabel="Logo Label">
+                                <rect key="frame" x="264" y="28" width="72" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOI-pw-lSF" userLabel="Card View">
+                                <rect key="frame" x="16" y="124" width="568" height="418"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert Full Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-fq-abH" userLabel="Name Text Field">
+                                        <rect key="frame" x="8" y="8" width="552" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert Position &amp; Organization" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dY-cF-hsl">
+                                        <rect key="frame" x="8" y="40" width="552" height="16"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ZIt-fq-abH" firstAttribute="top" secondItem="FOI-pw-lSF" secondAttribute="top" constant="8" id="8bn-Mz-EAj"/>
+                                    <constraint firstItem="6dY-cF-hsl" firstAttribute="leading" secondItem="ZIt-fq-abH" secondAttribute="leading" id="Mpg-MI-qfD"/>
+                                    <constraint firstItem="ZIt-fq-abH" firstAttribute="leading" secondItem="FOI-pw-lSF" secondAttribute="leading" constant="8" id="Wqf-PQ-uHh"/>
+                                    <constraint firstItem="6dY-cF-hsl" firstAttribute="trailing" secondItem="ZIt-fq-abH" secondAttribute="trailing" id="YLu-uL-4zn"/>
+                                    <constraint firstItem="6dY-cF-hsl" firstAttribute="top" secondItem="ZIt-fq-abH" secondAttribute="bottom" constant="8" id="it2-yT-RiV"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZIt-fq-abH" secondAttribute="trailing" constant="8" id="jW6-mW-Yaz"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-W2-lcG">
+                                <rect key="frame" x="277" y="550" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.64981506290000002" green="0.81900276890000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="8s1-Qg-hLC" secondAttribute="centerX" id="7bN-hP-hE6"/>
+                            <constraint firstItem="Pn1-W2-lcG" firstAttribute="top" secondItem="FOI-pw-lSF" secondAttribute="bottom" constant="8" id="Eq7-hz-4wp"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Pn1-W2-lcG" secondAttribute="bottom" constant="20" id="J1L-zh-3v6"/>
+                            <constraint firstItem="FOI-pw-lSF" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="TaS-0s-v8b"/>
+                            <constraint firstAttribute="centerX" secondItem="Pn1-W2-lcG" secondAttribute="centerX" id="VOd-CI-35r"/>
+                            <constraint firstItem="FOI-pw-lSF" firstAttribute="top" secondItem="8s1-Qg-hLC" secondAttribute="bottom" constant="64" id="emA-5Z-jKV"/>
+                            <constraint firstItem="8s1-Qg-hLC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="knr-bL-tso"/>
+                            <constraint firstItem="FOI-pw-lSF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="xmT-1k-4mN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fullNameTextField" destination="ZIt-fq-abH" id="qRX-GU-RXt"/>
+                        <outlet property="positionAndOrgTextField" destination="6dY-cF-hsl" id="gxg-FO-vCj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

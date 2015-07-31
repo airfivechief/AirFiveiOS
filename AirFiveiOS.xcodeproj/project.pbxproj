@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F832DE71B6C02E100D9AD2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DE61B6C02E100D9AD2E /* main.m */; };
 		5F832DEA1B6C02E100D9AD2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DE91B6C02E100D9AD2E /* AppDelegate.m */; };
-		5F832DED1B6C02E100D9AD2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DEC1B6C02E100D9AD2E /* ViewController.m */; };
+		5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DEC1B6C02E100D9AD2E /* AFCardViewController.m */; };
 		5F832DF01B6C02E100D9AD2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F832DEE1B6C02E100D9AD2E /* Main.storyboard */; };
 		5F832DF21B6C02E100D9AD2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F832DF11B6C02E100D9AD2E /* Images.xcassets */; };
 		5F832DF51B6C02E100D9AD2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F832DF31B6C02E100D9AD2E /* LaunchScreen.xib */; };
@@ -32,8 +32,8 @@
 		5F832DE61B6C02E100D9AD2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F832DE81B6C02E100D9AD2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F832DE91B6C02E100D9AD2E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5F832DEB1B6C02E100D9AD2E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5F832DEC1B6C02E100D9AD2E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5F832DEB1B6C02E100D9AD2E /* AFCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFCardViewController.h; sourceTree = "<group>"; };
+		5F832DEC1B6C02E100D9AD2E /* AFCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFCardViewController.m; sourceTree = "<group>"; };
 		5F832DEF1B6C02E100D9AD2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F832DF11B6C02E100D9AD2E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5F832DF41B6C02E100D9AD2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -81,13 +81,11 @@
 		5F832DE31B6C02E000D9AD2E /* AirFiveiOS */ = {
 			isa = PBXGroup;
 			children = (
-				5F832DE81B6C02E100D9AD2E /* AppDelegate.h */,
-				5F832DE91B6C02E100D9AD2E /* AppDelegate.m */,
-				5F832DEB1B6C02E100D9AD2E /* ViewController.h */,
-				5F832DEC1B6C02E100D9AD2E /* ViewController.m */,
-				5F832DEE1B6C02E100D9AD2E /* Main.storyboard */,
-				5F832DF11B6C02E100D9AD2E /* Images.xcassets */,
-				5F832DF31B6C02E100D9AD2E /* LaunchScreen.xib */,
+				8B2D19F81B6C03E800C62B49 /* Storyboard */,
+				8B2D19F71B6C03C900C62B49 /* Utilities */,
+				8B2D19F61B6C03C100C62B49 /* View Controller */,
+				8B2D19F51B6C03BA00C62B49 /* View */,
+				8B2D19F41B6C03AA00C62B49 /* Model */,
 				5F832DE41B6C02E000D9AD2E /* Supporting Files */,
 			);
 			path = AirFiveiOS;
@@ -96,8 +94,12 @@
 		5F832DE41B6C02E000D9AD2E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F832DE81B6C02E100D9AD2E /* AppDelegate.h */,
+				5F832DE91B6C02E100D9AD2E /* AppDelegate.m */,
 				5F832DE51B6C02E000D9AD2E /* Info.plist */,
 				5F832DE61B6C02E100D9AD2E /* main.m */,
+				5F832DF11B6C02E100D9AD2E /* Images.xcassets */,
+				5F832DF31B6C02E100D9AD2E /* LaunchScreen.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +119,44 @@
 				5F832DFF1B6C02E100D9AD2E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8B2D19F41B6C03AA00C62B49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8B2D19F51B6C03BA00C62B49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8B2D19F61B6C03C100C62B49 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F832DEB1B6C02E100D9AD2E /* AFCardViewController.h */,
+				5F832DEC1B6C02E100D9AD2E /* AFCardViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		8B2D19F71B6C03C900C62B49 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		8B2D19F81B6C03E800C62B49 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5F832DEE1B6C02E100D9AD2E /* Main.storyboard */,
+			);
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F832DED1B6C02E100D9AD2E /* ViewController.m in Sources */,
+				5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */,
 				5F832DEA1B6C02E100D9AD2E /* AppDelegate.m in Sources */,
 				5F832DE71B6C02E100D9AD2E /* main.m in Sources */,
 			);
@@ -416,6 +456,7 @@
 				5F832E061B6C02E100D9AD2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F832E071B6C02E100D9AD2E /* Build configuration list for PBXNativeTarget "AirFiveiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +465,7 @@
 				5F832E091B6C02E100D9AD2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
