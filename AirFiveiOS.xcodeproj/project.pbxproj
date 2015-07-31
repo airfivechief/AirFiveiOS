@@ -14,6 +14,7 @@
 		5F832DF21B6C02E100D9AD2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F832DF11B6C02E100D9AD2E /* Images.xcassets */; };
 		5F832DF51B6C02E100D9AD2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F832DF31B6C02E100D9AD2E /* LaunchScreen.xib */; };
 		5F832E011B6C02E100D9AD2E /* AirFiveiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832E001B6C02E100D9AD2E /* AirFiveiOSTests.m */; };
+		8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		5F832DFA1B6C02E100D9AD2E /* AirFiveiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirFiveiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F832DFF1B6C02E100D9AD2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F832E001B6C02E100D9AD2E /* AirFiveiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirFiveiOSTests.m; sourceTree = "<group>"; };
+		8B2D19F91B6C1C8600C62B49 /* AFEmailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFEmailManager.h; sourceTree = "<group>"; };
+		8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFEmailManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 		8B2D19F71B6C03C900C62B49 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8B2D19F91B6C1C8600C62B49 /* AFEmailManager.h */,
+				8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */,
+				8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */,
 				5F832DEA1B6C02E100D9AD2E /* AppDelegate.m in Sources */,
 				5F832DE71B6C02E100D9AD2E /* main.m in Sources */,
 			);
