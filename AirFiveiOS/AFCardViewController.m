@@ -8,6 +8,7 @@
 
 #import "AFCardViewController.h"
 #import "AFEmailManager.h"
+#import "UIColor+AirFive.h"
 
 @interface AFCardViewController () <UITextFieldDelegate>
 
@@ -18,10 +19,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
 @property (weak, nonatomic) IBOutlet UITextField *recipientEmailTextField;
+@property (weak, nonatomic) IBOutlet UIView *cardView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
 
 @property (strong, nonatomic) NSString *recipientEmailAddress;
 @property (weak, nonatomic) UITextField *selectedTextField;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
 
 @end
 
@@ -30,12 +32,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor airFiveBlue];
+    [self setUpCardView];
+    
     self.fullName = @"Jeremy Redman";
     self.position = @"Founder & CEO";
     self.organization = @"AirFive";
     self.industry = @"Entrepreneur";
     self.emailAddress = @"Jeremy@airfive.com";
     self.website = @"airfive.com";
+}
+
+- (void)setUpCardView
+{
+    self.cardView.layer.cornerRadius = 7.0;
+    self.cardView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.cardView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.cardView.layer.shadowOpacity = 0.20;
+    self.cardView.layer.shadowRadius = 3.0;
 }
 
 - (void)viewWillAppear:(BOOL)animated

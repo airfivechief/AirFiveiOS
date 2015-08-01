@@ -18,6 +18,7 @@
 		8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */; };
 		8B2D19FE1B6C3E5D00C62B49 /* Contactcard.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D19FC1B6C3E5D00C62B49 /* Contactcard.html */; };
 		8B2D19FF1B6C3E5D00C62B49 /* contactInfo.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D19FD1B6C3E5D00C62B49 /* contactInfo.vcf */; };
+		8B2D1A021B6C59CB00C62B49 /* UIColor+AirFive.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D1A011B6C59CB00C62B49 /* UIColor+AirFive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFEmailManager.m; sourceTree = "<group>"; };
 		8B2D19FC1B6C3E5D00C62B49 /* Contactcard.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Contactcard.html; sourceTree = "<group>"; };
 		8B2D19FD1B6C3E5D00C62B49 /* contactInfo.vcf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contactInfo.vcf; sourceTree = "<group>"; };
+		8B2D1A001B6C59CB00C62B49 /* UIColor+AirFive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AirFive.h"; sourceTree = "<group>"; };
+		8B2D1A011B6C59CB00C62B49 /* UIColor+AirFive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AirFive.m"; sourceTree = "<group>"; };
 		F3446B775C9EA510F4749F88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +185,8 @@
 			children = (
 				8B2D19F91B6C1C8600C62B49 /* AFEmailManager.h */,
 				8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */,
+				8B2D1A001B6C59CB00C62B49 /* UIColor+AirFive.h */,
+				8B2D1A011B6C59CB00C62B49 /* UIColor+AirFive.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2D1A021B6C59CB00C62B49 /* UIColor+AirFive.m in Sources */,
 				5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */,
 				8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */,
 				5F832DEA1B6C02E100D9AD2E /* AppDelegate.m in Sources */,

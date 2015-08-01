@@ -185,6 +185,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="cardView" destination="FOI-pw-lSF" id="laC-PK-pTQ"/>
                         <outlet property="emailTextField" destination="AHN-o1-4lm" id="Av4-Ab-8cF"/>
                         <outlet property="fullNameTextField" destination="ZIt-fq-abH" id="qRX-GU-RXt"/>
                         <outlet property="industryTextField" destination="evs-Zd-INF" id="Tpe-KF-Pva"/>
