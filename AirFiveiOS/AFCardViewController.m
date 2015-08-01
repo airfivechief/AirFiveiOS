@@ -9,18 +9,25 @@
 #import "AFCardViewController.h"
 #import "AFEmailManager.h"
 #import "UIColor+AirFive.h"
+#import "UIFont+AirFive.h"
 
 @interface AFCardViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *fullNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *positionAndOrgTextField;
+@property (weak, nonatomic) IBOutlet UITextField *positionTextField;
+@property (weak, nonatomic) IBOutlet UITextField *organizationTextField;
 @property (weak, nonatomic) IBOutlet UITextField *industryTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
 @property (weak, nonatomic) IBOutlet UITextField *recipientEmailTextField;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
+@property (weak, nonatomic) IBOutlet UIView *dividerViewTop;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
+@property (weak, nonatomic) IBOutlet UIView *shareView;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @property (strong, nonatomic) NSString *recipientEmailAddress;
 @property (weak, nonatomic) UITextField *selectedTextField;
@@ -32,26 +39,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor airFiveBlue];
+    [self setUpBackground];
     [self setUpCardView];
-    
-    self.fullName = @"Jeremy Redman";
-    self.position = @"Founder & CEO";
-    self.organization = @"AirFive";
-    self.industry = @"Entrepreneur";
-    self.emailAddress = @"Jeremy@airfive.com";
-    self.website = @"airfive.com";
+    [self setUpShareView];
+    [self setUpTextFontsAndColors];
 }
 
-- (void)setUpCardView
-{
-    self.cardView.layer.cornerRadius = 7.0;
-    self.cardView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.cardView.layer.shadowOffset = CGSizeMake(0, 0);
-    self.cardView.layer.shadowOpacity = 0.20;
-    self.cardView.layer.shadowRadius = 3.0;
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -70,12 +63,13 @@
 - (void)loadCard
 {
     self.fullNameTextField.text = self.fullName;
-    self.positionAndOrgTextField.text = [NSString stringWithFormat:@"%@, %@", self.position, self.organization];
+    self.positionTextField.text = self.position;
+    self.organizationTextField.text = self.organization;
+    [self updatePositionAndOrgTextField];
     self.industryTextField.text = self.industry;
     self.emailTextField.text = self.emailAddress;
     self.phoneTextField.text = self.phone;
     self.websiteTextField.text = self.website;
-    
 }
 
 - (IBAction)shareButtonTouched:(UIButton *)sender
@@ -95,6 +89,46 @@
 
 #pragma mark - UITextField Delegate
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(textField == self.positionTextField || textField == self.organizationTextField){
+        self.positionTextField.textColor = self.positionAndOrgTextField.textColor;
+        self.positionTextField.attributedPlaceholder = self.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.positionAndOrgTextField.font}];
+        
+        self.organizationTextField.textColor = self.positionAndOrgTextField.textColor;
+        self.organizationTextField.attributedPlaceholder = self.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.organizationTextField.font}];
+        
+        self.positionAndOrgTextField.textColor = [UIColor clearColor];
+        self.positionAndOrgTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionAndOrgTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.positionAndOrgTextField.font}];
+        
+    }
+    else{
+        [self setUpTextFontsAndColors];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self setUpTextFontsAndColors];
+    [self updatePositionAndOrgTextField];
+}
+
+- (void)updatePositionAndOrgTextField
+{
+    NSMutableString *mutableText = [[NSMutableString alloc] init];
+    if(self.positionTextField.text && [self.positionTextField.text length]){
+        [mutableText appendString:self.positionTextField.text];
+        if(self.organizationTextField.text && [self.organizationTextField.text length]){
+            [mutableText appendString:@", "];
+        }
+    }
+    if(self.organizationTextField.text && [self.organizationTextField.text length]){
+        [mutableText appendString:self.organizationTextField.text];
+    }
+    self.positionAndOrgTextField.text = [mutableText copy];
+
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     self.selectedTextField = textField;
@@ -103,7 +137,13 @@
         self.fullName = text;
     }
     else if(textField == self.positionAndOrgTextField){
-        self.position = text; //Will need to get self.organization property eventually
+       // Do nothing
+    }
+    else if(textField == self.positionTextField){
+        self.position = text;
+    }
+    else if(textField == self.organizationTextField){
+        self.organization = text;
     }
     else if(textField == self.industryTextField){
         self.industry = text;
@@ -212,4 +252,90 @@
 - (IBAction)tapGestureRecognizer:(UITapGestureRecognizer *)sender {
     [self.view endEditing:YES];
 }
+
+#pragma mark - Set Up View
+
+- (void)setUpBackground
+{
+    self.view.backgroundColor = [UIColor airFiveBlue];
+}
+
+- (void)setUpCardView
+{
+    self.cardView.layer.cornerRadius = 7.0;
+    self.cardView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.cardView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.cardView.layer.shadowOpacity = 0.20;
+    self.cardView.layer.shadowRadius = 3.0;
+    [self setUpInfoView];
+}
+
+- (void)setUpInfoView
+{
+    self.infoView.layer.cornerRadius = 7.0;
+    self.infoView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.infoView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.infoView.layer.shadowOpacity = 0.20;
+    self.infoView.layer.shadowRadius = 3.0;
+    [self setUpDividers];
+}
+
+- (void)setUpShareView
+{
+    self.shareView.layer.cornerRadius = 7.0;
+    self.shareView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.shareView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.shareView.layer.shadowOpacity = 0.20;
+    self.shareView.layer.shadowRadius = 3.0;
+    [self setUpShareButton];
+}
+
+- (void)setUpShareButton
+{
+    self.shareButton.layer.cornerRadius = 0.0;
+}
+
+- (void)setUpDividers
+{
+    self.dividerViewTop.backgroundColor = [UIColor airFiveLightGray];
+}
+
+- (void)setUpTextFontsAndColors
+{
+    self.fullNameTextField.font = [UIFont airFiveFontMediumWithSize:25.0];
+    self.fullNameTextField.textColor = [UIColor airFiveBlue];
+    self.fullNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.fullNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.fullNameTextField.font}];
+    
+    self.positionAndOrgTextField.textColor = [UIColor airFiveGray];
+    self.positionAndOrgTextField.font = [UIFont airFiveFontItalicWithSize:13.0];
+    self.positionAndOrgTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionAndOrgTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.positionAndOrgTextField.font}];
+    
+    self.positionTextField.textColor = [UIColor clearColor];
+    self.positionTextField.attributedPlaceholder = self.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.positionAndOrgTextField.font}];
+    
+    self.organizationTextField.textColor = [UIColor clearColor];
+    self.organizationTextField.attributedPlaceholder = self.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.organizationTextField.font}];
+    
+    self.industryTextField.textColor = [UIColor airFiveBlue];
+    self.industryTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
+    self.industryTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.industryTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.industryTextField.font}];
+    
+    self.emailTextField.textColor = [UIColor airFiveBlue];
+    self.emailTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
+    self.emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.emailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.emailTextField.font}];
+    
+    self.phoneTextField.textColor = [UIColor airFiveBlue];
+    self.phoneTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
+    self.phoneTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.phoneTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.phoneTextField.font}];
+    
+    self.websiteTextField.textColor = [UIColor airFiveBlue];
+    self.websiteTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
+    self.websiteTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.websiteTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.websiteTextField.font}];
+    
+    self.recipientEmailTextField.textColor = [UIColor blackColor];
+    self.recipientEmailTextField.font = [UIFont airFiveFontMediumWithSize:20.0];
+    self.recipientEmailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.recipientEmailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.recipientEmailTextField.font}];
+}
+
+
 @end
