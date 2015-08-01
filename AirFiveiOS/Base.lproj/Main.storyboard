@@ -103,8 +103,8 @@
                                     <constraint firstItem="Qzq-Ae-0lA" firstAttribute="top" secondItem="6dY-cF-hsl" secondAttribute="bottom" constant="8" id="wtm-i4-9pn"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-W2-lcG" userLabel="Share Button">
-                                <rect key="frame" x="16" y="308" width="563" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-W2-lcG" userLabel="Share Button">
+                                <rect key="frame" x="16" y="346" width="563" height="30"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.15686274510000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Share">
                                     <color key="titleColor" red="0.92932388629999996" green="0.92932388629999996" blue="0.92932388629999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -114,22 +114,36 @@
                                     <action selector="shareButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dgn-R1-gez"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Recipient" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-tN-w3X">
+                                <rect key="frame" x="16" y="308" width="568" height="30"/>
+                                <color key="backgroundColor" red="0.92932388629999996" green="0.92932388629999996" blue="0.92932388629999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="nA3-e0-8MH"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.64981506290000002" green="0.81900276890000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="8s1-Qg-hLC" secondAttribute="centerX" id="7bN-hP-hE6"/>
+                            <constraint firstItem="Pn1-W2-lcG" firstAttribute="top" secondItem="5Kc-tN-w3X" secondAttribute="bottom" constant="8" id="EkN-I4-3Cz"/>
                             <constraint firstItem="Pn1-W2-lcG" firstAttribute="top" secondItem="FOI-pw-lSF" secondAttribute="bottom" constant="8" id="Eq7-hz-4wp"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Pn1-W2-lcG" secondAttribute="bottom" constant="20" id="J1L-zh-3v6"/>
                             <constraint firstItem="FOI-pw-lSF" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="TaS-0s-v8b"/>
                             <constraint firstAttribute="centerX" secondItem="Pn1-W2-lcG" secondAttribute="centerX" id="VOd-CI-35r"/>
                             <constraint firstItem="FOI-pw-lSF" firstAttribute="leading" secondItem="Pn1-W2-lcG" secondAttribute="leading" id="cst-6d-Hiz"/>
                             <constraint firstItem="FOI-pw-lSF" firstAttribute="trailing" secondItem="Pn1-W2-lcG" secondAttribute="trailing" constant="5" id="cwC-La-hHx"/>
+                            <constraint firstItem="5Kc-tN-w3X" firstAttribute="leading" secondItem="FOI-pw-lSF" secondAttribute="leading" id="dKq-vv-w8Q"/>
                             <constraint firstItem="FOI-pw-lSF" firstAttribute="top" secondItem="8s1-Qg-hLC" secondAttribute="bottom" constant="64" id="emA-5Z-jKV"/>
                             <constraint firstItem="8s1-Qg-hLC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="knr-bL-tso"/>
+                            <constraint firstItem="5Kc-tN-w3X" firstAttribute="trailing" secondItem="FOI-pw-lSF" secondAttribute="trailing" id="oIA-KH-0lL"/>
+                            <constraint firstItem="5Kc-tN-w3X" firstAttribute="top" secondItem="FOI-pw-lSF" secondAttribute="bottom" constant="8" id="tTE-4T-KMX"/>
                             <constraint firstItem="FOI-pw-lSF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="xmT-1k-4mN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Eq7-hz-4wp"/>
                                 <exclude reference="VOd-CI-35r"/>
                                 <exclude reference="J1L-zh-3v6"/>
                             </mask>
@@ -140,6 +154,7 @@
                         <outlet property="fullNameTextField" destination="ZIt-fq-abH" id="qRX-GU-RXt"/>
                         <outlet property="industryTextField" destination="evs-Zd-INF" id="Tpe-KF-Pva"/>
                         <outlet property="positionAndOrgTextField" destination="6dY-cF-hsl" id="gxg-FO-vCj"/>
+                        <outlet property="recipientEmailTextField" destination="5Kc-tN-w3X" id="ApL-xw-5vc"/>
                         <outlet property="websiteTextField" destination="rF6-Nz-bdj" id="Tsw-FG-1eZ"/>
                     </connections>
                 </viewController>

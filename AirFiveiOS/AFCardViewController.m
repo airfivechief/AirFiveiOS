@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *industryTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
+@property (weak, nonatomic) IBOutlet UITextField *recipientEmailTextField;
+
+@property (strong, nonatomic) NSString *recipientEmailAddress;
 
 @end
 
@@ -56,6 +59,7 @@
     [AFEmailManager sharedInstance].industry = self.industry;
     [AFEmailManager sharedInstance].emailAddress = self.emailAddress;
     [AFEmailManager sharedInstance].website = self.website;
+    [AFEmailManager sharedInstance].recipientEmailAddress = self.recipientEmailAddress;;
     [[AFEmailManager sharedInstance] sendEmail];
 }
 
@@ -64,20 +68,24 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if(textField == self.fullNameTextField){
-        self.fullName = self.fullNameTextField.text;
+        self.fullName = text;
     }
     else if(textField == self.positionAndOrgTextField){
-        self.position = self.positionAndOrgTextField.text; //Will need to get self.organization property eventually
+        self.position = text; //Will need to get self.organization property eventually
     }
     else if(textField == self.industryTextField){
-        self.industry = self.industryTextField.text;
+        self.industry = text;
     }
     else if(textField == self.emailTextField){
-        self.emailAddress = self.emailTextField.text;
+        self.emailAddress = text;
     }
     else if(textField == self.websiteTextField){
-        self.website = self.websiteTextField.text;
+        self.website = text;
+    }
+    else if(textField == self.recipientEmailTextField){
+        self.recipientEmailAddress = text;
     }
     return YES;
 }

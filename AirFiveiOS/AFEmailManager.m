@@ -40,16 +40,19 @@
 
 - (void)loadRequiredFields
 {
-    self.requiredFields = @[@"firstName", @"lastName"];
+    self.requiredFields = @[@"firstName", @"lastName", @"emailAddress", @"recipientEmailAddress"];
 }
 
 - (void)sendEmail
 {
-    if(![self emailAddressIsValid:self.emailAddress]){ //Failure - Invalid Email Address
-        NSLog(@"Email Address Is Invalid");
-    }
-    else if(![self hasRequiredFields]){ //Failure - Does not have all required fields
+    if(![self hasRequiredFields]){ //Failure - Does not have all required fields
         NSLog(@"Email does not have all required fields");
+    }
+    else if(![self emailAddressIsValid:self.emailAddress]){ //Failure - Invalid Contact Email Address
+        NSLog(@"Your Email Address Is Invalid");
+    }
+    else if(![self emailAddressIsValid:self.recipientEmailAddress]){ //Failure - Invalid Recipient Email Address
+        NSLog(@"Recipient Email Address Is Invalid");
     }
     else{
         [self formHTMLEmail];
@@ -98,7 +101,7 @@
     
     SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
     emailMessage.fromEmail = AIR_FIVE_EMAIL; //Required
-    emailMessage.toEmail = self.emailAddress;  //Required
+    emailMessage.toEmail = self.recipientEmailAddress;  //Required
     emailMessage.relayHost = @"smtp.gmail.com";
     emailMessage.requiresAuth = true;
     emailMessage.login = AIR_FIVE_EMAIL; //Required

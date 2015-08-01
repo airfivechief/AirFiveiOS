@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSString *emailAddress;
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSString *website;
+@property (strong, nonatomic) NSString *recipientEmailAddress;
 
 + (instancetype)sharedInstance;
 
