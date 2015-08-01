@@ -333,8 +333,10 @@
     self.websiteTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.websiteTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.websiteTextField.font}];
     
     self.recipientEmailTextField.textColor = [UIColor blackColor];
-    self.recipientEmailTextField.font = [UIFont airFiveFontMediumWithSize:20.0];
+    self.recipientEmailTextField.font = [UIFont airFiveFontMediumWithSize:16.0];
     self.recipientEmailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.recipientEmailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.recipientEmailTextField.font}];
+    
+    [self.shareButton.titleLabel setFont:[UIFont airFiveFontMediumWithSize:16.0]];
 }
 
 
