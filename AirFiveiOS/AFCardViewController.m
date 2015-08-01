@@ -177,8 +177,8 @@
     [UIView setAnimationDuration:[notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
     [UIView setAnimationCurve:[notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    int keyboardHeight = MIN(keyboardSize.height,keyboardSize.width);
+    //CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    //int keyboardHeight = MIN(keyboardSize.height,keyboardSize.width);
     //self.logoVerticalConstraint.constant = 40 - keyboardHeight;
     [self.view layoutIfNeeded];
     [UIView commitAnimations];

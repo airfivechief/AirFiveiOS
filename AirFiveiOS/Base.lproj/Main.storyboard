@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Card View Controller-->
@@ -17,14 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="airfive" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s1-Qg-hLC" userLabel="Logo Label">
-                                <rect key="frame" x="264" y="60" width="72" height="32"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOI-pw-lSF" userLabel="Card View">
-                                <rect key="frame" x="16" y="156" width="568" height="189"/>
+                                <rect key="frame" x="16" y="159" width="568" height="189"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Full Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-fq-abH" userLabel="Name Text Field">
                                         <rect key="frame" x="8" y="8" width="552" height="24"/>
@@ -124,7 +120,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-W2-lcG" userLabel="Share Button">
-                                <rect key="frame" x="16" y="378" width="563" height="30"/>
+                                <rect key="frame" x="16" y="381" width="563" height="30"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.15686274510000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Share">
                                     <color key="titleColor" red="0.92932388629999996" green="0.92932388629999996" blue="0.92932388629999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,7 +131,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Recipient" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-tN-w3X">
-                                <rect key="frame" x="16" y="353" width="568" height="17"/>
+                                <rect key="frame" x="16" y="356" width="568" height="17"/>
                                 <color key="backgroundColor" red="0.92932388629999996" green="0.92932388629999996" blue="0.92932388629999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -143,11 +139,24 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="nA3-e0-8MH"/>
                                 </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="OiY-MX-JSa">
+                                <rect key="frame" x="200" y="60" width="200" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="MXE-j2-0Yu"/>
+                                    <constraint firstAttribute="width" constant="426" id="fIi-rm-j3M"/>
+                                    <constraint firstAttribute="width" secondItem="OiY-MX-JSa" secondAttribute="height" multiplier="142:25" id="nO9-YZ-Ujg"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MXE-j2-0Yu"/>
+                                        <exclude reference="fIi-rm-j3M"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.64981506290000002" green="0.81900276890000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="8s1-Qg-hLC" secondAttribute="centerX" id="7bN-hP-hE6"/>
                             <constraint firstItem="Pn1-W2-lcG" firstAttribute="top" secondItem="5Kc-tN-w3X" secondAttribute="bottom" constant="8" id="EkN-I4-3Cz"/>
                             <constraint firstItem="Pn1-W2-lcG" firstAttribute="top" secondItem="FOI-pw-lSF" secondAttribute="bottom" constant="8" id="Eq7-hz-4wp"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Pn1-W2-lcG" secondAttribute="bottom" constant="20" id="J1L-zh-3v6"/>
@@ -156,11 +165,13 @@
                             <constraint firstItem="FOI-pw-lSF" firstAttribute="leading" secondItem="Pn1-W2-lcG" secondAttribute="leading" id="cst-6d-Hiz"/>
                             <constraint firstItem="FOI-pw-lSF" firstAttribute="trailing" secondItem="Pn1-W2-lcG" secondAttribute="trailing" constant="5" id="cwC-La-hHx"/>
                             <constraint firstItem="5Kc-tN-w3X" firstAttribute="leading" secondItem="FOI-pw-lSF" secondAttribute="leading" id="dKq-vv-w8Q"/>
-                            <constraint firstItem="FOI-pw-lSF" firstAttribute="top" secondItem="8s1-Qg-hLC" secondAttribute="bottom" constant="64" id="emA-5Z-jKV"/>
-                            <constraint firstItem="8s1-Qg-hLC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="knr-bL-tso"/>
+                            <constraint firstAttribute="centerX" secondItem="OiY-MX-JSa" secondAttribute="centerX" id="fUT-xs-cKH"/>
+                            <constraint firstItem="FOI-pw-lSF" firstAttribute="top" secondItem="OiY-MX-JSa" secondAttribute="bottom" constant="64" id="jva-cN-Tbj"/>
                             <constraint firstItem="5Kc-tN-w3X" firstAttribute="trailing" secondItem="FOI-pw-lSF" secondAttribute="trailing" id="oIA-KH-0lL"/>
+                            <constraint firstItem="OiY-MX-JSa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="qFS-XE-Nxd"/>
                             <constraint firstItem="5Kc-tN-w3X" firstAttribute="top" secondItem="FOI-pw-lSF" secondAttribute="bottom" constant="8" id="tTE-4T-KMX"/>
                             <constraint firstItem="FOI-pw-lSF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="xmT-1k-4mN"/>
+                            <constraint firstAttribute="width" secondItem="OiY-MX-JSa" secondAttribute="width" multiplier="3" id="zar-Mw-hZp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -177,7 +188,7 @@
                         <outlet property="emailTextField" destination="AHN-o1-4lm" id="Av4-Ab-8cF"/>
                         <outlet property="fullNameTextField" destination="ZIt-fq-abH" id="qRX-GU-RXt"/>
                         <outlet property="industryTextField" destination="evs-Zd-INF" id="Tpe-KF-Pva"/>
-                        <outlet property="logoVerticalConstraint" destination="knr-bL-tso" id="lu2-H1-oQL"/>
+                        <outlet property="logoVerticalConstraint" destination="qFS-XE-Nxd" id="doj-5u-Auw"/>
                         <outlet property="phoneTextField" destination="rWC-hJ-rI7" id="LBW-Ae-q0t"/>
                         <outlet property="positionAndOrgTextField" destination="6dY-cF-hsl" id="gxg-FO-vCj"/>
                         <outlet property="recipientEmailTextField" destination="5Kc-tN-w3X" id="ApL-xw-5vc"/>
@@ -193,4 +204,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo_white" width="142" height="25"/>
+    </resources>
 </document>
