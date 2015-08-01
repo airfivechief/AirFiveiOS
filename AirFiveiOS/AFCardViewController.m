@@ -49,7 +49,8 @@
 
 - (IBAction)shareButtonTouched:(UIButton *)sender
 {
-    [AFEmailManager sharedInstance].fullName = self.fullName;
+    [AFEmailManager sharedInstance].firstName = self.fullName;
+    [AFEmailManager sharedInstance].lastName = self.fullName;
     [AFEmailManager sharedInstance].position = self.position;
     [AFEmailManager sharedInstance].organization = self.organization;
     [AFEmailManager sharedInstance].industry = self.industry;

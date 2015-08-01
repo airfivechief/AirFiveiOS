@@ -16,6 +16,8 @@
 		5F832DF51B6C02E100D9AD2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F832DF31B6C02E100D9AD2E /* LaunchScreen.xib */; };
 		5F832E011B6C02E100D9AD2E /* AirFiveiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832E001B6C02E100D9AD2E /* AirFiveiOSTests.m */; };
 		8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */; };
+		8B2D19FE1B6C3E5D00C62B49 /* Contactcard.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D19FC1B6C3E5D00C62B49 /* Contactcard.html */; };
+		8B2D19FF1B6C3E5D00C62B49 /* contactInfo.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D19FD1B6C3E5D00C62B49 /* contactInfo.vcf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		5F832E001B6C02E100D9AD2E /* AirFiveiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirFiveiOSTests.m; sourceTree = "<group>"; };
 		8B2D19F91B6C1C8600C62B49 /* AFEmailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFEmailManager.h; sourceTree = "<group>"; };
 		8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFEmailManager.m; sourceTree = "<group>"; };
+		8B2D19FC1B6C3E5D00C62B49 /* Contactcard.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Contactcard.html; sourceTree = "<group>"; };
+		8B2D19FD1B6C3E5D00C62B49 /* contactInfo.vcf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contactInfo.vcf; sourceTree = "<group>"; };
 		F3446B775C9EA510F4749F88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +110,8 @@
 				8B2D19F51B6C03BA00C62B49 /* View */,
 				8B2D19F41B6C03AA00C62B49 /* Model */,
 				5F832DE41B6C02E000D9AD2E /* Supporting Files */,
+				8B2D19FC1B6C3E5D00C62B49 /* Contactcard.html */,
+				8B2D19FD1B6C3E5D00C62B49 /* contactInfo.vcf */,
 			);
 			path = AirFiveiOS;
 			sourceTree = "<group>";
@@ -271,8 +277,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F832DF01B6C02E100D9AD2E /* Main.storyboard in Resources */,
+				8B2D19FE1B6C3E5D00C62B49 /* Contactcard.html in Resources */,
 				5F832DF51B6C02E100D9AD2E /* LaunchScreen.xib in Resources */,
 				5F832DF21B6C02E100D9AD2E /* Images.xcassets in Resources */,
+				8B2D19FF1B6C3E5D00C62B49 /* contactInfo.vcf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

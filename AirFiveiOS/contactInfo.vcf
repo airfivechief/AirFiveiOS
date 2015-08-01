@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:3.0
+N:##fname##;##lname##;;
+FN:##fname## ##lname##
+TITLE:##title##
+EMAIL;type=INTERNET;type=WORK:##email##
+TEL;type=CELL:##phone##
+URL;type=WORK:##website##
+END:VCARD
