@@ -20,18 +20,25 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOI-pw-lSF" userLabel="Card View">
-                                <rect key="frame" x="16" y="159" width="568" height="198"/>
+                                <rect key="frame" x="16" y="159" width="568" height="207"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Full Name*" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-fq-abH" userLabel="Full Name Text Field">
-                                        <rect key="frame" x="8" y="8" width="552" height="24"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yyo-Vl-kPl" userLabel="Card Image View">
+                                        <rect key="frame" x="8" y="8" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="kkw-S2-kZD"/>
+                                            <constraint firstAttribute="width" secondItem="Yyo-Vl-kPl" secondAttribute="height" multiplier="1:1" id="p8L-YF-ahd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Full Name*" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-fq-abH" userLabel="Full Name Text Field">
+                                        <rect key="frame" x="76" y="8" width="484" height="24"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="dxA-NN-Pn7"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="V0I-O5-HfV" userLabel="First Name Text Field">
-                                        <rect key="frame" x="8" y="8" width="276" height="24"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="V0I-O5-HfV" userLabel="First Name Text Field">
+                                        <rect key="frame" x="76" y="8" width="242" height="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
@@ -39,8 +46,8 @@
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="fgv-pC-MA1"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hno-3Q-AWF" userLabel="Last Name Text Field">
-                                        <rect key="frame" x="284" y="8" width="276" height="24"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hno-3Q-AWF" userLabel="Last Name Text Field">
+                                        <rect key="frame" x="318" y="8" width="242" height="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
@@ -48,16 +55,16 @@
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="sVj-Z2-OxO"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Position &amp; Organization" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6dY-cF-hsl" userLabel="Position &amp; Organization Text Field">
-                                        <rect key="frame" x="8" y="40" width="552" height="19"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Position &amp; Organization" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6dY-cF-hsl" userLabel="Position &amp; Organization Text Field">
+                                        <rect key="frame" x="76" y="40" width="484" height="19"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                         <connections>
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="M6K-vy-K1g"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Position" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cqc-GN-vXd" userLabel="Position Text Field">
-                                        <rect key="frame" x="8" y="40" width="276" height="19"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Position" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cqc-GN-vXd" userLabel="Position Text Field">
+                                        <rect key="frame" x="76" y="40" width="242" height="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
@@ -65,8 +72,17 @@
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="RgB-B0-5yX"/>
                                         </connections>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Organization" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OeA-i6-TPR" userLabel="Organization Text Field">
+                                        <rect key="frame" x="318" y="40" width="242" height="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="ouD-M5-8nI"/>
+                                        </connections>
+                                    </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qzq-Ae-0lA" userLabel="Info View">
-                                        <rect key="frame" x="8" y="67" width="552" height="123"/>
+                                        <rect key="frame" x="8" y="76" width="552" height="123"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Industry" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="evs-Zd-INF" userLabel="Industry Text Field">
                                                 <rect key="frame" x="8" y="8" width="536" height="19"/>
@@ -142,15 +158,6 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Organization" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OeA-i6-TPR" userLabel="Organization Text Field">
-                                        <rect key="frame" x="284" y="40" width="276" height="19"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="ouD-M5-8nI"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -159,17 +166,20 @@
                                     <constraint firstItem="V0I-O5-HfV" firstAttribute="top" secondItem="ZIt-fq-abH" secondAttribute="top" id="1PE-R3-PFl"/>
                                     <constraint firstItem="cqc-GN-vXd" firstAttribute="top" secondItem="6dY-cF-hsl" secondAttribute="top" id="2PV-Yz-Zrq"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="top" secondItem="OeA-i6-TPR" secondAttribute="top" id="2fh-JE-ABB"/>
+                                    <constraint firstItem="Qzq-Ae-0lA" firstAttribute="top" secondItem="Yyo-Vl-kPl" secondAttribute="bottom" constant="8" id="54a-SD-fBy"/>
                                     <constraint firstItem="cqc-GN-vXd" firstAttribute="leading" secondItem="6dY-cF-hsl" secondAttribute="leading" id="5E6-37-5Ao"/>
                                     <constraint firstItem="cqc-GN-vXd" firstAttribute="width" secondItem="6dY-cF-hsl" secondAttribute="width" multiplier="0.5" id="5L2-hI-LYc"/>
                                     <constraint firstItem="ZIt-fq-abH" firstAttribute="top" secondItem="FOI-pw-lSF" secondAttribute="top" constant="8" id="8bn-Mz-EAj"/>
                                     <constraint firstItem="Hno-3Q-AWF" firstAttribute="width" secondItem="ZIt-fq-abH" secondAttribute="width" multiplier="0.5" id="Cv4-og-eIR"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="trailing" secondItem="OeA-i6-TPR" secondAttribute="trailing" id="Kfl-uE-jbc"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="leading" secondItem="ZIt-fq-abH" secondAttribute="leading" id="Mpg-MI-qfD"/>
+                                    <constraint firstItem="Yyo-Vl-kPl" firstAttribute="top" secondItem="FOI-pw-lSF" secondAttribute="top" constant="8" id="OC7-uQ-Akb"/>
                                     <constraint firstItem="Hno-3Q-AWF" firstAttribute="trailing" secondItem="ZIt-fq-abH" secondAttribute="trailing" id="OSC-nF-Fmp"/>
                                     <constraint firstItem="ZIt-fq-abH" firstAttribute="leading" secondItem="FOI-pw-lSF" secondAttribute="leading" constant="8" id="Wqf-PQ-uHh"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="trailing" secondItem="ZIt-fq-abH" secondAttribute="trailing" id="YLu-uL-4zn"/>
                                     <constraint firstItem="Hno-3Q-AWF" firstAttribute="top" secondItem="ZIt-fq-abH" secondAttribute="top" id="ZJy-fk-oNC"/>
                                     <constraint firstItem="Hno-3Q-AWF" firstAttribute="bottom" secondItem="ZIt-fq-abH" secondAttribute="bottom" id="Zt6-xA-fkW"/>
+                                    <constraint firstItem="ZIt-fq-abH" firstAttribute="leading" secondItem="Yyo-Vl-kPl" secondAttribute="trailing" constant="8" id="cGt-c9-DLP"/>
                                     <constraint firstItem="cqc-GN-vXd" firstAttribute="bottom" secondItem="6dY-cF-hsl" secondAttribute="bottom" id="eNf-FK-YRQ"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="width" secondItem="OeA-i6-TPR" secondAttribute="width" multiplier="2" id="hbe-9z-cV3"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="top" secondItem="ZIt-fq-abH" secondAttribute="bottom" constant="8" id="it2-yT-RiV"/>
@@ -177,10 +187,17 @@
                                     <constraint firstItem="V0I-O5-HfV" firstAttribute="width" secondItem="ZIt-fq-abH" secondAttribute="width" multiplier="0.5" id="npX-8j-MPu"/>
                                     <constraint firstAttribute="bottom" secondItem="Qzq-Ae-0lA" secondAttribute="bottom" constant="8" id="nwF-H7-wBI"/>
                                     <constraint firstAttribute="trailing" secondItem="Qzq-Ae-0lA" secondAttribute="trailing" constant="8" id="pxi-QZ-NHQ"/>
+                                    <constraint firstItem="Yyo-Vl-kPl" firstAttribute="leading" secondItem="FOI-pw-lSF" secondAttribute="leading" constant="8" id="qTJ-nr-Mwp"/>
                                     <constraint firstItem="Qzq-Ae-0lA" firstAttribute="leading" secondItem="FOI-pw-lSF" secondAttribute="leading" constant="8" id="wKI-7f-uWe"/>
                                     <constraint firstItem="Qzq-Ae-0lA" firstAttribute="top" secondItem="6dY-cF-hsl" secondAttribute="bottom" constant="8" id="wtm-i4-9pn"/>
                                     <constraint firstItem="V0I-O5-HfV" firstAttribute="bottom" secondItem="ZIt-fq-abH" secondAttribute="bottom" id="zGH-QU-0Va"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wtm-i4-9pn"/>
+                                        <exclude reference="Wqf-PQ-uHh"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="OiY-MX-JSa">
                                 <rect key="frame" x="200" y="60" width="200" height="35"/>
@@ -197,7 +214,7 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0MQ-8T-Ox3">
-                                <rect key="frame" x="16" y="365" width="568" height="76"/>
+                                <rect key="frame" x="16" y="374" width="568" height="76"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-W2-lcG" userLabel="Share Button">
                                         <rect key="frame" x="8" y="36" width="552" height="32"/>
@@ -251,6 +268,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="cardImageView" destination="Yyo-Vl-kPl" id="RLf-mR-033"/>
                         <outlet property="cardView" destination="FOI-pw-lSF" id="laC-PK-pTQ"/>
                         <outlet property="dividerViewTop" destination="VEg-Nb-krg" id="xgI-dT-mJU"/>
                         <outlet property="emailTextField" destination="AHN-o1-4lm" id="Av4-Ab-8cF"/>

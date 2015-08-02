@@ -13,6 +13,12 @@
 
 @interface AFCardViewController () <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
+@property (weak, nonatomic) UITextField *selectedTextField;
+
+@property (weak, nonatomic) IBOutlet UIView *cardView;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
+@property (weak, nonatomic) IBOutlet UIImageView *cardImageView;
 @property (weak, nonatomic) IBOutlet UITextField *fullNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
@@ -23,16 +29,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
-@property (weak, nonatomic) IBOutlet UITextField *recipientEmailTextField;
-@property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UIView *dividerViewTop;
-@property (weak, nonatomic) IBOutlet UIView *cardView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
+
 @property (weak, nonatomic) IBOutlet UIView *shareView;
+@property (weak, nonatomic) IBOutlet UITextField *recipientEmailTextField;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @property (strong, nonatomic) NSString *recipientEmailAddress;
-@property (weak, nonatomic) UITextField *selectedTextField;
+
 
 @end
 
@@ -304,7 +308,14 @@
     self.cardView.layer.shadowOffset = CGSizeMake(0, 0);
     self.cardView.layer.shadowOpacity = 0.20;
     self.cardView.layer.shadowRadius = 3.0;
+    [self setUpCardImageView];
     [self setUpInfoView];
+}
+
+- (void)setUpCardImageView
+{
+    self.cardImageView.layer.cornerRadius = self.cardImageView.frame.size.width/2.0;
+    self.cardImageView.backgroundColor = [UIColor airFiveLightGray];
 }
 
 - (void)setUpInfoView
