@@ -14,6 +14,8 @@
 @interface AFCardViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *fullNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *positionAndOrgTextField;
 @property (weak, nonatomic) IBOutlet UITextField *positionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *organizationTextField;
@@ -45,7 +47,6 @@
     [self setUpTextFontsAndColors];
 }
 
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -62,7 +63,9 @@
 
 - (void)loadCard
 {
-    self.fullNameTextField.text = self.fullName;
+    self.firstNameTextField.text = self.firstName;
+    self.lastNameTextField.text = self.lastName;
+    [self updateFullNameTextField];
     self.positionTextField.text = self.position;
     self.organizationTextField.text = self.organization;
     [self updatePositionAndOrgTextField];
@@ -74,8 +77,8 @@
 
 - (IBAction)shareButtonTouched:(UIButton *)sender
 {
-    [AFEmailManager sharedInstance].firstName = self.fullName;
-    [AFEmailManager sharedInstance].lastName = self.fullName;
+    [AFEmailManager sharedInstance].firstName = self.firstName;
+    [AFEmailManager sharedInstance].lastName = self.lastName;
     [AFEmailManager sharedInstance].position = self.position;
     [AFEmailManager sharedInstance].organization = self.organization;
     [AFEmailManager sharedInstance].industry = self.industry;
@@ -93,14 +96,27 @@
 {
     if(textField == self.positionTextField || textField == self.organizationTextField){
         self.positionTextField.textColor = self.positionAndOrgTextField.textColor;
-        self.positionTextField.attributedPlaceholder = self.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.positionAndOrgTextField.font}];
+        self.positionTextField.font = self.positionAndOrgTextField.font;
+        self.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.positionAndOrgTextField.font}];
         
         self.organizationTextField.textColor = self.positionAndOrgTextField.textColor;
-        self.organizationTextField.attributedPlaceholder = self.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.organizationTextField.font}];
+        self.organizationTextField.font = self.positionAndOrgTextField.font;
+        self.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.positionAndOrgTextField.font}];
         
         self.positionAndOrgTextField.textColor = [UIColor clearColor];
         self.positionAndOrgTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionAndOrgTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.positionAndOrgTextField.font}];
+    }
+    else if(textField == self.firstNameTextField || textField == self.lastNameTextField){
+        self.firstNameTextField.textColor = self.fullNameTextField.textColor;
+        self.firstNameTextField.font = self.fullNameTextField.font;
+        self.firstNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.firstNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.fullNameTextField.font}];
         
+        self.lastNameTextField.textColor = self.fullNameTextField.textColor;
+        self.lastNameTextField.font = self.fullNameTextField.font;
+        self.lastNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.lastNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.fullNameTextField.font}];
+        
+        self.fullNameTextField.textColor = [UIColor clearColor];
+        self.fullNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.fullNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.fullNameTextField.font}];
     }
     else{
         [self setUpTextFontsAndColors];
@@ -110,6 +126,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [self setUpTextFontsAndColors];
+    [self updateFullNameTextField];
     [self updatePositionAndOrgTextField];
 }
 
@@ -126,7 +143,21 @@
         [mutableText appendString:self.organizationTextField.text];
     }
     self.positionAndOrgTextField.text = [mutableText copy];
+}
 
+- (void)updateFullNameTextField
+{
+    NSMutableString *mutableText = [[NSMutableString alloc] init];
+    if(self.firstNameTextField.text && [self.firstNameTextField.text length]){
+        [mutableText appendString:self.firstNameTextField.text];
+        if(self.lastNameTextField.text && [self.lastNameTextField.text length]){
+            [mutableText appendString:@" "];
+        }
+    }
+    if(self.lastNameTextField.text && [self.lastNameTextField.text length]){
+        [mutableText appendString:self.lastNameTextField.text];
+    }
+    self.fullNameTextField.text = [mutableText copy];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -134,7 +165,13 @@
     self.selectedTextField = textField;
     NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if(textField == self.fullNameTextField){
-        self.fullName = text;
+        //Do nothing
+    }
+    else if(textField == self.firstNameTextField){
+        self.firstName = text;
+    }
+    else if(textField == self.lastNameTextField){
+        self.lastName = text;
     }
     else if(textField == self.positionAndOrgTextField){
        // Do nothing
@@ -234,7 +271,7 @@
     [UIView setAnimationBeginsFromCurrentState:YES];
     //CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     //int keyboardHeight = MIN(keyboardSize.height,keyboardSize.width);
-    //self.logoVerticalConstraint.constant = 40 - keyboardHeight;
+    self.logoVerticalConstraint.constant = 0;
     [self.view layoutIfNeeded];
     [UIView commitAnimations];
 }
@@ -244,7 +281,7 @@
     [UIView setAnimationDuration:[notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
     [UIView setAnimationCurve:[notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    //self.logoVerticalConstraint.constant = 40;
+    self.logoVerticalConstraint.constant = 40;
     [self.view layoutIfNeeded];
     [UIView commitAnimations];
 }
@@ -306,6 +343,12 @@
     self.fullNameTextField.textColor = [UIColor airFiveBlue];
     self.fullNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.fullNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.fullNameTextField.font}];
     
+    self.firstNameTextField.textColor = [UIColor clearColor];
+    self.firstNameTextField.attributedPlaceholder = self.firstNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.firstNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.fullNameTextField.font}];
+    
+    self.lastNameTextField.textColor = [UIColor clearColor];
+    self.lastNameTextField.attributedPlaceholder = self.lastNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.lastNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.fullNameTextField.font}];
+    
     self.positionAndOrgTextField.textColor = [UIColor airFiveGray];
     self.positionAndOrgTextField.font = [UIFont airFiveFontItalicWithSize:13.0];
     self.positionAndOrgTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionAndOrgTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.positionAndOrgTextField.font}];
@@ -314,7 +357,7 @@
     self.positionTextField.attributedPlaceholder = self.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.positionAndOrgTextField.font}];
     
     self.organizationTextField.textColor = [UIColor clearColor];
-    self.organizationTextField.attributedPlaceholder = self.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.organizationTextField.font}];
+    self.organizationTextField.attributedPlaceholder = self.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.positionAndOrgTextField.font}];
     
     self.industryTextField.textColor = [UIColor airFiveBlue];
     self.industryTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];

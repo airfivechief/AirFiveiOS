@@ -22,13 +22,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOI-pw-lSF" userLabel="Card View">
                                 <rect key="frame" x="16" y="159" width="568" height="198"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Full Name*" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-fq-abH" userLabel="Name Text Field">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Full Name*" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-fq-abH" userLabel="Full Name Text Field">
                                         <rect key="frame" x="8" y="8" width="552" height="24"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="dxA-NN-Pn7"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="V0I-O5-HfV" userLabel="First Name Text Field">
+                                        <rect key="frame" x="8" y="8" width="276" height="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="fgv-pC-MA1"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hno-3Q-AWF" userLabel="Last Name Text Field">
+                                        <rect key="frame" x="284" y="8" width="276" height="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="sVj-Z2-OxO"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Position &amp; Organization" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6dY-cF-hsl" userLabel="Position &amp; Organization Text Field">
@@ -39,11 +56,11 @@
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="M6K-vy-K1g"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Position" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cqc-GN-vXd" userLabel="Position Text Field">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Position" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cqc-GN-vXd" userLabel="Position Text Field">
                                         <rect key="frame" x="8" y="40" width="276" height="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="RgB-B0-5yX"/>
                                         </connections>
@@ -55,7 +72,7 @@
                                                 <rect key="frame" x="8" y="8" width="536" height="19"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="60x-AS-V8G"/>
                                                 </connections>
@@ -64,7 +81,7 @@
                                                 <rect key="frame" x="8" y="44" width="536" height="19"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="x12-vc-BbI"/>
                                                 </connections>
@@ -73,7 +90,7 @@
                                                 <rect key="frame" x="8" y="96" width="536" height="19"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="IvZ-0Q-hne"/>
                                                 </connections>
@@ -82,7 +99,7 @@
                                                 <rect key="frame" x="8" y="71" width="536" height="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="phonePad" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="4L7-7v-g7R"/>
                                                 </connections>
@@ -129,7 +146,7 @@
                                         <rect key="frame" x="284" y="40" width="276" height="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="ouD-M5-8nI"/>
                                         </connections>
@@ -138,23 +155,31 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="bottom" secondItem="OeA-i6-TPR" secondAttribute="bottom" id="08c-dx-dYM"/>
+                                    <constraint firstItem="V0I-O5-HfV" firstAttribute="leading" secondItem="ZIt-fq-abH" secondAttribute="leading" id="0Fi-LL-vg2"/>
+                                    <constraint firstItem="V0I-O5-HfV" firstAttribute="top" secondItem="ZIt-fq-abH" secondAttribute="top" id="1PE-R3-PFl"/>
                                     <constraint firstItem="cqc-GN-vXd" firstAttribute="top" secondItem="6dY-cF-hsl" secondAttribute="top" id="2PV-Yz-Zrq"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="top" secondItem="OeA-i6-TPR" secondAttribute="top" id="2fh-JE-ABB"/>
                                     <constraint firstItem="cqc-GN-vXd" firstAttribute="leading" secondItem="6dY-cF-hsl" secondAttribute="leading" id="5E6-37-5Ao"/>
                                     <constraint firstItem="cqc-GN-vXd" firstAttribute="width" secondItem="6dY-cF-hsl" secondAttribute="width" multiplier="0.5" id="5L2-hI-LYc"/>
                                     <constraint firstItem="ZIt-fq-abH" firstAttribute="top" secondItem="FOI-pw-lSF" secondAttribute="top" constant="8" id="8bn-Mz-EAj"/>
+                                    <constraint firstItem="Hno-3Q-AWF" firstAttribute="width" secondItem="ZIt-fq-abH" secondAttribute="width" multiplier="0.5" id="Cv4-og-eIR"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="trailing" secondItem="OeA-i6-TPR" secondAttribute="trailing" id="Kfl-uE-jbc"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="leading" secondItem="ZIt-fq-abH" secondAttribute="leading" id="Mpg-MI-qfD"/>
+                                    <constraint firstItem="Hno-3Q-AWF" firstAttribute="trailing" secondItem="ZIt-fq-abH" secondAttribute="trailing" id="OSC-nF-Fmp"/>
                                     <constraint firstItem="ZIt-fq-abH" firstAttribute="leading" secondItem="FOI-pw-lSF" secondAttribute="leading" constant="8" id="Wqf-PQ-uHh"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="trailing" secondItem="ZIt-fq-abH" secondAttribute="trailing" id="YLu-uL-4zn"/>
+                                    <constraint firstItem="Hno-3Q-AWF" firstAttribute="top" secondItem="ZIt-fq-abH" secondAttribute="top" id="ZJy-fk-oNC"/>
+                                    <constraint firstItem="Hno-3Q-AWF" firstAttribute="bottom" secondItem="ZIt-fq-abH" secondAttribute="bottom" id="Zt6-xA-fkW"/>
                                     <constraint firstItem="cqc-GN-vXd" firstAttribute="bottom" secondItem="6dY-cF-hsl" secondAttribute="bottom" id="eNf-FK-YRQ"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="width" secondItem="OeA-i6-TPR" secondAttribute="width" multiplier="2" id="hbe-9z-cV3"/>
                                     <constraint firstItem="6dY-cF-hsl" firstAttribute="top" secondItem="ZIt-fq-abH" secondAttribute="bottom" constant="8" id="it2-yT-RiV"/>
                                     <constraint firstAttribute="trailing" secondItem="ZIt-fq-abH" secondAttribute="trailing" constant="8" id="jW6-mW-Yaz"/>
+                                    <constraint firstItem="V0I-O5-HfV" firstAttribute="width" secondItem="ZIt-fq-abH" secondAttribute="width" multiplier="0.5" id="npX-8j-MPu"/>
                                     <constraint firstAttribute="bottom" secondItem="Qzq-Ae-0lA" secondAttribute="bottom" constant="8" id="nwF-H7-wBI"/>
                                     <constraint firstAttribute="trailing" secondItem="Qzq-Ae-0lA" secondAttribute="trailing" constant="8" id="pxi-QZ-NHQ"/>
                                     <constraint firstItem="Qzq-Ae-0lA" firstAttribute="leading" secondItem="FOI-pw-lSF" secondAttribute="leading" constant="8" id="wKI-7f-uWe"/>
                                     <constraint firstItem="Qzq-Ae-0lA" firstAttribute="top" secondItem="6dY-cF-hsl" secondAttribute="bottom" constant="8" id="wtm-i4-9pn"/>
+                                    <constraint firstItem="V0I-O5-HfV" firstAttribute="bottom" secondItem="ZIt-fq-abH" secondAttribute="bottom" id="zGH-QU-0Va"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="OiY-MX-JSa">
@@ -190,7 +215,7 @@
                                         <rect key="frame" x="8" y="8" width="552" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="nA3-e0-8MH"/>
                                         </connections>
@@ -229,9 +254,11 @@
                         <outlet property="cardView" destination="FOI-pw-lSF" id="laC-PK-pTQ"/>
                         <outlet property="dividerViewTop" destination="VEg-Nb-krg" id="xgI-dT-mJU"/>
                         <outlet property="emailTextField" destination="AHN-o1-4lm" id="Av4-Ab-8cF"/>
+                        <outlet property="firstNameTextField" destination="V0I-O5-HfV" id="v8f-AM-biU"/>
                         <outlet property="fullNameTextField" destination="ZIt-fq-abH" id="qRX-GU-RXt"/>
                         <outlet property="industryTextField" destination="evs-Zd-INF" id="Tpe-KF-Pva"/>
                         <outlet property="infoView" destination="Qzq-Ae-0lA" id="rlI-s5-Tk3"/>
+                        <outlet property="lastNameTextField" destination="Hno-3Q-AWF" id="PF1-cN-oyH"/>
                         <outlet property="logoVerticalConstraint" destination="qFS-XE-Nxd" id="doj-5u-Auw"/>
                         <outlet property="organizationTextField" destination="OeA-i6-TPR" id="O7K-G3-bdZ"/>
                         <outlet property="phoneTextField" destination="rWC-hJ-rI7" id="LBW-Ae-q0t"/>
