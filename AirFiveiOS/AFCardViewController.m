@@ -341,6 +341,7 @@
 - (void)setUpShareButton
 {
     self.shareButton.layer.cornerRadius = 0.0;
+    self.shareButton.backgroundColor = [UIColor airFiveRed];
 }
 
 - (void)setUpDividers
