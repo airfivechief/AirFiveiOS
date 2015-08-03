@@ -19,15 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMv-fq-Ilj">
-                                <rect key="frame" x="16" y="159" width="568" height="207"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="207" id="gbq-Gb-B4y"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="c1n-vB-e9V" kind="embed" identifier="Embed Card View" id="p2o-n8-4YY"/>
-                                </connections>
-                            </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="OiY-MX-JSa">
                                 <rect key="frame" x="200" y="60" width="200" height="35"/>
                                 <constraints>
@@ -43,7 +34,7 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0MQ-8T-Ox3">
-                                <rect key="frame" x="16" y="374" width="568" height="76"/>
+                                <rect key="frame" x="16" y="370" width="568" height="76"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-W2-lcG" userLabel="Share Button">
                                         <rect key="frame" x="8" y="36" width="552" height="32"/>
@@ -78,18 +69,43 @@
                                     <constraint firstItem="Pn1-W2-lcG" firstAttribute="leading" secondItem="0MQ-8T-Ox3" secondAttribute="leading" constant="8" id="ud5-ey-GEq"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d29-yl-JpQ" userLabel="iCarousel" customClass="iCarousel">
+                                <rect key="frame" x="16" y="95" width="568" height="275"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMv-fq-Ilj">
+                                        <rect key="frame" x="0.0" y="60" width="568" height="207"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="207" id="gbq-Gb-B4y"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="c1n-vB-e9V" kind="embed" identifier="Embed Card View" id="p2o-n8-4YY"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="lMv-fq-Ilj" secondAttribute="trailing" id="1GQ-D4-0VG"/>
+                                    <constraint firstItem="lMv-fq-Ilj" firstAttribute="leading" secondItem="d29-yl-JpQ" secondAttribute="leading" id="4OO-nw-kqL"/>
+                                    <constraint firstItem="lMv-fq-Ilj" firstAttribute="top" secondItem="d29-yl-JpQ" secondAttribute="top" constant="60" id="mw4-TD-fdc"/>
+                                    <constraint firstAttribute="bottom" secondItem="lMv-fq-Ilj" secondAttribute="bottom" constant="8" id="wpJ-bU-gVc"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="W3P-YA-J6a"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="c5b-OG-2zv"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.64981506290000002" green="0.81900276890000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="lMv-fq-Ilj" firstAttribute="top" secondItem="OiY-MX-JSa" secondAttribute="bottom" constant="64" id="0vM-g7-mlD"/>
+                            <constraint firstItem="d29-yl-JpQ" firstAttribute="top" secondItem="OiY-MX-JSa" secondAttribute="bottom" id="LbZ-HD-LFw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d29-yl-JpQ" secondAttribute="trailing" id="WKE-gF-baL"/>
                             <constraint firstItem="0MQ-8T-Ox3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="YMS-5S-fz9"/>
                             <constraint firstItem="0MQ-8T-Ox3" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="dRK-gE-ipE"/>
                             <constraint firstAttribute="centerX" secondItem="OiY-MX-JSa" secondAttribute="centerX" id="fUT-xs-cKH"/>
-                            <constraint firstItem="lMv-fq-Ilj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="lVL-in-cqE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lMv-fq-Ilj" secondAttribute="trailing" id="lsi-VS-htl"/>
+                            <constraint firstItem="0MQ-8T-Ox3" firstAttribute="top" secondItem="d29-yl-JpQ" secondAttribute="bottom" id="pXP-po-hYA"/>
                             <constraint firstItem="OiY-MX-JSa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="qFS-XE-Nxd"/>
-                            <constraint firstItem="0MQ-8T-Ox3" firstAttribute="top" secondItem="lMv-fq-Ilj" secondAttribute="bottom" constant="8" id="yS8-5F-JsQ"/>
+                            <constraint firstItem="d29-yl-JpQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="u3j-iT-AUH"/>
                             <constraint firstAttribute="width" secondItem="OiY-MX-JSa" secondAttribute="width" multiplier="3" id="zar-Mw-hZp"/>
                         </constraints>
                         <connections>
@@ -97,6 +113,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="carousel" destination="d29-yl-JpQ" id="Rum-AR-Web"/>
                         <outlet property="infoView" destination="Qzq-Ae-0lA" id="rlI-s5-Tk3"/>
                         <outlet property="logoVerticalConstraint" destination="qFS-XE-Nxd" id="doj-5u-Auw"/>
                         <outlet property="recipientEmailTextField" destination="5Kc-tN-w3X" id="ApL-xw-5vc"/>

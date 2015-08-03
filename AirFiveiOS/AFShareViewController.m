@@ -11,9 +11,11 @@
 #import "AFEmailManager.h"
 #import "UIColor+AirFive.h"
 #import "UIFont+AirFive.h"
+#import "iCarousel.h"
 
-@interface AFShareViewController()
+@interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate>
 
+@property (weak, nonatomic) IBOutlet iCarousel *carousel;
 @property (strong, nonatomic) AFCardViewController *cardViewController;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
 
@@ -22,9 +24,25 @@
 @property (strong, nonatomic) NSString *recipientEmailAddress;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
+@property (nonatomic, strong) NSMutableArray *cards;
+
 @end
 
 @implementation AFShareViewController
+
+- (void)awakeFromNib
+{
+    //set up data
+    //your carousel should always be driven by an array of
+    //data of some kind - don't store data in your item views
+    //or the recycling mechanism will destroy your data once
+    //your item views move off-screen
+    self.cards = [NSMutableArray array];
+    for (int i = 0; i < 1000; i++)
+    {
+        [self.cards addObject:@(i)];
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -32,6 +50,7 @@
     [self setUpBackground];
     [self setUpShareView];
     [self setUpTextFontsAndColors];
+    [self configureCarousel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -46,6 +65,55 @@
     [self resignFirstResponder];
     [self deregisterFromKeyboardNotifications];
 }
+
+#pragma mark - iCarousel
+
+- (void)configureCarousel
+{
+    //configure carousel
+    self.carousel.type = iCarouselTypeCoverFlow2;
+}
+
+- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
+{
+    //return the total number of items in the carousel
+    return [self.cards count];
+}
+
+
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
+{
+    UILabel *label = nil;
+    
+    //create new view if no view is available for recycling
+    if (view == nil)
+    {
+        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
+        ((UIImageView *)view).image = [UIImage imageNamed:@"page.png"];
+        view.contentMode = UIViewContentModeCenter;
+        label = [[UILabel alloc] initWithFrame:view.bounds];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [label.font fontWithSize:50];
+        label.tag = 1;
+        [view addSubview:label];
+    }
+    else
+    {
+        //get a reference to the label in the recycled view
+        label = (UILabel *)[view viewWithTag:1];
+    }
+    
+    //set item label
+    //remember to always set any properties of your carousel item
+    //views outside of the `if (view == nil) {...}` check otherwise
+    //you'll get weird issues with carousel item content appearing
+    //in the wrong place in the carousel
+    label.text = [self.cards[index] stringValue];
+    
+    return view;
+}
+
 
 #pragma mark - Background View
 

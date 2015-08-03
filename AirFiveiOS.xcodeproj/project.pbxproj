@@ -44,6 +44,9 @@
 		8B2D1A331B6D785F00C62B49 /* RobotoSlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D1A2F1B6D785F00C62B49 /* RobotoSlab-Regular.ttf */; };
 		8B2D1A341B6D785F00C62B49 /* RobotoSlab-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D1A301B6D785F00C62B49 /* RobotoSlab-Thin.ttf */; };
 		8B5EC8501B6F5F810054C9ED /* AFShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EC84F1B6F5F810054C9ED /* AFShareViewController.m */; };
+		8B5EC8521B6F6D630054C9ED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5EC8511B6F6D630054C9ED /* QuartzCore.framework */; };
+		8B5EC8541B6F6D6D0054C9ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5EC8531B6F6D6D0054C9ED /* CoreGraphics.framework */; };
+		8B5EC85C1B6F6DC40054C9ED /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EC85B1B6F6DC40054C9ED /* iCarousel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,12 @@
 		8B2D1A301B6D785F00C62B49 /* RobotoSlab-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Thin.ttf"; sourceTree = "<group>"; };
 		8B5EC84E1B6F5F810054C9ED /* AFShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFShareViewController.h; sourceTree = "<group>"; };
 		8B5EC84F1B6F5F810054C9ED /* AFShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFShareViewController.m; sourceTree = "<group>"; };
+		8B5EC8511B6F6D630054C9ED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8B5EC8531B6F6D6D0054C9ED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8B5EC8551B6F6D730054C9ED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8B5EC8571B6F6D780054C9ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8B5EC85A1B6F6DC40054C9ED /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		8B5EC85B1B6F6DC40054C9ED /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		F3446B775C9EA510F4749F88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B5EC8541B6F6D6D0054C9ED /* CoreGraphics.framework in Frameworks */,
+				8B5EC8521B6F6D630054C9ED /* QuartzCore.framework in Frameworks */,
 				4394C46524ABD0B908444DFE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +185,7 @@
 		5F832DE41B6C02E000D9AD2E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8B5EC8591B6F6DB10054C9ED /* 3rd Party */,
 				8B2D1A061B6D77CB00C62B49 /* Fonts */,
 				5F832DE81B6C02E100D9AD2E /* AppDelegate.h */,
 				5F832DE91B6C02E100D9AD2E /* AppDelegate.m */,
@@ -205,6 +217,10 @@
 		6CD305C3CA7B823251D77BA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B5EC8571B6F6D780054C9ED /* UIKit.framework */,
+				8B5EC8551B6F6D730054C9ED /* Foundation.framework */,
+				8B5EC8531B6F6D6D0054C9ED /* CoreGraphics.framework */,
+				8B5EC8511B6F6D630054C9ED /* QuartzCore.framework */,
 				38C635FE35714DED4E90D60E /* libPods.a */,
 			);
 			name = Frameworks;
@@ -284,6 +300,23 @@
 				8B2D1A301B6D785F00C62B49 /* RobotoSlab-Thin.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		8B5EC8591B6F6DB10054C9ED /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+				8B5EC85D1B6F6DC80054C9ED /* iCarousel */,
+			);
+			name = "3rd Party";
+			sourceTree = "<group>";
+		};
+		8B5EC85D1B6F6DC80054C9ED /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				8B5EC85A1B6F6DC40054C9ED /* iCarousel.h */,
+				8B5EC85B1B6F6DC40054C9ED /* iCarousel.m */,
+			);
+			name = iCarousel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +484,7 @@
 				5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */,
 				8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */,
 				5F832DEA1B6C02E100D9AD2E /* AppDelegate.m in Sources */,
+				8B5EC85C1B6F6DC40054C9ED /* iCarousel.m in Sources */,
 				5F832DE71B6C02E100D9AD2E /* main.m in Sources */,
 				8B2D1A051B6D6ECC00C62B49 /* UIFont+AirFive.m in Sources */,
 			);
