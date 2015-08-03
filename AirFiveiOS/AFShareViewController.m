@@ -12,6 +12,7 @@
 #import "UIColor+AirFive.h"
 #import "UIFont+AirFive.h"
 #import "iCarousel.h"
+#import "AFCard.h"
 
 @interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate>
 
@@ -169,14 +170,14 @@
 
 - (IBAction)shareButtonTouched:(UIButton *)sender
 {
-    [AFEmailManager sharedInstance].firstName = self.cardViewController.firstName;
-    [AFEmailManager sharedInstance].lastName = self.cardViewController.lastName;
-    [AFEmailManager sharedInstance].position = self.cardViewController.position;
-    [AFEmailManager sharedInstance].organization = self.cardViewController.organization;
-    [AFEmailManager sharedInstance].industry = self.cardViewController.industry;
-    [AFEmailManager sharedInstance].emailAddress = self.cardViewController.emailAddress;
-    [AFEmailManager sharedInstance].phone = self.cardViewController.phone;
-    [AFEmailManager sharedInstance].website = self.cardViewController.website;
+    [AFEmailManager sharedInstance].firstName = self.cardViewController.card.firstName;
+    [AFEmailManager sharedInstance].lastName = self.cardViewController.card.lastName;
+    [AFEmailManager sharedInstance].position = self.cardViewController.card.position;
+    [AFEmailManager sharedInstance].organization = self.cardViewController.card.organization;
+    [AFEmailManager sharedInstance].industry = self.cardViewController.card.industry;
+    [AFEmailManager sharedInstance].emailAddress = self.cardViewController.card.emailAddress;
+    [AFEmailManager sharedInstance].phone = self.cardViewController.card.phone;
+    [AFEmailManager sharedInstance].website = self.cardViewController.card.website;
     [AFEmailManager sharedInstance].recipientEmailAddress = self.recipientEmailAddress;;
     [[AFEmailManager sharedInstance] sendEmail];
 }

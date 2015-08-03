@@ -9,6 +9,7 @@
 #import "AFCardViewController.h"
 #import "UIColor+AirFive.h"
 #import "UIFont+AirFive.h"
+#import "AFCard.h"
 
 @interface AFCardViewController () <UITextFieldDelegate>
 
@@ -43,16 +44,16 @@
 
 - (void)loadCard
 {
-    self.firstNameTextField.text = self.firstName;
-    self.lastNameTextField.text = self.lastName;
+    self.firstNameTextField.text = self.card.firstName;
+    self.lastNameTextField.text = self.card.lastName;
     [self updateFullNameTextField];
-    self.positionTextField.text = self.position;
-    self.organizationTextField.text = self.organization;
+    self.positionTextField.text = self.card.position;
+    self.organizationTextField.text = self.card.organization;
     [self updatePositionAndOrgTextField];
-    self.industryTextField.text = self.industry;
-    self.emailTextField.text = self.emailAddress;
-    self.phoneTextField.text = self.phone;
-    self.websiteTextField.text = self.website;
+    self.industryTextField.text = self.card.industry;
+    self.emailTextField.text = self.card.emailAddress;
+    self.phoneTextField.text = self.card.phone;
+    self.websiteTextField.text = self.card.website;
 }
 
 #pragma mark - Card View
@@ -207,25 +208,25 @@
         //Do nothing
     }
     else if(textField == self.firstNameTextField){
-        self.firstName = text;
+        self.card.firstName = text;
     }
     else if(textField == self.lastNameTextField){
-        self.lastName = text;
+        self.card.lastName = text;
     }
     else if(textField == self.positionAndOrgTextField){
        // Do nothing
     }
     else if(textField == self.positionTextField){
-        self.position = text;
+        self.card.position = text;
     }
     else if(textField == self.organizationTextField){
-        self.organization = text;
+        self.card.organization = text;
     }
     else if(textField == self.industryTextField){
-        self.industry = text;
+        self.card.industry = text;
     }
     else if(textField == self.emailTextField){
-        self.emailAddress = text;
+        self.card.emailAddress = text;
     }
     else if(textField == self.phoneTextField){
         if (range.length == 1) {
@@ -234,11 +235,11 @@
         } else {
             textField.text = [self formatPhoneNumber:text deleteLastChar:NO ];
         }
-        self.phone = textField.text;
+        self.card.phone = textField.text;
         return NO;
     }
     else if(textField == self.websiteTextField){
-        self.website = text;
+        self.card.website = text;
     }
     return YES;
 }

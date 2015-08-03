@@ -47,6 +47,7 @@
 		8B5EC8521B6F6D630054C9ED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5EC8511B6F6D630054C9ED /* QuartzCore.framework */; };
 		8B5EC8541B6F6D6D0054C9ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5EC8531B6F6D6D0054C9ED /* CoreGraphics.framework */; };
 		8B5EC85C1B6F6DC40054C9ED /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EC85B1B6F6DC40054C9ED /* iCarousel.m */; };
+		8B5EC8601B6F70B30054C9ED /* AFCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EC85F1B6F70B30054C9ED /* AFCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		8B5EC8571B6F6D780054C9ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8B5EC85A1B6F6DC40054C9ED /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		8B5EC85B1B6F6DC40054C9ED /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		8B5EC85E1B6F70B30054C9ED /* AFCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCard.h; sourceTree = "<group>"; };
+		8B5EC85F1B6F70B30054C9ED /* AFCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFCard.m; sourceTree = "<group>"; };
 		F3446B775C9EA510F4749F88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,6 +232,8 @@
 		8B2D19F41B6C03AA00C62B49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8B5EC85E1B6F70B30054C9ED /* AFCard.h */,
+				8B5EC85F1B6F70B30054C9ED /* AFCard.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -480,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2D1A021B6C59CB00C62B49 /* UIColor+AirFive.m in Sources */,
+				8B5EC8601B6F70B30054C9ED /* AFCard.m in Sources */,
 				8B5EC8501B6F5F810054C9ED /* AFShareViewController.m in Sources */,
 				5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */,
 				8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */,
