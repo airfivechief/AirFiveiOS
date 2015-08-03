@@ -43,6 +43,7 @@
 		8B2D1A321B6D785F00C62B49 /* RobotoSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D1A2E1B6D785F00C62B49 /* RobotoSlab-Light.ttf */; };
 		8B2D1A331B6D785F00C62B49 /* RobotoSlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D1A2F1B6D785F00C62B49 /* RobotoSlab-Regular.ttf */; };
 		8B2D1A341B6D785F00C62B49 /* RobotoSlab-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D1A301B6D785F00C62B49 /* RobotoSlab-Thin.ttf */; };
+		8B5EC8501B6F5F810054C9ED /* AFShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EC84F1B6F5F810054C9ED /* AFShareViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,8 @@
 		8B2D1A2E1B6D785F00C62B49 /* RobotoSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Light.ttf"; sourceTree = "<group>"; };
 		8B2D1A2F1B6D785F00C62B49 /* RobotoSlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Regular.ttf"; sourceTree = "<group>"; };
 		8B2D1A301B6D785F00C62B49 /* RobotoSlab-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Thin.ttf"; sourceTree = "<group>"; };
+		8B5EC84E1B6F5F810054C9ED /* AFShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFShareViewController.h; sourceTree = "<group>"; };
+		8B5EC84F1B6F5F810054C9ED /* AFShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFShareViewController.m; sourceTree = "<group>"; };
 		F3446B775C9EA510F4749F88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +227,8 @@
 		8B2D19F61B6C03C100C62B49 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8B5EC84E1B6F5F810054C9ED /* AFShareViewController.h */,
+				8B5EC84F1B6F5F810054C9ED /* AFShareViewController.m */,
 				5F832DEB1B6C02E100D9AD2E /* AFCardViewController.h */,
 				5F832DEC1B6C02E100D9AD2E /* AFCardViewController.m */,
 			);
@@ -442,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2D1A021B6C59CB00C62B49 /* UIColor+AirFive.m in Sources */,
+				8B5EC8501B6F5F810054C9ED /* AFShareViewController.m in Sources */,
 				5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */,
 				8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */,
 				5F832DEA1B6C02E100D9AD2E /* AppDelegate.m in Sources */,
