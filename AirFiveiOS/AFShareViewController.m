@@ -7,17 +7,17 @@
 //
 
 #import "AFShareViewController.h"
-#import "AFCardViewController.h"
 #import "AFEmailManager.h"
 #import "UIColor+AirFive.h"
 #import "UIFont+AirFive.h"
 #import "iCarousel.h"
+#import "AFCardView.h"
 #import "AFCard.h"
 
-@interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate>
+@interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet iCarousel *carousel;
-@property (strong, nonatomic) AFCardViewController *cardViewController;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
 
 @property (weak, nonatomic) IBOutlet UIView *shareView;
@@ -25,25 +25,14 @@
 @property (strong, nonatomic) NSString *recipientEmailAddress;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
-@property (nonatomic, strong) NSMutableArray *cards;
+@property (nonatomic, strong) NSArray *cards;
+
+@property (nonatomic, strong) AFCardView *selectedCardView;
+@property (weak, nonatomic) UITextField *selectedTextField;
 
 @end
 
 @implementation AFShareViewController
-
-- (void)awakeFromNib
-{
-    //set up data
-    //your carousel should always be driven by an array of
-    //data of some kind - don't store data in your item views
-    //or the recycling mechanism will destroy your data once
-    //your item views move off-screen
-    self.cards = [NSMutableArray array];
-    for (int i = 0; i < 1000; i++)
-    {
-        [self.cards addObject:@(i)];
-    }
-}
 
 - (void)viewDidLoad
 {
@@ -52,12 +41,26 @@
     [self setUpShareView];
     [self setUpTextFontsAndColors];
     [self configureCarousel];
+    [self.carousel scrollToItemAtIndex:0 animated:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [self registerForKeyboardNotifications];
+    [self loadCards];
+}
+
+- (void)loadCards
+{
+    self.cards = @[[[AFCard alloc] init],[[AFCard alloc] init], [[AFCard alloc] init]];
+}
+
+- (void)setCards:(NSArray *)cards
+{
+    _cards = cards;
+    [self.carousel reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -73,36 +76,29 @@
 {
     //configure carousel
     self.carousel.type = iCarouselTypeCoverFlow2;
+    self.carousel.clipsToBounds = YES;
 }
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    //return the total number of items in the carousel
     return [self.cards count];
 }
 
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
-    UILabel *label = nil;
-    
+    AFCardView *cardView = (AFCardView *)view;
     //create new view if no view is available for recycling
-    if (view == nil)
+    if (cardView == nil)
     {
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-        ((UIImageView *)view).image = [UIImage imageNamed:@"page.png"];
-        view.contentMode = UIViewContentModeCenter;
-        label = [[UILabel alloc] initWithFrame:view.bounds];
-        label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [label.font fontWithSize:50];
-        label.tag = 1;
-        [view addSubview:label];
+        cardView = [[[NSBundle mainBundle] loadNibNamed:@"AFCardView" owner:self options:nil] lastObject];
+        [cardView setFrame:CGRectMake(cardView.frame.origin.x, cardView.frame.origin.y, self.carousel.frame.size.width*0.9, self.carousel.frame.size.height*0.9)];
+        [cardView.cardView setNeedsLayout];
+        [cardView.cardView layoutIfNeeded];
     }
     else
     {
-        //get a reference to the label in the recycled view
-        label = (UILabel *)[view viewWithTag:1];
+        
     }
     
     //set item label
@@ -110,34 +106,23 @@
     //views outside of the `if (view == nil) {...}` check otherwise
     //you'll get weird issues with carousel item content appearing
     //in the wrong place in the carousel
-    label.text = [self.cards[index] stringValue];
+
+    cardView.card = [self.cards objectAtIndex:index];
     
-    return view;
+    return cardView;
 }
 
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
+{
+    self.selectedCardView = (AFCardView *)[carousel itemViewAtIndex:carousel.currentItemIndex];
+    [self setCardViewDelegates];
+}
 
 #pragma mark - Background View
 
 - (void)setUpBackground
 {
     self.view.backgroundColor = [UIColor airFiveBlue];
-}
-
-#pragma mark - Card View Controller
-
-- (void)setCardViewController:(AFCardViewController *)cardViewController
-{
-    _cardViewController = cardViewController;
-    [_cardViewController loadCard];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"Embed Card View"]){
-        if([segue.destinationViewController isKindOfClass:[AFCardViewController class]]){
-            self.cardViewController = segue.destinationViewController;
-        }
-    }
 }
 
 #pragma mark - Share View
@@ -159,7 +144,6 @@
     self.recipientEmailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.recipientEmailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.recipientEmailTextField.font}];
     
     [self.shareButton.titleLabel setFont:[UIFont airFiveFontMediumWithSize:16.0]];
-    
 }
 
 - (void)setUpShareButton
@@ -170,32 +154,16 @@
 
 - (IBAction)shareButtonTouched:(UIButton *)sender
 {
-    [AFEmailManager sharedInstance].firstName = self.cardViewController.card.firstName;
-    [AFEmailManager sharedInstance].lastName = self.cardViewController.card.lastName;
-    [AFEmailManager sharedInstance].position = self.cardViewController.card.position;
-    [AFEmailManager sharedInstance].organization = self.cardViewController.card.organization;
-    [AFEmailManager sharedInstance].industry = self.cardViewController.card.industry;
-    [AFEmailManager sharedInstance].emailAddress = self.cardViewController.card.emailAddress;
-    [AFEmailManager sharedInstance].phone = self.cardViewController.card.phone;
-    [AFEmailManager sharedInstance].website = self.cardViewController.card.website;
+    [AFEmailManager sharedInstance].firstName = self.selectedCardView.card.firstName;
+    [AFEmailManager sharedInstance].lastName = self.selectedCardView.card.lastName;
+    [AFEmailManager sharedInstance].position = self.selectedCardView.card.position;
+    [AFEmailManager sharedInstance].organization = self.selectedCardView.card.organization;
+    [AFEmailManager sharedInstance].industry = self.selectedCardView.card.industry;
+    [AFEmailManager sharedInstance].emailAddress = self.selectedCardView.card.emailAddress;
+    [AFEmailManager sharedInstance].phone = self.selectedCardView.card.phone;
+    [AFEmailManager sharedInstance].website = self.selectedCardView.card.website;
     [AFEmailManager sharedInstance].recipientEmailAddress = self.recipientEmailAddress;;
     [[AFEmailManager sharedInstance] sendEmail];
-}
-
-#pragma mark - UITextField Delegate
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-     [self setUpTextFontsAndColors];
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    if(textField == self.recipientEmailTextField){
-        self.recipientEmailAddress = text;
-    }
-    return YES;
 }
 
 #pragma mark - Keyboard
@@ -249,5 +217,143 @@
                                                     name:UIKeyboardWillHideNotification
                                                   object:nil];
 }
+
+#pragma mark - UITextField Delegate
+
+- (void)setCardViewDelegates
+{
+    self.selectedCardView.fullNameTextField.delegate = self;
+    self.selectedCardView.firstNameTextField.delegate = self;
+    self.selectedCardView.lastNameTextField.delegate = self;
+    self.selectedCardView.positionAndOrgTextField.delegate = self;
+    self.selectedCardView.positionTextField.delegate = self;
+    self.selectedCardView.organizationTextField.delegate = self;
+    self.selectedCardView.industryTextField.delegate = self;
+    self.selectedCardView.emailTextField.delegate = self;
+    self.selectedCardView.phoneTextField.delegate = self;
+    self.selectedCardView.websiteTextField.delegate = self;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(textField == self.selectedCardView.positionTextField || textField == self.selectedCardView.organizationTextField){
+        self.selectedCardView.positionTextField.textColor = self.selectedCardView.positionAndOrgTextField.textColor;
+        self.selectedCardView.positionTextField.font = self.selectedCardView.positionAndOrgTextField.font;
+        self.selectedCardView.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
+        
+        self.selectedCardView.organizationTextField.textColor = self.selectedCardView.positionAndOrgTextField.textColor;
+        self.selectedCardView.organizationTextField.font = self.selectedCardView.positionAndOrgTextField.font;
+        self.selectedCardView.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
+        
+        self.selectedCardView.positionAndOrgTextField.textColor = [UIColor clearColor];
+        self.selectedCardView.positionAndOrgTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.positionAndOrgTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
+    }
+    else if(textField == self.selectedCardView.firstNameTextField || textField == self.selectedCardView.lastNameTextField){
+        self.selectedCardView.firstNameTextField.textColor = self.selectedCardView.fullNameTextField.textColor;
+        self.selectedCardView.firstNameTextField.font = self.selectedCardView.fullNameTextField.font;
+        self.selectedCardView.firstNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.firstNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
+        
+        self.selectedCardView.lastNameTextField.textColor = self.selectedCardView.fullNameTextField.textColor;
+        self.selectedCardView.lastNameTextField.font = self.selectedCardView.fullNameTextField.font;
+        self.selectedCardView.lastNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.lastNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
+        
+        self.selectedCardView.fullNameTextField.textColor = [UIColor clearColor];
+        self.selectedCardView.fullNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.fullNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
+    }
+    else{
+        [self setUpTextFontsAndColors];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self setUpTextFontsAndColors];
+    [self.selectedCardView updateFullNameTextField];
+    [self.selectedCardView updatePositionAndOrgTextField];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    self.selectedTextField = textField;
+    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if(textField == self.selectedCardView.fullNameTextField){
+        //Do nothing
+    }
+    else if(textField == self.selectedCardView.firstNameTextField){
+        self.selectedCardView.card.firstName = text;
+    }
+    else if(textField == self.selectedCardView.lastNameTextField){
+        self.selectedCardView.card.lastName = text;
+    }
+    else if(textField == self.selectedCardView.positionAndOrgTextField){
+        // Do nothing
+    }
+    else if(textField == self.selectedCardView.positionTextField){
+        self.selectedCardView.card.position = text;
+    }
+    else if(textField == self.selectedCardView.organizationTextField){
+        self.selectedCardView.card.organization = text;
+    }
+    else if(textField == self.selectedCardView.industryTextField){
+        self.selectedCardView.card.industry = text;
+    }
+    else if(textField == self.selectedCardView.emailTextField){
+        self.selectedCardView.card.emailAddress = text;
+    }
+    else if(textField == self.selectedCardView.phoneTextField){
+        if (range.length == 1) {
+            // Delete button was hit.. so tell the method to delete the last char.
+            textField.text = [self formatPhoneNumber:text deleteLastChar:YES];
+        } else {
+            textField.text = [self formatPhoneNumber:text deleteLastChar:NO ];
+        }
+        self.selectedCardView.card.phone = textField.text;
+        return NO;
+    }
+    else if(textField == self.selectedCardView.websiteTextField){
+        self.selectedCardView.card.website = text;
+    }
+    else if(textField == self.recipientEmailTextField){
+        self.recipientEmailAddress = text;
+    }
+    
+    return YES;
+}
+
+//http://stackoverflow.com/questions/1246439/uitextfield-for-phone-number
+-(NSString*) formatPhoneNumber:(NSString*) simpleNumber deleteLastChar:(BOOL)deleteLastChar {
+    if(simpleNumber.length==0) return @"";
+    // use regex to remove non-digits(including spaces) so we are left with just the numbers
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[\\s-\\(\\)]" options:NSRegularExpressionCaseInsensitive error:&error];
+    simpleNumber = [regex stringByReplacingMatchesInString:simpleNumber options:0 range:NSMakeRange(0, [simpleNumber length]) withTemplate:@""];
+    
+    // check if the number is to long
+    if(simpleNumber.length>10) {
+        // remove last extra chars.
+        simpleNumber = [simpleNumber substringToIndex:10];
+    }
+    
+    if(deleteLastChar) {
+        // should we delete the last digit?
+        simpleNumber = [simpleNumber substringToIndex:[simpleNumber length] - 1];
+    }
+    
+    // 123 456 7890
+    // format the number.. if it's less then 7 digits.. then use this regex.
+    if(simpleNumber.length<7)
+        simpleNumber = [simpleNumber stringByReplacingOccurrencesOfString:@"(\\d{3})(\\d+)"
+                                                               withString:@"($1) $2"
+                                                                  options:NSRegularExpressionSearch
+                                                                    range:NSMakeRange(0, [simpleNumber length])];
+    
+    else   // else do this one..
+        simpleNumber = [simpleNumber stringByReplacingOccurrencesOfString:@"(\\d{3})(\\d{3})(\\d+)"
+                                                               withString:@"($1) $2-$3"
+                                                                  options:NSRegularExpressionSearch
+                                                                    range:NSMakeRange(0, [simpleNumber length])];
+    return simpleNumber;
+}
+
 
 @end

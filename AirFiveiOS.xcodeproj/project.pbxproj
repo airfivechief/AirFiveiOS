@@ -10,11 +10,12 @@
 		4394C46524ABD0B908444DFE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C635FE35714DED4E90D60E /* libPods.a */; };
 		5F832DE71B6C02E100D9AD2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DE61B6C02E100D9AD2E /* main.m */; };
 		5F832DEA1B6C02E100D9AD2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DE91B6C02E100D9AD2E /* AppDelegate.m */; };
-		5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832DEC1B6C02E100D9AD2E /* AFCardViewController.m */; };
 		5F832DF01B6C02E100D9AD2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F832DEE1B6C02E100D9AD2E /* Main.storyboard */; };
 		5F832DF21B6C02E100D9AD2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F832DF11B6C02E100D9AD2E /* Images.xcassets */; };
 		5F832DF51B6C02E100D9AD2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F832DF31B6C02E100D9AD2E /* LaunchScreen.xib */; };
 		5F832E011B6C02E100D9AD2E /* AirFiveiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832E001B6C02E100D9AD2E /* AirFiveiOSTests.m */; };
+		8B039F871B7189D300516B9A /* AFCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B039F861B7189D300516B9A /* AFCardView.xib */; };
+		8B039F8D1B7196DD00516B9A /* AFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B039F8C1B7196DD00516B9A /* AFCardView.m */; };
 		8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */; };
 		8B2D19FE1B6C3E5D00C62B49 /* Contactcard.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D19FC1B6C3E5D00C62B49 /* Contactcard.html */; };
 		8B2D19FF1B6C3E5D00C62B49 /* contactInfo.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D19FD1B6C3E5D00C62B49 /* contactInfo.vcf */; };
@@ -68,14 +69,15 @@
 		5F832DE61B6C02E100D9AD2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F832DE81B6C02E100D9AD2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F832DE91B6C02E100D9AD2E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5F832DEB1B6C02E100D9AD2E /* AFCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFCardViewController.h; sourceTree = "<group>"; };
-		5F832DEC1B6C02E100D9AD2E /* AFCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFCardViewController.m; sourceTree = "<group>"; };
 		5F832DEF1B6C02E100D9AD2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F832DF11B6C02E100D9AD2E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5F832DF41B6C02E100D9AD2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5F832DFA1B6C02E100D9AD2E /* AirFiveiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirFiveiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F832DFF1B6C02E100D9AD2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F832E001B6C02E100D9AD2E /* AirFiveiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirFiveiOSTests.m; sourceTree = "<group>"; };
+		8B039F861B7189D300516B9A /* AFCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AFCardView.xib; sourceTree = "<group>"; };
+		8B039F8B1B7196DD00516B9A /* AFCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCardView.h; sourceTree = "<group>"; };
+		8B039F8C1B7196DD00516B9A /* AFCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFCardView.m; sourceTree = "<group>"; };
 		8B2D19F91B6C1C8600C62B49 /* AFEmailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFEmailManager.h; sourceTree = "<group>"; };
 		8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFEmailManager.m; sourceTree = "<group>"; };
 		8B2D19FC1B6C3E5D00C62B49 /* Contactcard.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Contactcard.html; sourceTree = "<group>"; };
@@ -241,6 +243,9 @@
 		8B2D19F51B6C03BA00C62B49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8B039F861B7189D300516B9A /* AFCardView.xib */,
+				8B039F8B1B7196DD00516B9A /* AFCardView.h */,
+				8B039F8C1B7196DD00516B9A /* AFCardView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -250,8 +255,6 @@
 			children = (
 				8B5EC84E1B6F5F810054C9ED /* AFShareViewController.h */,
 				8B5EC84F1B6F5F810054C9ED /* AFShareViewController.m */,
-				5F832DEB1B6C02E100D9AD2E /* AFCardViewController.h */,
-				5F832DEC1B6C02E100D9AD2E /* AFCardViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2D1A321B6D785F00C62B49 /* RobotoSlab-Light.ttf in Resources */,
+				8B039F871B7189D300516B9A /* AFCardView.xib in Resources */,
 				8B2D1A271B6D77DA00C62B49 /* RobotoCondensed-Bold.ttf in Resources */,
 				8B2D1A341B6D785F00C62B49 /* RobotoSlab-Thin.ttf in Resources */,
 				8B2D1A2B1B6D77DA00C62B49 /* RobotoCondensed-LightItalic.ttf in Resources */,
@@ -486,8 +490,8 @@
 			files = (
 				8B2D1A021B6C59CB00C62B49 /* UIColor+AirFive.m in Sources */,
 				8B5EC8601B6F70B30054C9ED /* AFCard.m in Sources */,
+				8B039F8D1B7196DD00516B9A /* AFCardView.m in Sources */,
 				8B5EC8501B6F5F810054C9ED /* AFShareViewController.m in Sources */,
-				5F832DED1B6C02E100D9AD2E /* AFCardViewController.m in Sources */,
 				8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */,
 				5F832DEA1B6C02E100D9AD2E /* AppDelegate.m in Sources */,
 				8B5EC85C1B6F6DC40054C9ED /* iCarousel.m in Sources */,
