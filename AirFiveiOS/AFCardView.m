@@ -15,6 +15,16 @@
 
 #pragma mark - Card View
 
+-(id)awakeAfterUsingCoder:(NSCoder *)aDecoder
+{
+   self = [super awakeAfterUsingCoder:aDecoder];
+    if(self){
+        //[self setNeedsUpdateConstraints];
+    }
+    return self;
+}
+
+
 - (void)setCard:(AFCard *)card
 {
     _card = card;

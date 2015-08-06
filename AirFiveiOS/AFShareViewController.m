@@ -44,6 +44,12 @@
     [self.carousel scrollToItemAtIndex:0 animated:NO];
 }
 
+- (void)dealloc
+{
+    self.carousel.dataSource = nil;
+    self.carousel.delegate = nil;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -75,8 +81,12 @@
 - (void)configureCarousel
 {
     //configure carousel
-    self.carousel.type = iCarouselTypeCoverFlow2;
-    self.carousel.clipsToBounds = YES;
+    self.carousel.type = iCarouselTypeCoverFlow;
+    self.carousel.centerItemWhenSelected = YES;
+    self.carousel.stopAtItemBoundary = YES;
+    self.carousel.bounces = NO;
+    self.carousel.pagingEnabled = YES;
+    self.carousel.scrollSpeed = 0.01;
 }
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
@@ -88,27 +98,17 @@
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
     AFCardView *cardView = (AFCardView *)view;
-    //create new view if no view is available for recycling
-    if (cardView == nil)
-    {
+    if (cardView == nil){
         cardView = [[[NSBundle mainBundle] loadNibNamed:@"AFCardView" owner:self options:nil] lastObject];
-        [cardView setFrame:CGRectMake(cardView.frame.origin.x, cardView.frame.origin.y, self.carousel.frame.size.width*0.9, self.carousel.frame.size.height*0.9)];
-        [cardView.cardView setNeedsLayout];
-        [cardView.cardView layoutIfNeeded];
+        cardView.cardViewWidthConstraint.constant = carousel.bounds.size.width;
+        cardView.cardViewHeightConstraint.constant = carousel.bounds.size.height;
     }
-    else
-    {
-        
-    }
-    
-    //set item label
-    //remember to always set any properties of your carousel item
-    //views outside of the `if (view == nil) {...}` check otherwise
-    //you'll get weird issues with carousel item content appearing
-    //in the wrong place in the carousel
 
     cardView.card = [self.cards objectAtIndex:index];
     
+    NSLog(@"%@", NSStringFromCGRect(carousel.bounds));
+    
+    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
     return cardView;
 }
 

@@ -14,6 +14,10 @@
 
 @property (strong, nonatomic) AFCard *card;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cardViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cardViewHeightConstraint;
+
+
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UIImageView *cardImageView;
 @property (weak, nonatomic) IBOutlet UITextField *fullNameTextField;

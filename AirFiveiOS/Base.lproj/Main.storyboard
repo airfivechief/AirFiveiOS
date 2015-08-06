@@ -34,7 +34,7 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0MQ-8T-Ox3">
-                                <rect key="frame" x="16" y="506" width="568" height="76"/>
+                                <rect key="frame" x="16" y="558" width="568" height="76"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-W2-lcG" userLabel="Share Button">
                                         <rect key="frame" x="8" y="36" width="552" height="32"/>
@@ -95,7 +95,7 @@
                             <constraint firstItem="0MQ-8T-Ox3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="YMS-5S-fz9"/>
                             <constraint firstItem="0MQ-8T-Ox3" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="dRK-gE-ipE"/>
                             <constraint firstAttribute="centerX" secondItem="OiY-MX-JSa" secondAttribute="centerX" id="fUT-xs-cKH"/>
-                            <constraint firstItem="0MQ-8T-Ox3" firstAttribute="top" secondItem="d29-yl-JpQ" secondAttribute="bottom" constant="8" id="pXP-po-hYA"/>
+                            <constraint firstItem="0MQ-8T-Ox3" firstAttribute="top" secondItem="d29-yl-JpQ" secondAttribute="bottom" constant="60" id="pXP-po-hYA"/>
                             <constraint firstItem="OiY-MX-JSa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="qFS-XE-Nxd"/>
                             <constraint firstItem="d29-yl-JpQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="u3j-iT-AUH"/>
                             <constraint firstAttribute="width" secondItem="OiY-MX-JSa" secondAttribute="width" multiplier="3" id="zar-Mw-hZp"/>
