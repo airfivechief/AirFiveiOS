@@ -41,7 +41,6 @@
     [self setUpShareView];
     [self setUpTextFontsAndColors];
     [self configureCarousel];
-    [self.carousel scrollToItemAtIndex:0 animated:NO];
 }
 
 - (void)dealloc
@@ -53,9 +52,21 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [self registerForKeyboardNotifications];
     [self loadCards];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self resetCarousel];
+}
+
+- (void)resetCarousel
+{
+    [self.carousel scrollToItemAtIndex:0 animated:NO];
+    [self carouselCurrentItemIndexDidChange:self.carousel];
+    [self setCardViewDelegates];
 }
 
 - (void)loadCards
@@ -74,6 +85,13 @@
     [super viewWillDisappear:animated];
     [self resignFirstResponder];
     [self deregisterFromKeyboardNotifications];
+}
+
+#pragma mark - Navigation View
+
+- (IBAction)navigationButtonTouched:(UIButton *)sender
+{
+    [self.carousel scrollToItemAtIndex:sender.tag animated:YES];
 }
 
 #pragma mark - iCarousel
