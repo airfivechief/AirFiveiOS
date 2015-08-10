@@ -200,7 +200,7 @@
     
     //Rotary
     CGFloat count = 3;
-    CGFloat spacing = 1.8f;
+    CGFloat spacing = 1.1f;
     CGFloat arc = M_PI * 0.3; //Change to reduce increase angle of views coming in an out
     CGFloat radius = MAX(carousel.bounds.size.width * spacing / 2.0, carousel.bounds.size.width * spacing / 2.0 / tanf(arc/2.0/count));
     CGFloat angle = offset / count * arc;
