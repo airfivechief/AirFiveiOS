@@ -14,6 +14,16 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+<<<<<<< HEAD
+=======
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
         </mutableArray>
     </customFonts>
     <objects>
@@ -122,49 +132,125 @@
                                 </mask>
                             </variation>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7y7-cC-lpA" userLabel="Info View">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7y7-cC-lpA" userLabel="Info View" customClass="OAStackView">
                             <rect key="frame" x="8" y="142" width="332" height="395"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Industry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xir-YP-DnD" userLabel="Industry Label">
+                                    <rect key="frame" x="8" y="16" width="64" height="34"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Industry" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-z7-m8Z" userLabel="Industry Text Field">
+<<<<<<< HEAD
                                     <rect key="frame" x="8" y="8" width="316" height="66"/>
+=======
+                                    <rect key="frame" x="8" y="58" width="316" height="34"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                 </textField>
+<<<<<<< HEAD
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhq-me-L4d" userLabel="Divider View Top">
                                     <rect key="frame" x="8" y="82" width="316" height="1"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+=======
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5e1-f7-smf" userLabel="Divider Container View">
+                                    <rect key="frame" x="8" y="92" width="316" height="35"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhq-me-L4d" userLabel="Divider View Top">
+                                            <rect key="frame" x="0.0" y="17" width="316" height="1"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="JdX-aE-vj1"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="1" id="JdX-aE-vj1"/>
+                                        <constraint firstItem="hhq-me-L4d" firstAttribute="leading" secondItem="5e1-f7-smf" secondAttribute="leading" id="0jv-89-eet"/>
+                                        <constraint firstAttribute="centerX" secondItem="hhq-me-L4d" secondAttribute="centerX" id="GKm-gz-qkh"/>
+                                        <constraint firstAttribute="centerY" secondItem="hhq-me-L4d" secondAttribute="centerY" id="O1Q-HH-TlH"/>
+                                        <constraint firstAttribute="trailing" secondItem="hhq-me-L4d" secondAttribute="trailing" id="spW-lq-Pyr"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="GKm-gz-qkh"/>
+                                        </mask>
+                                    </variation>
                                 </view>
+<<<<<<< HEAD
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email*" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-xR-mJ2" userLabel="Email Text Field">
                                     <rect key="frame" x="8" y="91" width="316" height="66"/>
+=======
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVP-aX-mwK" userLabel="Contact Info Label">
+                                    <rect key="frame" x="8" y="127" width="95" height="34"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email*" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-xR-mJ2" userLabel="Email Text Field">
+                                    <rect key="frame" x="8" y="169" width="316" height="34"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Phone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HEG-LM-4aY">
+<<<<<<< HEAD
                                     <rect key="frame" x="8" y="165" width="316" height="65"/>
+=======
+                                    <rect key="frame" x="8" y="211" width="316" height="34"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="phonePad" returnKeyType="done"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Website" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="P7D-V8-ldX" userLabel="Website Text Field">
+<<<<<<< HEAD
                                     <rect key="frame" x="8" y="238" width="316" height="66"/>
+=======
+                                    <rect key="frame" x="8" y="253" width="316" height="35"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done"/>
                                 </textField>
+<<<<<<< HEAD
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t84-1k-GFK" userLabel="Divider View Top">
                                     <rect key="frame" x="0.0" y="312" width="332" height="1"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+=======
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRu-Bj-dec" userLabel="Divider Container View">
+                                    <rect key="frame" x="8" y="288" width="316" height="34"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t84-1k-GFK" userLabel="Divider View Top">
+                                            <rect key="frame" x="0.0" y="16" width="316" height="1"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="iZv-gC-8du"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="1" id="iZv-gC-8du"/>
+                                        <constraint firstAttribute="centerY" secondItem="t84-1k-GFK" secondAttribute="centerY" id="IhD-zu-0ZK"/>
+                                        <constraint firstAttribute="trailing" secondItem="t84-1k-GFK" secondAttribute="trailing" id="OdL-7y-NgJ"/>
+                                        <constraint firstItem="t84-1k-GFK" firstAttribute="leading" secondItem="ZRu-Bj-dec" secondAttribute="leading" id="wJZ-ao-b84"/>
                                     </constraints>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Social Media" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdz-60-X99" userLabel="Social Media Label">
+                                    <rect key="frame" x="8" y="322" width="99" height="23"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfm-O2-nZO" userLabel="Social Media View">
+<<<<<<< HEAD
                                     <rect key="frame" x="8" y="321" width="316" height="66"/>
+=======
+                                    <rect key="frame" x="8" y="353" width="316" height="34"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="77" id="3bB-ME-hcO"/>
@@ -178,9 +264,10 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="ZRu-Bj-dec" firstAttribute="bottom" secondItem="zfm-O2-nZO" secondAttribute="top" id="1ZU-ij-xGW"/>
                                 <constraint firstAttribute="bottom" secondItem="zfm-O2-nZO" secondAttribute="bottom" constant="8" id="2fJ-qd-JTr"/>
-                                <constraint firstItem="hhq-me-L4d" firstAttribute="top" secondItem="JNr-z7-m8Z" secondAttribute="bottom" constant="8" symbolic="YES" id="43b-BQ-aDK"/>
                                 <constraint firstItem="zfm-O2-nZO" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="5tJ-Nb-IyI"/>
+<<<<<<< HEAD
                                 <constraint firstItem="JNr-z7-m8Z" firstAttribute="height" secondItem="zfm-O2-nZO" secondAttribute="height" id="AQ9-Zt-ivo"/>
                                 <constraint firstAttribute="trailing" secondItem="hhq-me-L4d" secondAttribute="trailing" constant="8" id="Dix-Y5-ilz"/>
                                 <constraint firstItem="JNr-z7-m8Z" firstAttribute="top" secondItem="7y7-cC-lpA" secondAttribute="top" constant="8" id="GKz-jb-Ox1"/>
@@ -188,33 +275,72 @@
                                 <constraint firstItem="t84-1k-GFK" firstAttribute="bottom" secondItem="zfm-O2-nZO" secondAttribute="top" constant="-8" id="JSM-d5-Cto"/>
                                 <constraint firstItem="P7D-V8-ldX" firstAttribute="bottom" secondItem="t84-1k-GFK" secondAttribute="top" constant="-8" id="Mnc-1G-OHf"/>
                                 <constraint firstItem="t84-1k-GFK" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" id="NyS-zQ-oB4"/>
+=======
+                                <constraint firstAttribute="trailing" secondItem="ZRu-Bj-dec" secondAttribute="trailing" constant="8" id="7Y5-Aa-OpL"/>
+                                <constraint firstItem="ZRu-Bj-dec" firstAttribute="top" secondItem="P7D-V8-ldX" secondAttribute="bottom" id="9BR-k4-Gdn"/>
+                                <constraint firstItem="HVP-aX-mwK" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="9KL-8v-ZDv"/>
+                                <constraint firstAttribute="trailing" secondItem="5e1-f7-smf" secondAttribute="trailing" constant="8" id="9ta-bV-XsL"/>
+                                <constraint firstItem="JNr-z7-m8Z" firstAttribute="height" secondItem="zfm-O2-nZO" secondAttribute="height" id="AQ9-Zt-ivo"/>
+                                <constraint firstItem="xir-YP-DnD" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="AyK-1A-tNk"/>
+                                <constraint firstItem="HVP-aX-mwK" firstAttribute="top" secondItem="5e1-f7-smf" secondAttribute="bottom" id="Fwy-W0-97W"/>
+                                <constraint firstItem="Mdz-60-X99" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="118" id="Gf5-Of-xP0"/>
+                                <constraint firstItem="Mdz-60-X99" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="HHy-8N-btC"/>
+                                <constraint firstItem="xir-YP-DnD" firstAttribute="top" secondItem="7y7-cC-lpA" secondAttribute="top" constant="16" id="Hvh-6N-ESD"/>
+                                <constraint firstItem="zfm-O2-nZO" firstAttribute="top" secondItem="Mdz-60-X99" secondAttribute="bottom" constant="8" id="NCJ-8g-6p1"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                 <constraint firstAttribute="trailing" secondItem="JNr-z7-m8Z" secondAttribute="trailing" constant="8" id="PKi-NP-JbF"/>
+                                <constraint firstItem="JNr-z7-m8Z" firstAttribute="height" secondItem="5e1-f7-smf" secondAttribute="height" id="QQZ-8y-Jgd"/>
                                 <constraint firstItem="JNr-z7-m8Z" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="QfF-4I-43o"/>
+<<<<<<< HEAD
                                 <constraint firstItem="hhq-me-L4d" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="TSi-4W-tzU"/>
+=======
+                                <constraint firstItem="HVP-aX-mwK" firstAttribute="bottom" secondItem="xg5-xR-mJ2" secondAttribute="top" constant="-8" id="RsP-Rd-QWv"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                 <constraint firstItem="HEG-LM-4aY" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="Up1-te-9cP"/>
-                                <constraint firstItem="xg5-xR-mJ2" firstAttribute="top" secondItem="hhq-me-L4d" secondAttribute="bottom" constant="8" symbolic="YES" id="Wog-hi-ghs"/>
                                 <constraint firstItem="P7D-V8-ldX" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="Y41-sp-P0y"/>
                                 <constraint firstAttribute="trailing" secondItem="zfm-O2-nZO" secondAttribute="trailing" constant="8" id="acm-Uv-cYu"/>
                                 <constraint firstItem="P7D-V8-ldX" firstAttribute="top" secondItem="HEG-LM-4aY" secondAttribute="bottom" constant="8" id="bHC-h5-PWj"/>
                                 <constraint firstItem="JNr-z7-m8Z" firstAttribute="height" secondItem="xg5-xR-mJ2" secondAttribute="height" id="cuZ-q8-7Xz"/>
-                                <constraint firstAttribute="trailing" secondItem="t84-1k-GFK" secondAttribute="trailing" id="f8o-yy-aK7"/>
                                 <constraint firstItem="JNr-z7-m8Z" firstAttribute="height" secondItem="P7D-V8-ldX" secondAttribute="height" id="hZ6-4f-pBt"/>
-                                <constraint firstAttribute="bottom" secondItem="P7D-V8-ldX" secondAttribute="bottom" constant="20" id="igi-pF-NiO"/>
+                                <constraint firstItem="ZRu-Bj-dec" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="hua-ds-Twn"/>
+                                <constraint firstItem="5e1-f7-smf" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="ie1-Yg-6C3"/>
                                 <constraint firstItem="HEG-LM-4aY" firstAttribute="top" secondItem="xg5-xR-mJ2" secondAttribute="bottom" constant="8" id="ixB-Xa-FV1"/>
+                                <constraint firstItem="JNr-z7-m8Z" firstAttribute="height" secondItem="ZRu-Bj-dec" secondAttribute="height" id="jlB-ta-Kwn"/>
                                 <constraint firstItem="JNr-z7-m8Z" firstAttribute="height" secondItem="HEG-LM-4aY" secondAttribute="height" id="kes-Ql-byK"/>
                                 <constraint firstItem="xg5-xR-mJ2" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="kgn-dk-vFI"/>
-                                <constraint firstItem="P7D-V8-ldX" firstAttribute="top" secondItem="xg5-xR-mJ2" secondAttribute="bottom" constant="8" id="pdk-ws-gPu"/>
+                                <constraint firstAttribute="bottom" secondItem="ZRu-Bj-dec" secondAttribute="bottom" id="knY-ud-Bbt"/>
+                                <constraint firstAttribute="trailing" secondItem="Mdz-60-X99" secondAttribute="trailing" id="m6p-AV-boZ"/>
+                                <constraint firstItem="ZRu-Bj-dec" firstAttribute="bottom" secondItem="Mdz-60-X99" secondAttribute="top" id="oHW-cK-gFe"/>
                                 <constraint firstAttribute="trailing" secondItem="HEG-LM-4aY" secondAttribute="trailing" constant="8" id="prC-q1-pIG"/>
+<<<<<<< HEAD
                                 <constraint firstItem="xg5-xR-mJ2" firstAttribute="top" secondItem="JNr-z7-m8Z" secondAttribute="bottom" constant="8" id="qIB-aO-Tth"/>
+=======
+                                <constraint firstItem="JNr-z7-m8Z" firstAttribute="height" secondItem="HVP-aX-mwK" secondAttribute="height" id="qh9-yq-qwB"/>
+                                <constraint firstItem="xir-YP-DnD" firstAttribute="height" secondItem="JNr-z7-m8Z" secondAttribute="height" id="rLe-ma-jUm"/>
+                                <constraint firstItem="xir-YP-DnD" firstAttribute="bottom" secondItem="JNr-z7-m8Z" secondAttribute="top" constant="-8" id="rY6-Vd-7gd"/>
+                                <constraint firstItem="5e1-f7-smf" firstAttribute="top" secondItem="JNr-z7-m8Z" secondAttribute="bottom" id="sxe-G8-8lj"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                 <constraint firstAttribute="trailing" secondItem="xg5-xR-mJ2" secondAttribute="trailing" constant="8" id="uLc-W2-0AB"/>
                                 <constraint firstAttribute="trailing" secondItem="P7D-V8-ldX" secondAttribute="trailing" constant="8" id="zcF-sL-AfY"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="distributionValue">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <variation key="default">
                                 <mask key="constraints">
+<<<<<<< HEAD
                                     <exclude reference="qIB-aO-Tth"/>
                                     <exclude reference="GaS-eA-k9m"/>
                                     <exclude reference="igi-pF-NiO"/>
                                     <exclude reference="pdk-ws-gPu"/>
+=======
+                                    <exclude reference="1ZU-ij-xGW"/>
+                                    <exclude reference="knY-ud-Bbt"/>
+                                    <exclude reference="Gf5-Of-xP0"/>
+                                    <exclude reference="m6p-AV-boZ"/>
+>>>>>>> e779cc2ce2582a7f9efdfb8d4d8b72f75497a422
                                 </mask>
                             </variation>
                         </view>
@@ -269,9 +395,12 @@
             <connections>
                 <outlet property="cardImageView" destination="DnJ-tO-CR1" id="Hxr-cc-hel"/>
                 <outlet property="cardView" destination="Gwg-OD-MYc" id="4nN-jI-8fC"/>
+                <outlet property="contactInfoLabel" destination="HVP-aX-mwK" id="MuC-j5-PbR"/>
                 <outlet property="emailTextField" destination="xg5-xR-mJ2" id="B2Q-ma-uZI"/>
                 <outlet property="firstNameTextField" destination="5Lv-Ny-6oW" id="nhl-gM-mOn"/>
                 <outlet property="fullNameTextField" destination="k5f-kl-YI7" id="LIT-Xo-Vqg"/>
+                <outlet property="industryDividerContainerView" destination="5e1-f7-smf" id="xVS-hX-5UB"/>
+                <outlet property="industryLabel" destination="xir-YP-DnD" id="X81-ZS-Kdp"/>
                 <outlet property="industryTextField" destination="JNr-z7-m8Z" id="vyf-bk-8cn"/>
                 <outlet property="infoView" destination="7y7-cC-lpA" id="mGu-bS-mxf"/>
                 <outlet property="lastNameTextField" destination="Vfj-3f-PqE" id="u58-hc-kaA"/>
@@ -279,6 +408,9 @@
                 <outlet property="phoneTextField" destination="HEG-LM-4aY" id="FCf-ac-ZPa"/>
                 <outlet property="positionAndOrgTextField" destination="K5H-UN-x6Y" id="Ycf-on-ZjW"/>
                 <outlet property="positionTextField" destination="oeP-5o-E3d" id="AiL-VH-mvM"/>
+                <outlet property="socialMediaContainerView" destination="zfm-O2-nZO" id="Mpg-gd-WCd"/>
+                <outlet property="socialMediaDividerContainerView" destination="ZRu-Bj-dec" id="8Xn-iz-93h"/>
+                <outlet property="socialMediaLabel" destination="Mdz-60-X99" id="jCi-PX-1aP"/>
                 <outlet property="websiteTextField" destination="P7D-V8-ldX" id="dA7-b4-YNh"/>
                 <outletCollection property="dividers" destination="hhq-me-L4d" id="seK-A6-mFV"/>
                 <outletCollection property="dividers" destination="t84-1k-GFK" id="sdr-CU-NSZ"/>
