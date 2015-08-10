@@ -18,5 +18,6 @@
 + (UIColor *)airFiveLightGray { return [UIColor colorWithRed:0.84 green:0.84 blue:0.84 alpha:1.0]; }
 + (UIColor *)airFiveYellow { return [UIColor colorWithRed:0.89 green:1.0 blue:0.49 alpha:1.0]; }
 + (UIColor *)airFiveGreen { return [UIColor colorWithRed:0.00 green:150/255.0 blue:136/255.0 alpha:1.0]; }
++ (UIColor *)airFivePink { return [UIColor colorWithRed:1.00 green:64/255.0 blue:129/255.0 alpha:1.0]; }
 
 @end

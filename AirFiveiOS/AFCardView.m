@@ -30,7 +30,7 @@
     _card = card;
     [self loadCard];
     [self setUpCardView];
-    [self setUpTextFontsAndColors];
+    [self setUpTextFontsAndColorsWithEditMode:NO];
 }
 
 - (void)loadCard
@@ -73,11 +73,13 @@
     }
 }
 
-- (void)setUpTextFontsAndColors
+- (void)setUpTextFontsAndColorsWithEditMode:(bool)editMode
 {
-    self.fullNameTextField.font = [UIFont airFiveFontMediumWithSize:25.0];
-    self.fullNameTextField.textColor = [UIColor airFiveBlue];
-    self.fullNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.fullNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.fullNameTextField.font}];
+    UIColor *mainInfoPlaceHolderColor = editMode ? [UIColor whiteColor] : [UIColor clearColor];
+    
+    self.fullNameTextField.font = [UIFont airFiveFontMediumWithSize:21.0];
+    self.fullNameTextField.textColor = [UIColor whiteColor];
+    self.fullNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.fullNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : mainInfoPlaceHolderColor, NSFontAttributeName : self.fullNameTextField.font}];
     
     self.firstNameTextField.textColor = [UIColor clearColor];
     self.firstNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.firstNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.fullNameTextField.font}];
@@ -85,9 +87,9 @@
     self.lastNameTextField.textColor = [UIColor clearColor];
     self.lastNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.lastNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.fullNameTextField.font}];
     
-    self.positionAndOrgTextField.textColor = [UIColor airFiveGray];
-    self.positionAndOrgTextField.font = [UIFont airFiveFontItalicWithSize:13.0];
-    self.positionAndOrgTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionAndOrgTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.positionAndOrgTextField.font}];
+    self.positionAndOrgTextField.textColor = [UIColor whiteColor];
+    self.positionAndOrgTextField.font = [UIFont airFiveFontMediumWithSize:16.0];
+    self.positionAndOrgTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionAndOrgTextField.placeholder attributes:@{NSForegroundColorAttributeName : mainInfoPlaceHolderColor, NSFontAttributeName : self.positionAndOrgTextField.font}];
     
     self.positionTextField.textColor = [UIColor clearColor];
     self.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.positionAndOrgTextField.font}];
@@ -95,21 +97,23 @@
     self.organizationTextField.textColor = [UIColor clearColor];
     self.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.positionAndOrgTextField.font}];
     
+    UIColor *infoPlaceHolderColor = editMode ? [UIColor airFiveLightGray] : [UIColor clearColor];
+    
     self.industryTextField.textColor = [UIColor airFiveBlue];
     self.industryTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
-    self.industryTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.industryTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.industryTextField.font}];
+    self.industryTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.industryTextField.placeholder attributes:@{NSForegroundColorAttributeName : infoPlaceHolderColor, NSFontAttributeName : self.industryTextField.font}];
     
     self.emailTextField.textColor = [UIColor airFiveBlue];
     self.emailTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
-    self.emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.emailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.emailTextField.font}];
+    self.emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.emailTextField.placeholder attributes:@{NSForegroundColorAttributeName : infoPlaceHolderColor, NSFontAttributeName : self.emailTextField.font}];
     
     self.phoneTextField.textColor = [UIColor airFiveBlue];
     self.phoneTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
-    self.phoneTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.phoneTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.phoneTextField.font}];
+    self.phoneTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.phoneTextField.placeholder attributes:@{NSForegroundColorAttributeName : infoPlaceHolderColor, NSFontAttributeName : self.phoneTextField.font}];
     
     self.websiteTextField.textColor = [UIColor airFiveBlue];
     self.websiteTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
-    self.websiteTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.websiteTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.websiteTextField.font}];
+    self.websiteTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.websiteTextField.placeholder attributes:@{NSForegroundColorAttributeName : infoPlaceHolderColor, NSFontAttributeName : self.websiteTextField.font}];
 }
 
 - (void)updatePositionAndOrgTextField

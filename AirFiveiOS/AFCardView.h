@@ -31,5 +31,6 @@
 
 - (void)updatePositionAndOrgTextField;
 - (void)updateFullNameTextField;
+- (void)setUpTextFontsAndColorsWithEditMode:(bool)editMode;
 
 @end

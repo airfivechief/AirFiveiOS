@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet iCarousel *carousel;
 @property (nonatomic, strong) AFCardView *selectedCardView;
 @property (nonatomic, strong) NSArray *cards;
+@property (assign, nonatomic) bool isEditModeOn;
 
 //Share View
 @property (weak, nonatomic) IBOutlet UIView *shareView;
@@ -60,6 +61,7 @@
     [super viewWillAppear:animated];
     [self registerForKeyboardNotifications];
     [self loadCards];
+    self.isEditModeOn = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -116,6 +118,37 @@
     }
 }
 
+#pragma mark - Edit Mode
+
+- (IBAction)editButtonTouched:(UIButton *)sender
+{
+    self.isEditModeOn = !self.isEditModeOn;
+}
+
+- (void)setIsEditModeOn:(bool)isEditModeOn
+{
+    _isEditModeOn = isEditModeOn;
+    if(_isEditModeOn){
+        [self didEnterEditMode];
+    }
+    else{
+        [self didEndEditMode];
+    }
+}
+
+- (void)didEnterEditMode
+{
+    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:YES];
+    self.shareButton.enabled = NO;
+}
+
+- (void)didEndEditMode
+{
+    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:NO];
+    [self.view endEditing:YES];
+    self.shareButton.enabled = YES;
+}
+
 #pragma mark - iCarousel
 
 - (void)configureCarousel
@@ -155,6 +188,7 @@
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
 {
+    self.isEditModeOn = NO;
     self.selectedCardView = (AFCardView *)[carousel itemViewAtIndex:carousel.currentItemIndex];
     [self updateNavigationViewUI];
     [self setCardViewDelegates];
@@ -177,9 +211,10 @@
 
 - (void)setUpTextFontsAndColors
 {
+    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:NO];
     self.recipientEmailTextField.textColor = [UIColor blackColor];
     self.recipientEmailTextField.font = [UIFont airFiveFontMediumWithSize:16.0];
-    self.recipientEmailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.recipientEmailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveRed], NSFontAttributeName : self.recipientEmailTextField.font}];
+    self.recipientEmailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.recipientEmailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFivePink], NSFontAttributeName : self.recipientEmailTextField.font}];
     
     [self.shareButton.titleLabel setFont:[UIFont airFiveFontMediumWithSize:16.0]];
 }
@@ -282,29 +317,29 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     self.selectedTextField = textField;
-    if(textField == self.selectedCardView.positionTextField || textField == self.selectedCardView.organizationTextField){
-        self.selectedCardView.positionTextField.textColor = self.selectedCardView.positionAndOrgTextField.textColor;
-        self.selectedCardView.positionTextField.font = self.selectedCardView.positionAndOrgTextField.font;
-        self.selectedCardView.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
-        
-        self.selectedCardView.organizationTextField.textColor = self.selectedCardView.positionAndOrgTextField.textColor;
-        self.selectedCardView.organizationTextField.font = self.selectedCardView.positionAndOrgTextField.font;
-        self.selectedCardView.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
-        
-        self.selectedCardView.positionAndOrgTextField.textColor = [UIColor clearColor];
-        self.selectedCardView.positionAndOrgTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.positionAndOrgTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
-    }
-    else if(textField == self.selectedCardView.firstNameTextField || textField == self.selectedCardView.lastNameTextField){
+    if(textField == self.selectedCardView.firstNameTextField || textField == self.selectedCardView.lastNameTextField){
         self.selectedCardView.firstNameTextField.textColor = self.selectedCardView.fullNameTextField.textColor;
         self.selectedCardView.firstNameTextField.font = self.selectedCardView.fullNameTextField.font;
-        self.selectedCardView.firstNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.firstNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
+        self.selectedCardView.firstNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.firstNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
         
         self.selectedCardView.lastNameTextField.textColor = self.selectedCardView.fullNameTextField.textColor;
         self.selectedCardView.lastNameTextField.font = self.selectedCardView.fullNameTextField.font;
-        self.selectedCardView.lastNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.lastNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
+        self.selectedCardView.lastNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.lastNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
         
         self.selectedCardView.fullNameTextField.textColor = [UIColor clearColor];
         self.selectedCardView.fullNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.fullNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
+    }
+    else if(textField == self.selectedCardView.positionTextField || textField == self.selectedCardView.organizationTextField){
+        self.selectedCardView.positionTextField.textColor = self.selectedCardView.positionAndOrgTextField.textColor;
+        self.selectedCardView.positionTextField.font = self.selectedCardView.positionAndOrgTextField.font;
+        self.selectedCardView.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
+        
+        self.selectedCardView.organizationTextField.textColor = self.selectedCardView.positionAndOrgTextField.textColor;
+        self.selectedCardView.organizationTextField.font = self.selectedCardView.positionAndOrgTextField.font;
+        self.selectedCardView.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
+        
+        self.selectedCardView.positionAndOrgTextField.textColor = [UIColor clearColor];
+        self.selectedCardView.positionAndOrgTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.positionAndOrgTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
     }
     else{
         [self setUpTextFontsAndColors];
@@ -314,8 +349,17 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [self setUpTextFontsAndColors];
+    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:NO];
     [self.selectedCardView updateFullNameTextField];
     [self.selectedCardView updatePositionAndOrgTextField];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if(textField != self.recipientEmailTextField && !self.isEditModeOn){
+        return NO;
+    }
+    return YES;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
