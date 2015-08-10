@@ -132,6 +132,17 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7y7-cC-lpA" userLabel="Info View">
                             <rect key="frame" x="8" y="142" width="332" height="395"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Industry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fc-ui-seG" userLabel="Industry Label">
+                                    <rect key="frame" x="8" y="16" width="64" height="37"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Industry" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-z7-m8Z" userLabel="Industry Text Field">
+                                    <rect key="frame" x="8" y="61" width="316" height="37"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhq-me-L4d" userLabel="Divider View Top">
                                     <rect key="frame" x="8" y="106" width="316" height="1"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,9 +187,41 @@
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfm-O2-nZO" userLabel="Social Media View">
                                     <rect key="frame" x="8" y="350" width="316" height="37"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmF-hs-0LI" userLabel="LinkedIn Button">
+                                            <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="VmF-hs-0LI" secondAttribute="height" multiplier="1:1" id="zSH-bj-iC7"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="LinkedInIcon">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v07-gP-Vyc" userLabel="Instagram Button">
+                                            <rect key="frame" x="45" y="0.0" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="v07-gP-Vyc" secondAttribute="height" multiplier="1:1" id="uUJ-HT-ir2"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="InstagramIcon">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="uUJ-HT-ir2"/>
+                                                </mask>
+                                            </variation>
+                                        </button>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="VmF-hs-0LI" secondAttribute="bottom" id="0r7-kT-66U"/>
                                         <constraint firstAttribute="height" constant="77" id="3bB-ME-hcO"/>
+                                        <constraint firstItem="v07-gP-Vyc" firstAttribute="leading" secondItem="VmF-hs-0LI" secondAttribute="trailing" constant="8" id="DW4-dg-DXq"/>
+                                        <constraint firstItem="VmF-hs-0LI" firstAttribute="leading" secondItem="zfm-O2-nZO" secondAttribute="leading" id="EdN-8K-K5j"/>
+                                        <constraint firstItem="v07-gP-Vyc" firstAttribute="top" secondItem="zfm-O2-nZO" secondAttribute="top" id="Jxz-Rj-Hy4"/>
+                                        <constraint firstAttribute="bottom" secondItem="v07-gP-Vyc" secondAttribute="bottom" id="MH5-5g-DQi"/>
+                                        <constraint firstItem="v07-gP-Vyc" firstAttribute="width" secondItem="v07-gP-Vyc" secondAttribute="height" multiplier="1:1" id="PCP-39-JoJ"/>
+                                        <constraint firstItem="VmF-hs-0LI" firstAttribute="top" secondItem="zfm-O2-nZO" secondAttribute="top" id="cek-g3-4Mt"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -186,17 +229,6 @@
                                         </mask>
                                     </variation>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Industry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fc-ui-seG" userLabel="Industry Label">
-                                    <rect key="frame" x="8" y="16" width="64" height="37"/>
-                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Industry" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-z7-m8Z" userLabel="Industry Text Field">
-                                    <rect key="frame" x="8" y="61" width="316" height="37"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
-                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -330,6 +362,8 @@
         </view>
     </objects>
     <resources>
+        <image name="InstagramIcon" width="64" height="64"/>
+        <image name="LinkedInIcon" width="64" height="64"/>
         <image name="profileBanner" width="781" height="318"/>
     </resources>
 </document>
