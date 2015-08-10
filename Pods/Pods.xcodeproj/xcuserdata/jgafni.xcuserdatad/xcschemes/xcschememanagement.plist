@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-OAStackView-OAStackView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-OAStackView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-skpsmtpmessage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9F0FA562D7BDD3B92C05DE90</key>
+		<key>51F8DC8833B71BDF265E4CF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E10496DAA4AD33F0D1A12FDC</key>
+		<key>7E67866B6C500F690029450F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4F20760819BB11BE02F1547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB208DDBF9FDC6059133CBCA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
