@@ -61,7 +61,6 @@
     [super viewWillAppear:animated];
     [self registerForKeyboardNotifications];
     [self loadCards];
-    self.isEditModeOn = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -72,6 +71,7 @@
 
 - (void)resetCarousel
 {
+    self.isEditModeOn = NO;
     [self.carousel scrollToItemAtIndex:0 animated:NO];
     [self carouselCurrentItemIndexDidChange:self.carousel];
     [self setCardViewDelegates];
@@ -188,10 +188,12 @@
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
 {
-    self.isEditModeOn = NO;
     self.selectedCardView = (AFCardView *)[carousel itemViewAtIndex:carousel.currentItemIndex];
+    self.selectedCardView.card = [self.cards objectAtIndex:carousel.currentItemIndex];
     [self updateNavigationViewUI];
     [self setCardViewDelegates];
+    [self updateEmailManager];
+    self.isEditModeOn = ![[AFEmailManager sharedInstance] hasRequiredFields];
 }
 
 #pragma mark - Background View
@@ -211,7 +213,7 @@
 
 - (void)setUpTextFontsAndColors
 {
-    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:NO];
+    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:self.isEditModeOn];
     self.recipientEmailTextField.textColor = [UIColor blackColor];
     self.recipientEmailTextField.font = [UIFont airFiveFontMediumWithSize:16.0];
     self.recipientEmailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.recipientEmailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFivePink], NSFontAttributeName : self.recipientEmailTextField.font}];
@@ -227,6 +229,11 @@
 
 - (IBAction)shareButtonTouched:(UIButton *)sender
 {
+    [[AFEmailManager sharedInstance] sendEmail];
+}
+
+- (void)updateEmailManager
+{
     [AFEmailManager sharedInstance].firstName = self.selectedCardView.card.firstName;
     [AFEmailManager sharedInstance].lastName = self.selectedCardView.card.lastName;
     [AFEmailManager sharedInstance].position = self.selectedCardView.card.position;
@@ -235,8 +242,7 @@
     [AFEmailManager sharedInstance].emailAddress = self.selectedCardView.card.emailAddress;
     [AFEmailManager sharedInstance].phone = self.selectedCardView.card.phone;
     [AFEmailManager sharedInstance].website = self.selectedCardView.card.website;
-    [AFEmailManager sharedInstance].recipientEmailAddress = self.recipientEmailAddress;;
-    [[AFEmailManager sharedInstance] sendEmail];
+    [AFEmailManager sharedInstance].recipientEmailAddress = self.recipientEmailAddress;
 }
 
 #pragma mark - Keyboard
@@ -349,7 +355,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [self setUpTextFontsAndColors];
-    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:NO];
+    //[self.selectedCardView setUpTextFontsAndColorsWithEditMode:NO];
     [self.selectedCardView updateFullNameTextField];
     [self.selectedCardView updatePositionAndOrgTextField];
 }
@@ -406,7 +412,7 @@
     else if(textField == self.recipientEmailTextField){
         self.recipientEmailAddress = text;
     }
-    
+    [self updateEmailManager];
     return YES;
 }
 

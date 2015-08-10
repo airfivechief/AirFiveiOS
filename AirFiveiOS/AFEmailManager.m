@@ -40,13 +40,16 @@
 
 - (void)loadRequiredFields
 {
-    self.requiredFields = @[@"firstName", @"lastName", @"emailAddress", @"recipientEmailAddress"];
+    self.requiredFields = @[@"firstName", @"lastName", @"emailAddress"];
 }
 
 - (void)sendEmail
 {
     if(![self hasRequiredFields]){ //Failure - Does not have all required fields
         NSLog(@"Email does not have all required fields");
+    }
+    else if(!self.recipientEmailAddress||[[self.recipientEmailAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+        NSLog(@"Did not enter Recipient");
     }
     else if(![self emailAddressIsValid:self.emailAddress]){ //Failure - Invalid Contact Email Address
         NSLog(@"Your Email Address Is Invalid");
@@ -89,7 +92,6 @@
     NSLog(@"MESSAGE FAILED TO SEND");
     
 }
-
 
 - (void)formHTMLEmail
 {

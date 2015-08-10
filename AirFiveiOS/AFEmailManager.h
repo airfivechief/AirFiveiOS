@@ -10,18 +10,19 @@
 
 @interface AFEmailManager : NSObject
 
-@property (strong, nonatomic) NSString *firstName;
-@property (strong, nonatomic) NSString *lastName;
-@property (strong, nonatomic) NSString *position;
-@property (strong, nonatomic) NSString *organization;
-@property (strong, nonatomic) NSString *industry;
-@property (strong, nonatomic) NSString *emailAddress;
-@property (strong, nonatomic) NSString *phone;
-@property (strong, nonatomic) NSString *website;
-@property (strong, nonatomic) NSString *recipientEmailAddress;
+@property (copy, nonatomic) NSString *firstName;
+@property (copy, nonatomic) NSString *lastName;
+@property (copy, nonatomic) NSString *position;
+@property (copy, nonatomic) NSString *organization;
+@property (copy, nonatomic) NSString *industry;
+@property (copy, nonatomic) NSString *emailAddress;
+@property (copy, nonatomic) NSString *phone;
+@property (copy, nonatomic) NSString *website;
+@property (copy, nonatomic) NSString *recipientEmailAddress;
 
 + (instancetype)sharedInstance;
 
+- (bool)hasRequiredFields;
 - (void)sendEmail; //Later, add completion block with success and failure
 
 @end

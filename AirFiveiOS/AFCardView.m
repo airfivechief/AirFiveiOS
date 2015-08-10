@@ -15,22 +15,17 @@
 
 #pragma mark - Card View
 
--(id)awakeAfterUsingCoder:(NSCoder *)aDecoder
+- (void)didMoveToSuperview
 {
-   self = [super awakeAfterUsingCoder:aDecoder];
-    if(self){
-        //[self setNeedsUpdateConstraints];
-    }
-    return self;
+    [super didMoveToSuperview];
+    [self setUpTextFontsAndColorsWithEditMode:YES];
 }
-
 
 - (void)setCard:(AFCard *)card
 {
     _card = card;
     [self loadCard];
     [self setUpCardView];
-    [self setUpTextFontsAndColorsWithEditMode:NO];
 }
 
 - (void)loadCard
