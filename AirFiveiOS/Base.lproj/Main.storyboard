@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -205,6 +206,12 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRt-vk-UUy" userLabel="Edit Button">
+                                <rect key="frame" x="514" y="470" width="70" height="77"/>
+                                <state key="normal" image="editButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -223,6 +230,8 @@
                             <constraint firstAttribute="trailing" secondItem="p5T-ka-WS1" secondAttribute="trailing" id="ex4-jm-Ngq"/>
                             <constraint firstAttribute="centerX" secondItem="OiY-MX-JSa" secondAttribute="centerX" id="fUT-xs-cKH"/>
                             <constraint firstItem="p5T-ka-WS1" firstAttribute="bottom" secondItem="d29-yl-JpQ" secondAttribute="top" id="jLf-aK-jQh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lRt-vk-UUy" secondAttribute="trailing" id="k5Z-qS-uEY"/>
+                            <constraint firstItem="lRt-vk-UUy" firstAttribute="bottom" secondItem="d29-yl-JpQ" secondAttribute="bottom" constant="38" id="ksF-B8-ddu"/>
                             <constraint firstItem="MPI-ue-4iC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="mOk-EX-YIP"/>
                             <constraint firstAttribute="trailing" secondItem="MPI-ue-4iC" secondAttribute="trailing" id="pBE-Rg-SKE"/>
                             <constraint firstItem="0MQ-8T-Ox3" firstAttribute="top" secondItem="d29-yl-JpQ" secondAttribute="bottom" constant="60" id="pXP-po-hYA"/>
@@ -265,6 +274,7 @@
     </scenes>
     <resources>
         <image name="divider" width="781" height="33"/>
+        <image name="editButton" width="70" height="77"/>
         <image name="logo_full_color" width="143" height="25"/>
     </resources>
 </document>
