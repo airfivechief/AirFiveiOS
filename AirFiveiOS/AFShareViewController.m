@@ -10,24 +10,29 @@
 #import "AFEmailManager.h"
 #import "UIColor+AirFive.h"
 #import "UIFont+AirFive.h"
+#import "UIUnderlinedButton.h"
 #import "iCarousel.h"
 #import "AFCardView.h"
 #import "AFCard.h"
 
 @interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate, UITextFieldDelegate>
 
+//Navigation View
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *navigationButtons;
+
+//Card View
 @property (weak, nonatomic) IBOutlet iCarousel *carousel;
+@property (nonatomic, strong) AFCardView *selectedCardView;
+@property (nonatomic, strong) NSArray *cards;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
-
+//Share View
 @property (weak, nonatomic) IBOutlet UIView *shareView;
 @property (weak, nonatomic) IBOutlet UITextField *recipientEmailTextField;
 @property (strong, nonatomic) NSString *recipientEmailAddress;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
-@property (nonatomic, strong) NSArray *cards;
-
-@property (nonatomic, strong) AFCardView *selectedCardView;
+//Keyboard
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
 @property (weak, nonatomic) UITextField *selectedTextField;
 
 @end
@@ -94,6 +99,21 @@
     [self.carousel scrollToItemAtIndex:sender.tag animated:YES];
 }
 
+- (void)updateNavigationViewUI
+{
+    NSInteger currentItemIndex = self.carousel.currentItemIndex;
+    for(UIUnderlinedButton *button in self.navigationButtons){
+        if(button.tag == currentItemIndex){
+            button.selected = YES;
+            button.underline = YES;
+        }
+        else{
+            button.selected = NO;
+            button.underline = NO;
+        }
+    }
+}
+
 #pragma mark - iCarousel
 
 - (void)configureCarousel
@@ -130,6 +150,7 @@
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
 {
     self.selectedCardView = (AFCardView *)[carousel itemViewAtIndex:carousel.currentItemIndex];
+    [self updateNavigationViewUI];
     [self setCardViewDelegates];
 }
 

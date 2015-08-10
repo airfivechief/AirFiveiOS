@@ -5,6 +5,13 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Share View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -19,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_full_color" translatesAutoresizingMaskIntoConstraints="NO" id="OiY-MX-JSa">
-                                <rect key="frame" x="200" y="28" width="200" height="35"/>
+                                <rect key="frame" x="225" y="40" width="150" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="MXE-j2-0Yu"/>
                                     <constraint firstAttribute="width" constant="426" id="fIi-rm-j3M"/>
@@ -33,30 +40,48 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5T-ka-WS1" userLabel="Navigation View">
-                                <rect key="frame" x="0.0" y="63" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="66" width="600" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Scq-Q8-vcB">
-                                        <rect key="frame" x="200" y="35" width="200" height="30"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Scq-Q8-vcB" customClass="UIUnderlinedButton">
+                                        <rect key="frame" x="188" y="23" width="225" height="34"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="PROFESSIONAL">
+                                            <color key="titleColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.43529411759999997" green="0.78823529410000004" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="navigationButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ghJ-hM-0Zm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NW-mh-Pws">
-                                        <rect key="frame" x="400" y="35" width="200" height="30"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NW-mh-Pws" customClass="UIUnderlinedButton">
+                                        <rect key="frame" x="413" y="23" width="187" height="34"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="CUSTOM">
+                                            <color key="titleColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.43529411759999997" green="0.78823529410000004" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="navigationButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7DE-Hn-He5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bak-FI-fkL">
-                                        <rect key="frame" x="0.0" y="35" width="200" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bak-FI-fkL" customClass="UIUnderlinedButton">
+                                        <rect key="frame" x="0.0" y="23" width="188" height="34"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="PERSONAL">
+                                            <color key="titleColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.43529411764705883" green="0.78823529411764703" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="navigationButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BjR-YM-qvy"/>
@@ -75,7 +100,7 @@
                                     <constraint firstItem="bak-FI-fkL" firstAttribute="width" secondItem="Scq-Q8-vcB" secondAttribute="width" id="gZo-YV-CHg"/>
                                     <constraint firstItem="Scq-Q8-vcB" firstAttribute="width" secondItem="0NW-mh-Pws" secondAttribute="width" id="p3z-A1-2o2"/>
                                     <constraint firstAttribute="centerX" secondItem="Scq-Q8-vcB" secondAttribute="centerX" id="qB2-VN-Y97"/>
-                                    <constraint firstAttribute="height" constant="100" id="s6X-OD-Cpg"/>
+                                    <constraint firstAttribute="height" constant="80" id="s6X-OD-Cpg"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -86,13 +111,13 @@
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider" translatesAutoresizingMaskIntoConstraints="NO" id="MPI-ue-4iC" userLabel="Divider View">
-                                <rect key="frame" x="0.0" y="163" width="600" height="20"/>
+                                <rect key="frame" x="0.0" y="146" width="600" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="yiX-jP-AU6"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d29-yl-JpQ" userLabel="iCarousel" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="174" width="600" height="342"/>
+                                <rect key="frame" x="0.0" y="157" width="600" height="359"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d29-yl-JpQ" secondAttribute="height" multiplier="3.5:2" id="9nK-qa-7Z3"/>
@@ -161,7 +186,7 @@
                         <constraints>
                             <constraint firstItem="p5T-ka-WS1" firstAttribute="top" secondItem="OiY-MX-JSa" secondAttribute="bottom" id="37V-bJ-OMN"/>
                             <constraint firstItem="OiY-MX-JSa" firstAttribute="leading" secondItem="p5T-ka-WS1" secondAttribute="leading" constant="50" id="Bqi-YZ-rPV"/>
-                            <constraint firstItem="Scq-Q8-vcB" firstAttribute="width" secondItem="OiY-MX-JSa" secondAttribute="width" id="Czd-DR-CpJ"/>
+                            <constraint firstItem="Scq-Q8-vcB" firstAttribute="width" secondItem="OiY-MX-JSa" secondAttribute="width" multiplier="1.5" id="Czd-DR-CpJ"/>
                             <constraint firstItem="p5T-ka-WS1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Dyd-9Y-4OX"/>
                             <constraint firstItem="0MQ-8T-Ox3" firstAttribute="top" secondItem="d29-yl-JpQ" secondAttribute="bottom" constant="8" id="JlL-6o-5NG"/>
                             <constraint firstAttribute="trailing" secondItem="d29-yl-JpQ" secondAttribute="trailing" id="WKE-gF-baL"/>
@@ -176,10 +201,10 @@
                             <constraint firstItem="MPI-ue-4iC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="mOk-EX-YIP"/>
                             <constraint firstAttribute="trailing" secondItem="MPI-ue-4iC" secondAttribute="trailing" id="pBE-Rg-SKE"/>
                             <constraint firstItem="0MQ-8T-Ox3" firstAttribute="top" secondItem="d29-yl-JpQ" secondAttribute="bottom" constant="60" id="pXP-po-hYA"/>
-                            <constraint firstItem="OiY-MX-JSa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="qFS-XE-Nxd"/>
+                            <constraint firstItem="OiY-MX-JSa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="qFS-XE-Nxd"/>
                             <constraint firstItem="d29-yl-JpQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="u3j-iT-AUH"/>
                             <constraint firstItem="d29-yl-JpQ" firstAttribute="top" secondItem="MPI-ue-4iC" secondAttribute="bottom" constant="-9" id="vLz-Oe-Ngk"/>
-                            <constraint firstAttribute="width" secondItem="OiY-MX-JSa" secondAttribute="width" multiplier="3" id="zar-Mw-hZp"/>
+                            <constraint firstAttribute="width" secondItem="OiY-MX-JSa" secondAttribute="width" multiplier="4" id="zar-Mw-hZp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -198,6 +223,9 @@
                         <outlet property="recipientEmailTextField" destination="5Kc-tN-w3X" id="ApL-xw-5vc"/>
                         <outlet property="shareButton" destination="Pn1-W2-lcG" id="5vN-Gv-ilF"/>
                         <outlet property="shareView" destination="0MQ-8T-Ox3" id="U6T-Fm-V8a"/>
+                        <outletCollection property="navigationButtons" destination="bak-FI-fkL" id="qrE-OO-76x"/>
+                        <outletCollection property="navigationButtons" destination="Scq-Q8-vcB" id="ZkS-hf-5oV"/>
+                        <outletCollection property="navigationButtons" destination="0NW-mh-Pws" id="ahh-5b-uaN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

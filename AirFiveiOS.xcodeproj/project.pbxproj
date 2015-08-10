@@ -49,6 +49,7 @@
 		8B5EC8541B6F6D6D0054C9ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5EC8531B6F6D6D0054C9ED /* CoreGraphics.framework */; };
 		8B5EC85C1B6F6DC40054C9ED /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EC85B1B6F6DC40054C9ED /* iCarousel.m */; };
 		8B5EC8601B6F70B30054C9ED /* AFCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EC85F1B6F70B30054C9ED /* AFCard.m */; };
+		8B7B1ED71B7884D70014917E /* UIUnderlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B1ED61B7884D70014917E /* UIUnderlinedButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		8B5EC85B1B6F6DC40054C9ED /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		8B5EC85E1B6F70B30054C9ED /* AFCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCard.h; sourceTree = "<group>"; };
 		8B5EC85F1B6F70B30054C9ED /* AFCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFCard.m; sourceTree = "<group>"; };
+		8B7B1ED51B7884D70014917E /* UIUnderlinedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUnderlinedButton.h; sourceTree = "<group>"; };
+		8B7B1ED61B7884D70014917E /* UIUnderlinedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUnderlinedButton.m; sourceTree = "<group>"; };
 		F3446B775C9EA510F4749F88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +271,8 @@
 				8B2D1A011B6C59CB00C62B49 /* UIColor+AirFive.m */,
 				8B2D1A031B6D6ECC00C62B49 /* UIFont+AirFive.h */,
 				8B2D1A041B6D6ECC00C62B49 /* UIFont+AirFive.m */,
+				8B7B1ED51B7884D70014917E /* UIUnderlinedButton.h */,
+				8B7B1ED61B7884D70014917E /* UIUnderlinedButton.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				8B5EC85C1B6F6DC40054C9ED /* iCarousel.m in Sources */,
 				5F832DE71B6C02E100D9AD2E /* main.m in Sources */,
 				8B2D1A051B6D6ECC00C62B49 /* UIFont+AirFive.m in Sources */,
+				8B7B1ED71B7884D70014917E /* UIUnderlinedButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
