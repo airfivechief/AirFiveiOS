@@ -125,12 +125,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7y7-cC-lpA" userLabel="Info View">
                             <rect key="frame" x="8" y="142" width="332" height="395"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Industry" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-z7-m8Z" userLabel="Industry Text Field">
-                                    <rect key="frame" x="8" y="8" width="316" height="66"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
-                                </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhq-me-L4d" userLabel="Divider View Top">
                                     <rect key="frame" x="8" y="82" width="316" height="1"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -175,6 +169,12 @@
                                         </mask>
                                     </variation>
                                 </view>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Industry" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-z7-m8Z" userLabel="Industry Text Field">
+                                    <rect key="frame" x="8" y="8" width="316" height="66"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>

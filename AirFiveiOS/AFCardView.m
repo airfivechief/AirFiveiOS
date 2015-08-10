@@ -10,7 +10,6 @@
 #import "UIColor+AirFive.h"
 #import "UIFont+AirFive.h"
 #import "AFCard.h"
-#import "OAStackView.h"
 
 @interface AFCardView()
 

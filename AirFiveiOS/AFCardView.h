@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class AFCard, OAStackView;
+@class AFCard;
 
 @interface AFCardView : UIView
 
@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *positionAndOrgTextField;
 @property (weak, nonatomic) IBOutlet UITextField *positionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *organizationTextField;
-@property (weak, nonatomic) IBOutlet OAStackView *infoView;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UILabel *industryLabel;
 @property (weak, nonatomic) IBOutlet UITextField *industryTextField;
 @property (weak, nonatomic) IBOutlet UIView *industryDividerContainerView;
