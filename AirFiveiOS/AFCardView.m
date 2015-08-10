@@ -44,6 +44,11 @@
 
 - (void)setUpCardView
 {
+    self.cardView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.cardView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.cardView.layer.shadowOpacity = 0.20;
+    self.cardView.layer.shadowRadius = 3.0;
+    self.cardView.layer.masksToBounds = NO;
     [self setUpCardImageView];
     [self setUpInfoView];
 }
@@ -109,6 +114,15 @@
     self.websiteTextField.textColor = [UIColor airFiveBlue];
     self.websiteTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
     self.websiteTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.websiteTextField.placeholder attributes:@{NSForegroundColorAttributeName : infoPlaceHolderColor, NSFontAttributeName : self.websiteTextField.font}];
+    
+    self.firstNameTextField.userInteractionEnabled = editMode;
+    self.lastNameTextField.userInteractionEnabled = editMode;
+    self.positionTextField.userInteractionEnabled = editMode;
+    self.organizationTextField.userInteractionEnabled = editMode;
+    self.industryTextField.userInteractionEnabled = editMode;
+    self.emailTextField.userInteractionEnabled = editMode;
+    self.phoneTextField.userInteractionEnabled = editMode;
+    self.websiteTextField.userInteractionEnabled = editMode;
 }
 
 - (void)updatePositionAndOrgTextField

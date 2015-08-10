@@ -154,18 +154,14 @@
 - (void)configureCarousel
 {
     //configure carousel
-    self.carousel.type = iCarouselTypeLinear;
+    self.carousel.type = iCarouselTypeCustom;
     self.carousel.centerItemWhenSelected = YES;
     self.carousel.stopAtItemBoundary = YES;
     self.carousel.bounces = NO;
     self.carousel.pagingEnabled = YES;
-    self.carousel.scrollSpeed = 0.01;
+    self.carousel.scrollSpeed = 0.03;
     
-    self.carousel.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.carousel.layer.shadowOffset = CGSizeMake(0, 0);
-    self.carousel.layer.shadowOpacity = 0.20;
-    self.carousel.layer.shadowRadius = 3.0;
-    self.carousel.layer.masksToBounds = NO;
+    self.carousel.backgroundColor = [UIColor airFiveWhite];
 }
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
@@ -194,6 +190,23 @@
     [self setCardViewDelegates];
     [self updateEmailManager];
     self.isEditModeOn = ![[AFEmailManager sharedInstance] hasRequiredFields];
+}
+
+-(CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
+{
+    //Linear
+    //CGFloat spacing = 1.1f;
+    //return CATransform3DTranslate(transform, offset * carousel.bounds.size.width * spacing, 0.0, 0.0);
+    
+    //Rotary
+    CGFloat count = 3;
+    CGFloat spacing = 1.8f;
+    CGFloat arc = M_PI * 0.3; //Change to reduce increase angle of views coming in an out
+    CGFloat radius = MAX(carousel.bounds.size.width * spacing / 2.0, carousel.bounds.size.width * spacing / 2.0 / tanf(arc/2.0/count));
+    CGFloat angle = offset / count * arc;
+    
+    return CATransform3DTranslate(transform, radius * sin(angle), radius * cos(angle) - radius,1.0 );
+
 }
 
 #pragma mark - Background View
