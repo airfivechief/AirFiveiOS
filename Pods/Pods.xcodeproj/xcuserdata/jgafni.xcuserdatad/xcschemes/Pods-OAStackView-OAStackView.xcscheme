@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4F20760819BB11BE02F1547"
-               BuildableName = "libPods-skpsmtpmessage.a"
-               BlueprintName = "Pods-skpsmtpmessage"
+               BlueprintIdentifier = "51F8DC8833B71BDF265E4CF3"
+               BuildableName = "OAStackView.bundle"
+               BlueprintName = "Pods-OAStackView-OAStackView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

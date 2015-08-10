@@ -10,6 +10,7 @@
 #import "UIColor+AirFive.h"
 #import "UIFont+AirFive.h"
 #import "AFCard.h"
+#import "OAStackView.h"
 
 @implementation AFCardView
 
@@ -50,7 +51,7 @@
     self.cardView.layer.shadowRadius = 3.0;
     self.cardView.layer.masksToBounds = NO;
     [self setUpCardImageView];
-    [self setUpInfoView];
+    [self setUpInfoViewWithEditMode:NO];
 }
 
 - (void)setUpCardImageView
@@ -61,9 +62,40 @@
     [self.cardImageView.layer setBorderWidth: 5.0];
 }
 
-- (void)setUpInfoView
+- (void)setUpInfoViewWithEditMode:(bool)editMode;
 {
     [self setUpDividers];
+    self.infoView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    if(editMode){
+        self.industryLabel.hidden = NO;
+        self.industryTextField.hidden = NO;
+        self.industryDividerContainerView.hidden = NO;
+        self.contactInfoLabel.hidden = NO;
+        self.emailTextField.hidden = NO;
+        self.phoneTextField.hidden = NO;
+        self.websiteTextField.hidden = NO;
+        self.socialMediaDividerContainerView.hidden = NO;
+    }
+    else{
+        if(!self.industryTextField.text || [[self.industryTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+            self.industryLabel.hidden = YES;
+            self.industryTextField.hidden = YES;
+            self.industryDividerContainerView.hidden = YES;
+        }
+        if(!self.emailTextField.text || [[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+            self.emailTextField.hidden = YES;
+        }
+        if(!self.phoneTextField.text || [[self.phoneTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+            self.phoneTextField.hidden = YES;
+        }
+        if(!self.websiteTextField.text || [[self.websiteTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+            self.websiteTextField.hidden = YES;
+        }
+        if(self.emailTextField.hidden && self.phoneTextField.hidden && self.websiteTextField.hidden){
+            self.contactInfoLabel.hidden = YES;
+        }
+    }
 }
 
 - (void)setUpDividers
@@ -123,6 +155,8 @@
     self.emailTextField.userInteractionEnabled = editMode;
     self.phoneTextField.userInteractionEnabled = editMode;
     self.websiteTextField.userInteractionEnabled = editMode;
+    
+    [self setUpInfoViewWithEditMode:editMode];
 }
 
 - (void)updatePositionAndOrgTextField
