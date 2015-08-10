@@ -68,7 +68,9 @@
 
 - (void)setUpDividers
 {
-    self.dividerViewTop.backgroundColor = [UIColor airFiveLightGray];
+    for (UIView *divider in self.dividers){
+        divider.backgroundColor = [UIColor airFiveLightGray];
+    }
 }
 
 - (void)setUpTextFontsAndColors

@@ -14,10 +14,6 @@
 
 @property (strong, nonatomic) AFCard *card;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cardViewWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cardViewHeightConstraint;
-
-
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UIImageView *cardImageView;
 @property (weak, nonatomic) IBOutlet UITextField *fullNameTextField;
@@ -28,10 +24,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *organizationTextField;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UITextField *industryTextField;
-@property (weak, nonatomic) IBOutlet UIView *dividerViewTop;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *dividers;
 
 - (void)updatePositionAndOrgTextField;
 - (void)updateFullNameTextField;

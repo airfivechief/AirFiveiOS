@@ -33,6 +33,7 @@
 
 //Keyboard
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoVerticalConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shareViewBottomConstraint;
 @property (weak, nonatomic) UITextField *selectedTextField;
 
 @end
@@ -96,6 +97,7 @@
 
 - (IBAction)navigationButtonTouched:(UIButton *)sender
 {
+    [self.view endEditing:YES];
     [self.carousel scrollToItemAtIndex:sender.tag animated:YES];
 }
 
@@ -125,6 +127,12 @@
     self.carousel.bounces = NO;
     self.carousel.pagingEnabled = YES;
     self.carousel.scrollSpeed = 0.01;
+    
+    self.carousel.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.carousel.layer.shadowOffset = CGSizeMake(0, 0);
+    self.carousel.layer.shadowOpacity = 0.20;
+    self.carousel.layer.shadowRadius = 3.0;
+    self.carousel.layer.masksToBounds = NO;
 }
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
@@ -139,8 +147,6 @@
     if (cardView == nil){
         cardView = [[[NSBundle mainBundle] loadNibNamed:@"AFCardView" owner:self options:nil] lastObject];
         [cardView setFrame:self.carousel.bounds];
-        cardView.cardViewWidthConstraint.constant = self.view.frame.size.width;
-        cardView.cardViewHeightConstraint.constant = carousel.bounds.size.height;
     }
 
     cardView.card = [self.cards objectAtIndex:index];
@@ -173,7 +179,7 @@
 {
     self.recipientEmailTextField.textColor = [UIColor blackColor];
     self.recipientEmailTextField.font = [UIFont airFiveFontMediumWithSize:16.0];
-    self.recipientEmailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.recipientEmailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveLightGray], NSFontAttributeName : self.recipientEmailTextField.font}];
+    self.recipientEmailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.recipientEmailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFiveRed], NSFontAttributeName : self.recipientEmailTextField.font}];
     
     [self.shareButton.titleLabel setFont:[UIFont airFiveFontMediumWithSize:16.0]];
 }
@@ -202,15 +208,21 @@
 
 - (void)keyboardWillShow:(NSNotification *)notification
 {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:[notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
-    [UIView setAnimationCurve:[notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    //CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    //int keyboardHeight = MIN(keyboardSize.height,keyboardSize.width);
-    self.logoVerticalConstraint.constant = 0;
-    [self.view layoutIfNeeded];
-    [UIView commitAnimations];
+    if(self.selectedTextField == self.selectedCardView.emailTextField ||
+       self.selectedTextField == self.selectedCardView.phoneTextField ||
+       self.selectedTextField == self.selectedCardView.websiteTextField ||
+       self.selectedTextField == self.recipientEmailTextField ){
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:[notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
+        [UIView setAnimationCurve:[notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+        int keyboardHeight = MIN(keyboardSize.height,keyboardSize.width);
+        self.logoVerticalConstraint.constant = -keyboardHeight;
+        self.shareViewBottomConstraint.constant = -keyboardHeight;
+        [self.view layoutIfNeeded];
+        [UIView commitAnimations];
+    }
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification
@@ -219,7 +231,8 @@
     [UIView setAnimationDuration:[notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
     [UIView setAnimationCurve:[notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    self.logoVerticalConstraint.constant = 40;
+    self.logoVerticalConstraint.constant = 20;
+    self.shareViewBottomConstraint.constant = 0;
     [self.view layoutIfNeeded];
     [UIView commitAnimations];
 }
@@ -268,6 +281,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    self.selectedTextField = textField;
     if(textField == self.selectedCardView.positionTextField || textField == self.selectedCardView.organizationTextField){
         self.selectedCardView.positionTextField.textColor = self.selectedCardView.positionAndOrgTextField.textColor;
         self.selectedCardView.positionTextField.font = self.selectedCardView.positionAndOrgTextField.font;
@@ -349,6 +363,12 @@
         self.recipientEmailAddress = text;
     }
     
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
     return YES;
 }
 

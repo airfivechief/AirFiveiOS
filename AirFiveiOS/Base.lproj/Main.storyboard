@@ -6,6 +6,9 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -117,7 +120,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d29-yl-JpQ" userLabel="iCarousel" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="157" width="600" height="359"/>
+                                <rect key="frame" x="0.0" y="157" width="600" height="352"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d29-yl-JpQ" secondAttribute="height" multiplier="3.5:2" id="9nK-qa-7Z3"/>
@@ -135,10 +138,28 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0MQ-8T-Ox3" userLabel="Share View">
-                                <rect key="frame" x="0.0" y="524" width="600" height="76"/>
+                                <rect key="frame" x="0.0" y="512" width="600" height="88"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipient" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzz-YZ-BYN">
+                                        <rect key="frame" x="20" y="8" width="68" height="22"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-tN-w3X">
+                                        <rect key="frame" x="20" y="38" width="459" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Ayt-6U-5T7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="IT4-wE-fQB"/>
+                                        </connections>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-W2-lcG" userLabel="Share Button">
-                                        <rect key="frame" x="254" y="36" width="93" height="32"/>
+                                        <rect key="frame" x="487" y="38" width="93" height="30"/>
                                         <color key="backgroundColor" red="0.75686274509999996" green="0.15686274510000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="93" id="IeN-Bn-7Qk"/>
@@ -152,30 +173,34 @@
                                             <action selector="shareButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dgn-R1-gez"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Recipient*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-tN-w3X">
-                                        <rect key="frame" x="8" y="8" width="584" height="20"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="nA3-e0-8MH"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Tzz-YZ-BYN" firstAttribute="top" secondItem="0MQ-8T-Ox3" secondAttribute="top" constant="8" id="0aH-fo-cvj"/>
                                     <constraint firstItem="Pn1-W2-lcG" firstAttribute="top" secondItem="5Kc-tN-w3X" secondAttribute="bottom" constant="8" id="8CL-jF-4sx"/>
+                                    <constraint firstItem="Tzz-YZ-BYN" firstAttribute="leading" secondItem="0MQ-8T-Ox3" secondAttribute="leading" constant="20" symbolic="YES" id="NN6-MK-5Rb"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Kc-tN-w3X" secondAttribute="bottom" constant="20" symbolic="YES" id="OAR-eG-dIZ"/>
                                     <constraint firstAttribute="trailing" secondItem="Pn1-W2-lcG" secondAttribute="trailing" constant="8" id="OPV-dx-00W"/>
-                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="leading" secondItem="0MQ-8T-Ox3" secondAttribute="leading" constant="8" id="TFp-3R-nZn"/>
+                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="leading" secondItem="0MQ-8T-Ox3" secondAttribute="leading" constant="20" symbolic="YES" id="TFp-3R-nZn"/>
                                     <constraint firstAttribute="centerX" secondItem="Pn1-W2-lcG" secondAttribute="centerX" id="Tes-p2-l7T"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pn1-W2-lcG" secondAttribute="trailing" constant="20" symbolic="YES" id="TfE-mO-hzp"/>
+                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="top" secondItem="Pn1-W2-lcG" secondAttribute="top" id="a1p-Jh-TWI"/>
                                     <constraint firstAttribute="trailing" secondItem="5Kc-tN-w3X" secondAttribute="trailing" constant="8" id="bnX-nT-hUU"/>
                                     <constraint firstAttribute="bottom" secondItem="Pn1-W2-lcG" secondAttribute="bottom" constant="8" id="cOf-zc-keF"/>
-                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="top" secondItem="0MQ-8T-Ox3" secondAttribute="top" constant="8" id="iAb-QO-cJ4"/>
+                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="top" secondItem="0MQ-8T-Ox3" secondAttribute="top" id="iAb-QO-cJ4"/>
+                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="bottom" secondItem="Pn1-W2-lcG" secondAttribute="bottom" id="qTc-oa-Rq0"/>
                                     <constraint firstItem="Pn1-W2-lcG" firstAttribute="leading" secondItem="0MQ-8T-Ox3" secondAttribute="leading" constant="8" id="ud5-ey-GEq"/>
+                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="top" secondItem="Tzz-YZ-BYN" secondAttribute="bottom" constant="8" symbolic="YES" id="wiJ-v7-apW"/>
+                                    <constraint firstItem="Pn1-W2-lcG" firstAttribute="leading" secondItem="5Kc-tN-w3X" secondAttribute="trailing" constant="8" symbolic="YES" id="z5l-nz-hnR"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="bnX-nT-hUU"/>
+                                        <exclude reference="iAb-QO-cJ4"/>
+                                        <exclude reference="8CL-jF-4sx"/>
                                         <exclude reference="OPV-dx-00W"/>
+                                        <exclude reference="Tes-p2-l7T"/>
+                                        <exclude reference="cOf-zc-keF"/>
                                         <exclude reference="ud5-ey-GEq"/>
                                     </mask>
                                 </variation>
@@ -188,7 +213,7 @@
                             <constraint firstItem="OiY-MX-JSa" firstAttribute="leading" secondItem="p5T-ka-WS1" secondAttribute="leading" constant="50" id="Bqi-YZ-rPV"/>
                             <constraint firstItem="Scq-Q8-vcB" firstAttribute="width" secondItem="OiY-MX-JSa" secondAttribute="width" multiplier="1.5" id="Czd-DR-CpJ"/>
                             <constraint firstItem="p5T-ka-WS1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Dyd-9Y-4OX"/>
-                            <constraint firstItem="0MQ-8T-Ox3" firstAttribute="top" secondItem="d29-yl-JpQ" secondAttribute="bottom" constant="8" id="JlL-6o-5NG"/>
+                            <constraint firstItem="0MQ-8T-Ox3" firstAttribute="top" secondItem="d29-yl-JpQ" secondAttribute="bottom" constant="3" id="JlL-6o-5NG"/>
                             <constraint firstAttribute="trailing" secondItem="d29-yl-JpQ" secondAttribute="trailing" id="WKE-gF-baL"/>
                             <constraint firstItem="0MQ-8T-Ox3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="YMS-5S-fz9"/>
                             <constraint firstItem="MPI-ue-4iC" firstAttribute="top" secondItem="p5T-ka-WS1" secondAttribute="bottom" id="a53-2q-bNS"/>
@@ -223,6 +248,7 @@
                         <outlet property="recipientEmailTextField" destination="5Kc-tN-w3X" id="ApL-xw-5vc"/>
                         <outlet property="shareButton" destination="Pn1-W2-lcG" id="5vN-Gv-ilF"/>
                         <outlet property="shareView" destination="0MQ-8T-Ox3" id="U6T-Fm-V8a"/>
+                        <outlet property="shareViewBottomConstraint" destination="ckK-lm-qha" id="dRV-ij-yJP"/>
                         <outletCollection property="navigationButtons" destination="bak-FI-fkL" id="qrE-OO-76x"/>
                         <outletCollection property="navigationButtons" destination="Scq-Q8-vcB" id="ZkS-hf-5oV"/>
                         <outletCollection property="navigationButtons" destination="0NW-mh-Pws" id="ahh-5b-uaN"/>
