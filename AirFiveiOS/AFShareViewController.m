@@ -81,7 +81,7 @@
 - (void)configureCarousel
 {
     //configure carousel
-    self.carousel.type = iCarouselTypeCoverFlow;
+    self.carousel.type = iCarouselTypeLinear;
     self.carousel.centerItemWhenSelected = YES;
     self.carousel.stopAtItemBoundary = YES;
     self.carousel.bounces = NO;
@@ -100,15 +100,12 @@
     AFCardView *cardView = (AFCardView *)view;
     if (cardView == nil){
         cardView = [[[NSBundle mainBundle] loadNibNamed:@"AFCardView" owner:self options:nil] lastObject];
-        cardView.cardViewWidthConstraint.constant = carousel.bounds.size.width;
+        [cardView setFrame:self.carousel.bounds];
+        cardView.cardViewWidthConstraint.constant = self.view.frame.size.width;
         cardView.cardViewHeightConstraint.constant = carousel.bounds.size.height;
     }
 
     cardView.card = [self.cards objectAtIndex:index];
-    
-    NSLog(@"%@", NSStringFromCGRect(carousel.bounds));
-    
-    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
     return cardView;
 }
 
@@ -122,18 +119,14 @@
 
 - (void)setUpBackground
 {
-    self.view.backgroundColor = [UIColor airFiveBlue];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - Share View
 
 - (void)setUpShareView
 {
-    self.shareView.layer.cornerRadius = 7.0;
-    self.shareView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.shareView.layer.shadowOffset = CGSizeMake(0, 0);
-    self.shareView.layer.shadowOpacity = 0.20;
-    self.shareView.layer.shadowRadius = 3.0;
+    self.shareView.backgroundColor = [UIColor airFiveWhite];
     [self setUpShareButton];
 }
 
@@ -149,7 +142,7 @@
 - (void)setUpShareButton
 {
     self.shareButton.layer.cornerRadius = 0.0;
-    self.shareButton.backgroundColor = [UIColor airFiveRed];
+    self.shareButton.backgroundColor = [UIColor airFiveGreen];
 }
 
 - (IBAction)shareButtonTouched:(UIButton *)sender
@@ -353,6 +346,11 @@
                                                                   options:NSRegularExpressionSearch
                                                                     range:NSMakeRange(0, [simpleNumber length])];
     return simpleNumber;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 

@@ -17,5 +17,6 @@
 + (UIColor *)airFiveGray;
 + (UIColor *)airFiveLightGray;
 + (UIColor *)airFiveYellow;
++ (UIColor *)airFiveGreen;
 
 @end

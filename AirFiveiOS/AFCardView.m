@@ -49,11 +49,6 @@
 
 - (void)setUpCardView
 {
-    self.cardView.layer.cornerRadius = 7.0;
-    self.cardView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.cardView.layer.shadowOffset = CGSizeMake(0, 0);
-    self.cardView.layer.shadowOpacity = 0.20;
-    self.cardView.layer.shadowRadius = 3.0;
     [self setUpCardImageView];
     [self setUpInfoView];
 }
@@ -62,15 +57,12 @@
 {
     self.cardImageView.layer.cornerRadius = self.cardImageView.frame.size.width/2.0;
     self.cardImageView.backgroundColor = [UIColor airFiveLightGray];
+    [self.cardImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.cardImageView.layer setBorderWidth: 5.0];
 }
 
 - (void)setUpInfoView
 {
-    self.infoView.layer.cornerRadius = 7.0;
-    self.infoView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.infoView.layer.shadowOffset = CGSizeMake(0, 0);
-    self.infoView.layer.shadowOpacity = 0.20;
-    self.infoView.layer.shadowRadius = 3.0;
     [self setUpDividers];
 }
 
