@@ -12,6 +12,12 @@
 #import "AFCard.h"
 #import "OAStackView.h"
 
+@interface AFCardView()
+
+@property (assign, nonatomic) bool hasSocialMedia;
+
+@end
+
 @implementation AFCardView
 
 #pragma mark - Card View
@@ -76,6 +82,8 @@
         self.phoneTextField.hidden = NO;
         self.websiteTextField.hidden = NO;
         self.socialMediaDividerContainerView.hidden = NO;
+        self.socialMediaLabel.hidden = NO;
+        self.socialMediaContainerView.hidden = NO;
     }
     else{
         if(!self.industryTextField.text || [[self.industryTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
@@ -94,6 +102,11 @@
         }
         if(self.emailTextField.hidden && self.phoneTextField.hidden && self.websiteTextField.hidden){
             self.contactInfoLabel.hidden = YES;
+        }
+        if(!self.hasSocialMedia){
+            self.socialMediaDividerContainerView.hidden = YES;
+            self.socialMediaLabel.hidden = YES;
+            self.socialMediaContainerView.hidden = YES;
         }
     }
 }

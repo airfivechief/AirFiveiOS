@@ -31,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
 @property (weak, nonatomic) IBOutlet UIView *socialMediaDividerContainerView;
+@property (weak, nonatomic) IBOutlet UILabel *socialMediaLabel;
+@property (weak, nonatomic) IBOutlet UIView *socialMediaContainerView;
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *dividers;
 
