@@ -117,6 +117,15 @@
         self.socialMediaDividerContainerView.hidden = NO;
         self.socialMediaLabel.hidden = NO;
         self.socialMediaContainerView.hidden = NO;
+        if(self.emailTextField.text && ![[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+            [self.emailTextField.leftView setTintColor:[UIColor airFiveGray]];
+        }
+        if(self.phoneTextField.text && ![[self.phoneTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+            [self.phoneTextField.leftView setTintColor:[UIColor airFiveGray]];
+        }
+        if(self.websiteTextField.text && ![[self.websiteTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+            [self.websiteTextField.leftView setTintColor:[UIColor airFiveGray]];
+        }
     }
     else{
         if(!self.industryTextField.text || [[self.industryTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
