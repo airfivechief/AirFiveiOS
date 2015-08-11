@@ -61,10 +61,10 @@
 
 - (void)setUpCardImageView
 {
-    self.cardImageView.layer.cornerRadius = self.cardImageView.frame.size.width/2.0;
-    self.cardImageView.backgroundColor = [UIColor airFiveLightGray];
-    [self.cardImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [self.cardImageView.layer setBorderWidth: 5.0];
+    self.cardImageButton.layer.cornerRadius = self.cardImageButton.frame.size.width/2.0;
+    self.cardImageButton.backgroundColor = [UIColor airFiveLightGray];
+    [self.cardImageButton.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.cardImageButton.layer setBorderWidth: 5.0];
 }
 
 - (void)setUpInfoViewWithEditMode:(bool)editMode;
@@ -74,15 +74,10 @@
     self.infoView.translatesAutoresizingMaskIntoConstraints = NO;
     
     if(editMode){
-        self.industryLabel.hidden = NO;
         self.industryTextField.hidden = NO;
-        self.industryDividerContainerView.hidden = NO;
-        self.contactInfoLabel.hidden = NO;
         self.emailTextField.hidden = NO;
         self.phoneTextField.hidden = NO;
         self.websiteTextField.hidden = NO;
-        self.socialMediaDividerContainerView.hidden = NO;
-        self.socialMediaLabel.hidden = NO;
         self.socialMediaContainerView.hidden = NO;
         if(self.emailTextField.text && ![[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
             [self.emailTextField.leftView setTintColor:[UIColor airFiveGray]];
@@ -96,9 +91,7 @@
     }
     else{
         if(!self.industryTextField.text || [[self.industryTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
-            self.industryLabel.hidden = YES;
             self.industryTextField.hidden = YES;
-            self.industryDividerContainerView.hidden = YES;
         }
         if(!self.emailTextField.text || [[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
             self.emailTextField.hidden = YES;
@@ -109,12 +102,7 @@
         if(!self.websiteTextField.text || [[self.websiteTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
             self.websiteTextField.hidden = YES;
         }
-        if(self.emailTextField.hidden && self.phoneTextField.hidden && self.websiteTextField.hidden){
-            self.contactInfoLabel.hidden = YES;
-        }
         if(!self.hasSocialMedia){
-            self.socialMediaDividerContainerView.hidden = YES;
-            self.socialMediaLabel.hidden = YES;
             self.socialMediaContainerView.hidden = YES;
         }
     }
@@ -236,6 +224,5 @@
     }
     self.fullNameTextField.text = [mutableText copy];
 }
-
 
 @end

@@ -15,7 +15,7 @@
 #import "AFCardView.h"
 #import "AFCard.h"
 
-@interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate, UITextFieldDelegate>
+@interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
 
 //Navigation View
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *navigationButtons;
@@ -25,6 +25,7 @@
 @property (nonatomic, strong) AFCardView *selectedCardView;
 @property (nonatomic, strong) NSArray *cards;
 @property (assign, nonatomic) bool isEditModeOn;
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 //Share View
 @property (weak, nonatomic) IBOutlet UIView *shareView;
@@ -499,6 +500,68 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+#pragma mark - Card Image Button
+
+- (IBAction)cardImageButtonTapped:(UIButton *)sender
+{
+    [self resignFirstResponder];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Edit Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose From Library", nil];
+    [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch(buttonIndex){
+        case 0:
+        {
+            self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:self.imagePickerController animated:YES completion:^{
+                
+            }];
+            break;
+        }
+        case 1:
+        {
+            self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:self.imagePickerController animated:YES completion:^{
+                
+            }];
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+}
+
+- (UIImagePickerController *) imagePickerController{
+    if(!_imagePickerController){
+        _imagePickerController = [[UIImagePickerController alloc] init];
+        _imagePickerController.delegate = self;
+    }
+    return _imagePickerController;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    if([self.imagePickerController.view isDescendantOfView:self.navigationController.view]){
+        [self.imagePickerController.view removeFromSuperview];
+    }
+    else if([self.imagePickerController.view isDescendantOfView:[[[UIApplication sharedApplication] delegate] window]]){
+        [self.imagePickerController.view removeFromSuperview];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
+        UIImage *buttonImage = (UIImage *)[info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        [self.selectedCardView.cardImageButton setBackgroundImage:buttonImage  forState:UIControlStateNormal];
+        self.selectedCardView.cardImageButton.layer.masksToBounds = YES;
+    }];
 }
 
 

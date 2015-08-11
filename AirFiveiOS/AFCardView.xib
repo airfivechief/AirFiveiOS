@@ -293,39 +293,39 @@
                                 </mask>
                             </variation>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnJ-tO-CR1" userLabel="User Image View">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSn-PD-ktk" userLabel="Card Image Button">
                             <rect key="frame" x="20" y="50" width="100" height="100"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="100" id="Izw-CR-NCq"/>
-                                <constraint firstAttribute="width" secondItem="DnJ-tO-CR1" secondAttribute="height" multiplier="1:1" id="lO3-sB-Q5Q"/>
+                                <constraint firstAttribute="width" secondItem="cSn-PD-ktk" secondAttribute="height" multiplier="1:1" id="ApF-EN-WJr"/>
+                                <constraint firstAttribute="width" constant="100" id="wJa-tV-7UI"/>
                             </constraints>
-                        </imageView>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cardImageButtonTapped:" destination="-1" eventType="touchUpInside" id="nZL-fw-zNP"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="DnJ-tO-CR1" firstAttribute="centerY" secondItem="nSo-HH-OGb" secondAttribute="centerY" id="6x8-25-wrT"/>
-                        <constraint firstItem="DnJ-tO-CR1" firstAttribute="leading" secondItem="Gwg-OD-MYc" secondAttribute="leading" constant="20" id="GS3-bg-jEq"/>
-                        <constraint firstItem="DnJ-tO-CR1" firstAttribute="bottom" secondItem="nSo-HH-OGb" secondAttribute="bottom" id="GTa-Di-ZAe"/>
+                        <constraint firstItem="nSo-HH-OGb" firstAttribute="leading" secondItem="cSn-PD-ktk" secondAttribute="trailing" constant="20" id="4wR-4Z-t2y"/>
                         <constraint firstAttribute="trailing" secondItem="nSo-HH-OGb" secondAttribute="trailing" id="Md5-ne-ojf"/>
-                        <constraint firstItem="7y7-cC-lpA" firstAttribute="top" secondItem="DnJ-tO-CR1" secondAttribute="bottom" constant="-8" id="PAq-QO-Rgr"/>
                         <constraint firstItem="VFU-rT-AA8" firstAttribute="top" secondItem="Gwg-OD-MYc" secondAttribute="top" id="QaI-kJ-urJ"/>
                         <constraint firstItem="7y7-cC-lpA" firstAttribute="leading" secondItem="Gwg-OD-MYc" secondAttribute="leading" constant="8" id="UdG-Jt-IEU"/>
-                        <constraint firstItem="DnJ-tO-CR1" firstAttribute="top" secondItem="Gwg-OD-MYc" secondAttribute="top" constant="75" id="YGN-eY-f39"/>
+                        <constraint firstItem="cSn-PD-ktk" firstAttribute="leading" secondItem="Gwg-OD-MYc" secondAttribute="leading" constant="20" id="Wc5-Ww-N3w"/>
                         <constraint firstItem="VFU-rT-AA8" firstAttribute="leading" secondItem="Gwg-OD-MYc" secondAttribute="leading" id="aPG-aj-UmS"/>
+                        <constraint firstItem="7y7-cC-lpA" firstAttribute="top" secondItem="cSn-PD-ktk" secondAttribute="bottom" constant="-8" id="dkU-AF-oF7"/>
                         <constraint firstAttribute="trailing" secondItem="VFU-rT-AA8" secondAttribute="trailing" id="i12-zU-Ivr"/>
                         <constraint firstAttribute="bottom" secondItem="7y7-cC-lpA" secondAttribute="bottom" constant="8" id="ifr-C4-LbE"/>
                         <constraint firstAttribute="trailing" secondItem="7y7-cC-lpA" secondAttribute="trailing" constant="8" id="jNo-Vf-bRq"/>
                         <constraint firstItem="VFU-rT-AA8" firstAttribute="centerY" secondItem="nSo-HH-OGb" secondAttribute="centerY" id="mkA-fE-QPK"/>
-                        <constraint firstItem="DnJ-tO-CR1" firstAttribute="top" secondItem="nSo-HH-OGb" secondAttribute="top" id="uT0-02-yrV"/>
-                        <constraint firstItem="nSo-HH-OGb" firstAttribute="leading" secondItem="DnJ-tO-CR1" secondAttribute="trailing" constant="20" id="vU0-E5-jvM"/>
+                        <constraint firstItem="cSn-PD-ktk" firstAttribute="centerY" secondItem="nSo-HH-OGb" secondAttribute="centerY" id="pSl-1i-W5e"/>
                         <constraint firstItem="7y7-cC-lpA" firstAttribute="top" secondItem="VFU-rT-AA8" secondAttribute="bottom" id="zMS-sk-AcN"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="mkA-fE-QPK"/>
-                            <exclude reference="GTa-Di-ZAe"/>
-                            <exclude reference="YGN-eY-f39"/>
-                            <exclude reference="uT0-02-yrV"/>
                         </mask>
                     </variation>
                 </view>
@@ -342,11 +342,13 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="cardImageView" destination="DnJ-tO-CR1" id="Hxr-cc-hel"/>
+                <outlet property="cardImageButton" destination="cSn-PD-ktk" id="ASI-Vf-9cb"/>
                 <outlet property="cardView" destination="Gwg-OD-MYc" id="4nN-jI-8fC"/>
+                <outlet property="contactInfoLabel" destination="L0t-Tv-iYe" id="ag9-Um-wN1"/>
                 <outlet property="emailTextField" destination="xg5-xR-mJ2" id="B2Q-ma-uZI"/>
                 <outlet property="firstNameTextField" destination="5Lv-Ny-6oW" id="nhl-gM-mOn"/>
                 <outlet property="fullNameTextField" destination="k5f-kl-YI7" id="LIT-Xo-Vqg"/>
+                <outlet property="industryLabel" destination="0Fc-ui-seG" id="cdA-Ei-kqC"/>
                 <outlet property="industryTextField" destination="JNr-z7-m8Z" id="vyf-bk-8cn"/>
                 <outlet property="infoView" destination="7y7-cC-lpA" id="mGu-bS-mxf"/>
                 <outlet property="lastNameTextField" destination="Vfj-3f-PqE" id="u58-hc-kaA"/>
@@ -354,6 +356,8 @@
                 <outlet property="phoneTextField" destination="HEG-LM-4aY" id="FCf-ac-ZPa"/>
                 <outlet property="positionAndOrgTextField" destination="K5H-UN-x6Y" id="Ycf-on-ZjW"/>
                 <outlet property="positionTextField" destination="oeP-5o-E3d" id="AiL-VH-mvM"/>
+                <outlet property="socialMediaContainerView" destination="zfm-O2-nZO" id="tbq-iP-jIL"/>
+                <outlet property="socialMediaLabel" destination="MBR-iA-ASd" id="GQg-fn-iJ6"/>
                 <outlet property="websiteTextField" destination="P7D-V8-ldX" id="dA7-b4-YNh"/>
                 <outletCollection property="dividers" destination="hhq-me-L4d" id="seK-A6-mFV"/>
                 <outletCollection property="dividers" destination="t84-1k-GFK" id="sdr-CU-NSZ"/>

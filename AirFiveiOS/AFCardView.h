@@ -15,7 +15,7 @@
 @property (strong, nonatomic) AFCard *card;
 
 @property (weak, nonatomic) IBOutlet UIView *cardView;
-@property (weak, nonatomic) IBOutlet UIImageView *cardImageView;
+@property (weak, nonatomic) IBOutlet UIButton *cardImageButton;
 @property (weak, nonatomic) IBOutlet UITextField *fullNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
@@ -25,12 +25,10 @@
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UILabel *industryLabel;
 @property (weak, nonatomic) IBOutlet UITextField *industryTextField;
-@property (weak, nonatomic) IBOutlet UIView *industryDividerContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *contactInfoLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
-@property (weak, nonatomic) IBOutlet UIView *socialMediaDividerContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *socialMediaLabel;
 @property (weak, nonatomic) IBOutlet UIView *socialMediaContainerView;
 
