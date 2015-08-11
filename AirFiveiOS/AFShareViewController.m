@@ -161,8 +161,8 @@
     self.carousel.bounces = YES;
     self.carousel.bounceDistance = 1.0f;
     self.carousel.scrollSpeed = 0.005;
-    self.carousel.decelerationRate = 0.9f;
-    self.carousel.pagingThreshold = 0.3;
+    //self.carousel.decelerationRate = 5.0f;
+    self.carousel.pagingThreshold = 0.01;
     
     self.carousel.backgroundColor = [UIColor airFiveWhite];
 }
@@ -204,7 +204,7 @@
     //Rotary
     CGFloat count = 3;
     CGFloat spacing = 1.1f;
-    CGFloat arc = M_PI * 0.3; //Change to reduce increase angle of views coming in an out
+    CGFloat arc = M_PI * 0.15; //Change to reduce increase angle of views coming in an out
     CGFloat radius = MAX(carousel.bounds.size.width * spacing / 2.0, carousel.bounds.size.width * spacing / 2.0 / tanf(arc/2.0/count));
     CGFloat angle = offset / count * arc;
     
