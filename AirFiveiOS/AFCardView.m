@@ -56,7 +56,6 @@
     self.cardView.layer.shadowRadius = 3.0;
     self.cardView.layer.masksToBounds = NO;
     [self setUpCardImageView];
-    [self setUpTextFieldIcons];
     [self setUpInfoViewWithEditMode:NO];
 }
 
@@ -68,42 +67,10 @@
     [self.cardImageView.layer setBorderWidth: 5.0];
 }
 
-- (void)setUpTextFieldIcons
-{
-    //Email
-    UIImageView *emailTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"emailIcon"]];
-    emailTextFieldLeftView.backgroundColor = [UIColor clearColor];
-    emailTextFieldLeftView.image = [emailTextFieldLeftView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [emailTextFieldLeftView setTintColor:[UIColor lightGrayColor]];
-    emailTextFieldLeftView.frame = CGRectMake(0.0, 0.0, emailTextFieldLeftView.image.size.width+10.0, emailTextFieldLeftView.image.size.height);
-    emailTextFieldLeftView.contentMode = UIViewContentModeLeft;
-    self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.emailTextField.leftView = emailTextFieldLeftView;
-    
-    //Phone
-    UIImageView *phoneTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phoneIcon"]];
-    phoneTextFieldLeftView.backgroundColor = [UIColor clearColor];
-    phoneTextFieldLeftView.image = [phoneTextFieldLeftView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [phoneTextFieldLeftView setTintColor:[UIColor lightGrayColor]];
-    phoneTextFieldLeftView.frame = CGRectMake(0.0, 0.0, phoneTextFieldLeftView.image.size.width+10.0, phoneTextFieldLeftView.image.size.height);
-    phoneTextFieldLeftView.contentMode = UIViewContentModeLeft;
-    self.phoneTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.phoneTextField.leftView = phoneTextFieldLeftView;
-    
-    //Website
-    UIImageView *websiteTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"websiteIcon"]];
-    websiteTextFieldLeftView.backgroundColor = [UIColor clearColor];
-    websiteTextFieldLeftView.image = [websiteTextFieldLeftView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [websiteTextFieldLeftView setTintColor:[UIColor lightGrayColor]];
-    websiteTextFieldLeftView.frame = CGRectMake(0.0, 0.0, websiteTextFieldLeftView.image.size.width+10.0, websiteTextFieldLeftView.image.size.height);
-    websiteTextFieldLeftView.contentMode = UIViewContentModeLeft;
-    self.websiteTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.websiteTextField.leftView = websiteTextFieldLeftView;
-}
-
 - (void)setUpInfoViewWithEditMode:(bool)editMode;
 {
     [self setUpDividers];
+    [self setUpTextFieldIcons];
     self.infoView.translatesAutoresizingMaskIntoConstraints = NO;
     
     if(editMode){
@@ -151,6 +118,32 @@
             self.socialMediaContainerView.hidden = YES;
         }
     }
+}
+
+- (void)setUpTextFieldIcons
+{
+    //Email
+    UIImageView *emailTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"emailIcon"]];
+    [self setUpLeftViewOfTextField:self.emailTextField withLeftView:emailTextFieldLeftView];
+    
+    //Phone
+    UIImageView *phoneTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phoneIcon"]];
+    [self setUpLeftViewOfTextField:self.phoneTextField withLeftView:phoneTextFieldLeftView];
+    
+    //Website
+    UIImageView *websiteTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"websiteIcon"]];
+    [self setUpLeftViewOfTextField:self.websiteTextField withLeftView:websiteTextFieldLeftView];
+}
+
+- (void)setUpLeftViewOfTextField:(UITextField *)textField withLeftView:(UIImageView *)leftView
+{
+    leftView.backgroundColor = [UIColor clearColor];
+    leftView.image = [leftView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [leftView setTintColor:[UIColor lightGrayColor]];
+    leftView.frame = CGRectMake(0.0, 0.0, leftView.image.size.width+10.0, leftView.image.size.height);
+    leftView.contentMode = UIViewContentModeLeft;
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    textField.leftView = leftView;
 }
 
 - (void)setUpDividers
