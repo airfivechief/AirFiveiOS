@@ -157,10 +157,11 @@
     //configure carousel
     self.carousel.type = iCarouselTypeCustom;
     self.carousel.centerItemWhenSelected = YES;
-    self.carousel.stopAtItemBoundary = YES;
-    self.carousel.bounces = NO;
-    self.carousel.pagingEnabled = YES;
-    self.carousel.scrollSpeed = 0.03;
+    //self.carousel.stopAtItemBoundary = YES;
+    self.carousel.bounces = YES;
+    self.carousel.bounceDistance = 1.0f;
+    self.carousel.scrollSpeed = 0.005;
+    self.carousel.decelerationRate = 0.9f;
     
     self.carousel.backgroundColor = [UIColor airFiveWhite];
 }
@@ -206,8 +207,7 @@
     CGFloat radius = MAX(carousel.bounds.size.width * spacing / 2.0, carousel.bounds.size.width * spacing / 2.0 / tanf(arc/2.0/count));
     CGFloat angle = offset / count * arc;
     
-    return CATransform3DTranslate(transform, radius * sin(angle), radius * cos(angle) - radius,1.0 );
-
+    return CATransform3DTranslate(transform, radius * sin(angle), radius * cos(angle) - radius, 1.0);
 }
 
 #pragma mark - Background View

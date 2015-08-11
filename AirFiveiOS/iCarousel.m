@@ -1398,7 +1398,24 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 }
 
 - (NSInteger)currentItemIndex
-{   
+{
+    NSInteger direction = (int)(_startVelocity / fabs(_startVelocity));
+    if(direction>0){ //right
+        if(_scrollOffset - floor(_scrollOffset)>0.2){
+            return MIN([self clampedIndex:floor(_scrollOffset)+1],_numberOfItems-1);
+        }
+        else{
+            return [self clampedIndex:floor(_scrollOffset)];
+        }
+    }
+    else{ //left
+        if(_scrollOffset - floor(_scrollOffset)<0.2){
+            return MAX([self clampedIndex:floor(_scrollOffset)-1],0);
+        }
+        else{
+            return [self clampedIndex:floor(_scrollOffset)];
+        }
+    }
     return [self clampedIndex:round(_scrollOffset)];
 }
 
