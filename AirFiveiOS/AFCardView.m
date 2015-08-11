@@ -11,7 +11,9 @@
 #import "UIFont+AirFive.h"
 #import "AFCard.h"
 
-@interface AFCardView()
+#define LINKED_IN_URL @"https://www.linkedin.com/in/"
+
+@interface AFCardView() <UIAlertViewDelegate>
 
 @property (assign, nonatomic) bool hasSocialMedia;
 
@@ -224,5 +226,41 @@
     }
     self.fullNameTextField.text = [mutableText copy];
 }
+
+#pragma mark - Social Media Buttons
+
+- (IBAction)linkedInButtonTouched:(UIButton *)sender
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share your linkedIn profile" message:[NSString stringWithFormat:@"%@...\nenter username below", LINKED_IN_URL] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okay", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alertView show];
+}
+
+- (IBAction)instagramButtonTouched:(UIButton *)sender
+{
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0: //Cancel
+        {
+            break;
+        }
+        case 1: //Okay
+        {
+            UITextField *usernameTextField = [alertView textFieldAtIndex:0];
+            if(usernameTextField.text && ![[usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+                self.linkedInURLString = [NSString stringWithFormat:@"%@%@",LINKED_IN_URL,[usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+            }
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+
 
 @end
