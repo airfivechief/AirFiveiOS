@@ -60,6 +60,7 @@
 #define SCROLL_DISTANCE_THRESHOLD 0.1
 #define DECELERATION_MULTIPLIER 30.0
 #define FLOAT_ERROR_MARGIN 0.000001
+#define PAGING_THRESHOLD 0.3
 
 #ifdef ICAROUSEL_MACOS
 #define MAX_VISIBLE_ITEMS 50
@@ -1399,9 +1400,13 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 
 - (NSInteger)currentItemIndex
 {
+    if(!self.pagingThreshold){
+        self.pagingThreshold = PAGING_THRESHOLD;
+    }
+    self.pagingThreshold = MAX(MIN(self.pagingThreshold,0.5),0);
     NSInteger direction = (int)(_startVelocity / fabs(_startVelocity));
     if(direction>0){ //right
-        if(_scrollOffset - floor(_scrollOffset)>0.2){
+        if(_scrollOffset - floor(_scrollOffset)>self.pagingThreshold){
             return MIN([self clampedIndex:floor(_scrollOffset)+1],_numberOfItems-1);
         }
         else{
@@ -1409,16 +1414,14 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         }
     }
     else{ //left
-        if(_scrollOffset - floor(_scrollOffset)<0.2){
+        if(_scrollOffset - floor(_scrollOffset)<self.pagingThreshold){
             return MAX([self clampedIndex:floor(_scrollOffset)-1],0);
         }
         else{
             return [self clampedIndex:floor(_scrollOffset)];
         }
     }
-    return [self clampedIndex:round(_scrollOffset)];
 }
-
 - (NSInteger)minScrollDistanceFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex
 {
     NSInteger directDistance = toIndex - fromIndex;
