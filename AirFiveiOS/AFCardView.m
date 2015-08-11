@@ -56,6 +56,7 @@
     self.cardView.layer.shadowRadius = 3.0;
     self.cardView.layer.masksToBounds = NO;
     [self setUpCardImageView];
+    [self setUpTextFieldIcons];
     [self setUpInfoViewWithEditMode:NO];
 }
 
@@ -65,6 +66,30 @@
     self.cardImageView.backgroundColor = [UIColor airFiveLightGray];
     [self.cardImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [self.cardImageView.layer setBorderWidth: 5.0];
+}
+
+- (void)setUpTextFieldIcons
+{
+    //Email
+    UIImageView *emailTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"emailIcon"]];
+    emailTextFieldLeftView.frame = CGRectMake(0.0, 0.0, emailTextFieldLeftView.image.size.width+10.0, emailTextFieldLeftView.image.size.height);
+    emailTextFieldLeftView.contentMode = UIViewContentModeLeft;
+    self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.emailTextField.leftView = emailTextFieldLeftView;
+    
+    //Phone
+    UIImageView *phoneTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phoneIcon"]];
+    phoneTextFieldLeftView.frame = CGRectMake(0.0, 0.0, phoneTextFieldLeftView.image.size.width+10.0, phoneTextFieldLeftView.image.size.height);
+    phoneTextFieldLeftView.contentMode = UIViewContentModeLeft;
+    self.phoneTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.phoneTextField.leftView = phoneTextFieldLeftView;
+    
+    //Website
+    UIImageView *websiteTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"websiteIcon"]];
+    websiteTextFieldLeftView.frame = CGRectMake(0.0, 0.0, websiteTextFieldLeftView.image.size.width+10.0, websiteTextFieldLeftView.image.size.height);
+    websiteTextFieldLeftView.contentMode = UIViewContentModeLeft;
+    self.websiteTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.websiteTextField.leftView = websiteTextFieldLeftView;
 }
 
 - (void)setUpInfoViewWithEditMode:(bool)editMode;

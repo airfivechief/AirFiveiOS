@@ -249,6 +249,8 @@
 				8B039F861B7189D300516B9A /* AFCardView.xib */,
 				8B039F8B1B7196DD00516B9A /* AFCardView.h */,
 				8B039F8C1B7196DD00516B9A /* AFCardView.m */,
+				8B7B1ED51B7884D70014917E /* UIUnderlinedButton.h */,
+				8B7B1ED61B7884D70014917E /* UIUnderlinedButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -271,8 +273,6 @@
 				8B2D1A011B6C59CB00C62B49 /* UIColor+AirFive.m */,
 				8B2D1A031B6D6ECC00C62B49 /* UIFont+AirFive.h */,
 				8B2D1A041B6D6ECC00C62B49 /* UIFont+AirFive.m */,
-				8B7B1ED51B7884D70014917E /* UIUnderlinedButton.h */,
-				8B7B1ED61B7884D70014917E /* UIUnderlinedButton.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
