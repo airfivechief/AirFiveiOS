@@ -162,6 +162,7 @@
     self.carousel.bounceDistance = 1.0f;
     self.carousel.scrollSpeed = 0.005;
     self.carousel.decelerationRate = 0.9f;
+    self.carousel.pagingThreshold = 0.3;
     
     self.carousel.backgroundColor = [UIColor airFiveWhite];
 }
