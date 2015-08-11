@@ -7,10 +7,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Roboto-Bold.ttf">
-            <string>Roboto-Bold</string>
+        <mutableArray key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -30,28 +31,28 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0MQ-8T-Ox3" userLabel="Share View">
-                                <rect key="frame" x="0.0" y="512" width="600" height="88"/>
+                                <rect key="frame" x="0.0" y="504" width="600" height="96"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipient" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzz-YZ-BYN">
-                                        <rect key="frame" x="20" y="8" width="68" height="22"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <rect key="frame" x="16" y="8" width="73" height="30"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-tN-w3X">
-                                        <rect key="frame" x="20" y="38" width="459" height="30"/>
+                                        <rect key="frame" x="16" y="46" width="467" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Ayt-6U-5T7"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="IT4-wE-fQB"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-W2-lcG" userLabel="Share Button">
-                                        <rect key="frame" x="487" y="38" width="93" height="30"/>
+                                        <rect key="frame" x="491" y="46" width="93" height="30"/>
                                         <color key="backgroundColor" red="0.75686274509999996" green="0.15686274510000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="93" id="IeN-Bn-7Qk"/>
@@ -70,13 +71,14 @@
                                 <constraints>
                                     <constraint firstItem="Tzz-YZ-BYN" firstAttribute="top" secondItem="0MQ-8T-Ox3" secondAttribute="top" constant="8" id="0aH-fo-cvj"/>
                                     <constraint firstItem="Pn1-W2-lcG" firstAttribute="top" secondItem="5Kc-tN-w3X" secondAttribute="bottom" constant="8" id="8CL-jF-4sx"/>
-                                    <constraint firstItem="Tzz-YZ-BYN" firstAttribute="leading" secondItem="0MQ-8T-Ox3" secondAttribute="leading" constant="20" symbolic="YES" id="NN6-MK-5Rb"/>
+                                    <constraint firstItem="Tzz-YZ-BYN" firstAttribute="leading" secondItem="0MQ-8T-Ox3" secondAttribute="leading" constant="16" id="NN6-MK-5Rb"/>
                                     <constraint firstAttribute="bottom" secondItem="5Kc-tN-w3X" secondAttribute="bottom" constant="20" symbolic="YES" id="OAR-eG-dIZ"/>
                                     <constraint firstAttribute="trailing" secondItem="Pn1-W2-lcG" secondAttribute="trailing" constant="8" id="OPV-dx-00W"/>
-                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="leading" secondItem="0MQ-8T-Ox3" secondAttribute="leading" constant="20" symbolic="YES" id="TFp-3R-nZn"/>
+                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="leading" secondItem="0MQ-8T-Ox3" secondAttribute="leading" constant="16" id="TFp-3R-nZn"/>
                                     <constraint firstAttribute="centerX" secondItem="Pn1-W2-lcG" secondAttribute="centerX" id="Tes-p2-l7T"/>
-                                    <constraint firstAttribute="trailing" secondItem="Pn1-W2-lcG" secondAttribute="trailing" constant="20" symbolic="YES" id="TfE-mO-hzp"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pn1-W2-lcG" secondAttribute="trailing" constant="16" id="TfE-mO-hzp"/>
                                     <constraint firstItem="5Kc-tN-w3X" firstAttribute="top" secondItem="Pn1-W2-lcG" secondAttribute="top" id="a1p-Jh-TWI"/>
+                                    <constraint firstItem="5Kc-tN-w3X" firstAttribute="height" secondItem="Tzz-YZ-BYN" secondAttribute="height" id="bKB-KZ-xW7"/>
                                     <constraint firstAttribute="trailing" secondItem="5Kc-tN-w3X" secondAttribute="trailing" constant="8" id="bnX-nT-hUU"/>
                                     <constraint firstAttribute="bottom" secondItem="Pn1-W2-lcG" secondAttribute="bottom" constant="8" id="cOf-zc-keF"/>
                                     <constraint firstItem="5Kc-tN-w3X" firstAttribute="top" secondItem="0MQ-8T-Ox3" secondAttribute="top" id="iAb-QO-cJ4"/>
@@ -98,7 +100,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d29-yl-JpQ" userLabel="iCarousel" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="157" width="600" height="355"/>
+                                <rect key="frame" x="0.0" y="157" width="600" height="347"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d29-yl-JpQ" secondAttribute="height" multiplier="3.5:2" id="9nK-qa-7Z3"/>
@@ -116,7 +118,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRt-vk-UUy" userLabel="Edit Button">
-                                <rect key="frame" x="514" y="459" width="70" height="77"/>
+                                <rect key="frame" x="514" y="451" width="70" height="77"/>
                                 <state key="normal" image="editButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

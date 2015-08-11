@@ -72,6 +72,9 @@
 {
     //Email
     UIImageView *emailTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"emailIcon"]];
+    emailTextFieldLeftView.backgroundColor = [UIColor clearColor];
+    emailTextFieldLeftView.image = [emailTextFieldLeftView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [emailTextFieldLeftView setTintColor:[UIColor lightGrayColor]];
     emailTextFieldLeftView.frame = CGRectMake(0.0, 0.0, emailTextFieldLeftView.image.size.width+10.0, emailTextFieldLeftView.image.size.height);
     emailTextFieldLeftView.contentMode = UIViewContentModeLeft;
     self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
@@ -79,6 +82,9 @@
     
     //Phone
     UIImageView *phoneTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phoneIcon"]];
+    phoneTextFieldLeftView.backgroundColor = [UIColor clearColor];
+    phoneTextFieldLeftView.image = [phoneTextFieldLeftView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [phoneTextFieldLeftView setTintColor:[UIColor lightGrayColor]];
     phoneTextFieldLeftView.frame = CGRectMake(0.0, 0.0, phoneTextFieldLeftView.image.size.width+10.0, phoneTextFieldLeftView.image.size.height);
     phoneTextFieldLeftView.contentMode = UIViewContentModeLeft;
     self.phoneTextField.leftViewMode = UITextFieldViewModeAlways;
@@ -86,6 +92,9 @@
     
     //Website
     UIImageView *websiteTextFieldLeftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"websiteIcon"]];
+    websiteTextFieldLeftView.backgroundColor = [UIColor clearColor];
+    websiteTextFieldLeftView.image = [websiteTextFieldLeftView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [websiteTextFieldLeftView setTintColor:[UIColor lightGrayColor]];
     websiteTextFieldLeftView.frame = CGRectMake(0.0, 0.0, websiteTextFieldLeftView.image.size.width+10.0, websiteTextFieldLeftView.image.size.height);
     websiteTextFieldLeftView.contentMode = UIViewContentModeLeft;
     self.websiteTextField.leftViewMode = UITextFieldViewModeAlways;

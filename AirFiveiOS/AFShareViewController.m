@@ -381,6 +381,14 @@
     return YES;
 }
 
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    if(textField == self.selectedCardView.emailTextField || textField == self.selectedCardView.phoneTextField || textField == self.selectedCardView.websiteTextField){
+        [textField.leftView setTintColor:[UIColor lightGrayColor]];
+    }
+    return YES;
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     self.selectedTextField = textField;
@@ -408,6 +416,12 @@
     }
     else if(textField == self.selectedCardView.emailTextField){
         self.selectedCardView.card.emailAddress = text;
+        if(text && [text length]){
+            [textField.leftView setTintColor:[UIColor airFiveGray]];
+        }
+        else{
+            [textField.leftView setTintColor:[UIColor lightGrayColor]];
+        }
     }
     else if(textField == self.selectedCardView.phoneTextField){
         if (range.length == 1) {
@@ -417,10 +431,22 @@
             textField.text = [self formatPhoneNumber:text deleteLastChar:NO ];
         }
         self.selectedCardView.card.phone = textField.text;
+        if(text && [text length]){
+            [textField.leftView setTintColor:[UIColor airFiveGray]];
+        }
+        else{
+            [textField.leftView setTintColor:[UIColor lightGrayColor]];
+        }
         return NO;
     }
     else if(textField == self.selectedCardView.websiteTextField){
         self.selectedCardView.card.website = text;
+        if(text && [text length]){
+            [textField.leftView setTintColor:[UIColor airFiveGray]];
+        }
+        else{
+            [textField.leftView setTintColor:[UIColor lightGrayColor]];
+        }
     }
     else if(textField == self.recipientEmailTextField){
         self.recipientEmailAddress = text;
