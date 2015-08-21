@@ -5,6 +5,7 @@
 //  Created by Joshua Gafni on 8/4/15.
 //  Copyright (c) 2015 AirFive. All rights reserved.
 //
+//  Social Media Icons from https://dribbble.com/shots/1209419-20-Social-Media-Icons-Freebie
 
 #import "AFCardView.h"
 #import "UIColor+AirFive.h"
