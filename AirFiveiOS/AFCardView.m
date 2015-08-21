@@ -58,12 +58,18 @@
     self.cardView.layer.shadowOpacity = 0.20;
     self.cardView.layer.shadowRadius = 3.0;
     self.cardView.layer.masksToBounds = NO;
-    [self setUpCardImageView];
+    [self setUpCardImageViewWithEditMode:NO];
     [self setUpInfoViewWithEditMode:NO];
 }
 
-- (void)setUpCardImageView
+- (void)setUpCardImageViewWithEditMode:(bool)editMode
 {
+    if(editMode){
+        self.cardImageButton.userInteractionEnabled = YES;
+    }
+    else{
+        self.cardImageButton.userInteractionEnabled = NO;
+    }
     self.cardImageButton.layer.cornerRadius = self.cardImageButton.frame.size.width/2.0;
     self.cardImageButton.backgroundColor = [UIColor airFiveLightGray];
     [self.cardImageButton.layer setBorderColor: [[UIColor whiteColor] CGColor]];
@@ -77,11 +83,17 @@
     self.infoView.translatesAutoresizingMaskIntoConstraints = NO;
     
     if(editMode){
+        self.industryLabel.hidden = NO;
         self.industryTextField.hidden = NO;
+        self.dividerViewTop.hidden = NO;
+        self.contactInfoLabel.hidden = NO;
         self.emailTextField.hidden = NO;
         self.phoneTextField.hidden = NO;
+        self.dividerViewBottom.hidden = NO;
         self.websiteTextField.hidden = NO;
-        self.socialMediaContainerView.hidden = NO;
+        self.editButton.selected = YES;
+        self.bigEditButtonContainerView.hidden = YES;
+        //self.socialMediaContainerView.hidden = NO;
         if(self.emailTextField.text && ![[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
             [self.emailTextField.leftView setTintColor:[UIColor airFiveGray]];
         }
@@ -93,8 +105,11 @@
         }
     }
     else{
+        self.editButton.selected = NO;
         if(!self.industryTextField.text || [[self.industryTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
             self.industryTextField.hidden = YES;
+            self.industryLabel.hidden = YES;
+            self.dividerViewTop.hidden = YES;
         }
         if(!self.emailTextField.text || [[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
             self.emailTextField.hidden = YES;
@@ -105,8 +120,15 @@
         if(!self.websiteTextField.text || [[self.websiteTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
             self.websiteTextField.hidden = YES;
         }
+        if(self.emailTextField.hidden && self.phoneTextField.hidden && self.websiteTextField.hidden){
+            self.contactInfoLabel.hidden = YES;
+            self.dividerViewBottom.hidden = YES;
+        }
+        if(self.industryLabel.hidden && self.contactInfoLabel.hidden){
+            self.bigEditButtonContainerView.hidden = NO;
+        }
         if(!self.hasSocialMedia){
-            self.socialMediaContainerView.hidden = YES;
+            //self.socialMediaContainerView.hidden = YES;
         }
     }
 }
@@ -139,9 +161,8 @@
 
 - (void)setUpDividers
 {
-    for (UIView *divider in self.dividers){
-        divider.backgroundColor = [UIColor airFiveLightGray];
-    }
+    self.dividerViewTop.backgroundColor = [UIColor airFiveLightGray];
+    self.dividerViewBottom.backgroundColor = [UIColor airFiveLightGray];
 }
 
 - (void)setUpTextFontsAndColorsWithEditMode:(bool)editMode
@@ -185,6 +206,10 @@
     self.websiteTextField.textColor = [UIColor airFiveBlue];
     self.websiteTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
     self.websiteTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.websiteTextField.placeholder attributes:@{NSForegroundColorAttributeName : infoPlaceHolderColor, NSFontAttributeName : self.websiteTextField.font}];
+    
+    NSAttributedString *bigEditButtonTitle = [[NSAttributedString alloc] initWithString:@"Tap to Edit" attributes:@{NSForegroundColorAttributeName : [UIColor airFiveBlue], NSFontAttributeName :self.bigEditButton.titleLabel.font}];
+    [self.bigEditButton setAttributedTitle:bigEditButtonTitle forState:UIControlStateNormal];
+    
     
     self.firstNameTextField.userInteractionEnabled = editMode;
     self.lastNameTextField.userInteractionEnabled = editMode;
@@ -232,7 +257,7 @@
 
 - (IBAction)linkedInButtonTouched:(UIButton *)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share your linkedIn profile" message:[NSString stringWithFormat:@"%@...\nenter username below", LINKED_IN_URL] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okay", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Linkedin" message:[NSString stringWithFormat:@"%@...\nenter username", LINKED_IN_URL] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alertView show];
 }

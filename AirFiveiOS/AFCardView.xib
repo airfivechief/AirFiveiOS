@@ -21,6 +21,7 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -132,19 +133,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7y7-cC-lpA" userLabel="Info View">
                             <rect key="frame" x="8" y="142" width="332" height="395"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODE-h4-QYm" userLabel="Edit Button">
-                                    <rect key="frame" x="309" y="0.0" width="23" height="23"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="ODE-h4-QYm" secondAttribute="height" multiplier="1:1" id="fTR-rJ-ao5"/>
-                                        <constraint firstAttribute="width" constant="23" id="w1v-cg-omE"/>
-                                    </constraints>
-                                    <state key="normal" backgroundImage="187-pencil">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="editButtonTouched:" destination="-1" eventType="touchUpInside" id="3F9-l3-Pmh"/>
-                                    </connections>
-                                </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Industry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fc-ui-seG" userLabel="Industry Label">
                                     <rect key="frame" x="8" y="16" width="64" height="38"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -269,25 +257,6 @@
                                                 <action selector="instagramButtonTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="AFw-CR-MQY"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvy-9h-Dyb" userLabel="Snapchat Button">
-                                            <rect key="frame" x="120" y="0.0" width="76" height="76"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="wvy-9h-Dyb" secondAttribute="height" multiplier="1:1" id="Sen-zE-dIu"/>
-                                                <constraint firstAttribute="width" secondItem="wvy-9h-Dyb" secondAttribute="height" multiplier="1:1" id="epa-aa-DMm"/>
-                                            </constraints>
-                                            <state key="normal" image="twitter">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="Sen-zE-dIu"/>
-                                                    <exclude reference="epa-aa-DMm"/>
-                                                </mask>
-                                            </variation>
-                                            <connections>
-                                                <action selector="instagramButtonTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="rmR-1r-FYL"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -308,6 +277,38 @@
                                         <constraint firstItem="v07-gP-Vyc" firstAttribute="width" secondItem="d0E-Sy-SC7" secondAttribute="width" id="z49-4h-wWc"/>
                                     </constraints>
                                 </view>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LaC-JA-tXk" userLabel="Big Edit Button Container View">
+                                    <rect key="frame" x="0.0" y="0.0" width="332" height="302"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwW-zm-B82" userLabel="Big Edit Button">
+                                            <rect key="frame" x="94" y="125" width="145" height="52"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="30"/>
+                                            <state key="normal" title="Tap to Edit"/>
+                                            <connections>
+                                                <action selector="editButtonTouched:" destination="-1" eventType="touchUpInside" id="ywc-Yj-61a"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="lwW-zm-B82" secondAttribute="centerX" id="4L4-1j-zuR"/>
+                                        <constraint firstAttribute="centerY" secondItem="lwW-zm-B82" secondAttribute="centerY" id="C0Z-fI-EBE"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODE-h4-QYm" userLabel="Edit Button">
+                                    <rect key="frame" x="304" y="0.0" width="28" height="28"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="ODE-h4-QYm" secondAttribute="height" multiplier="1:1" id="fTR-rJ-ao5"/>
+                                        <constraint firstAttribute="width" constant="28" id="w1v-cg-omE"/>
+                                    </constraints>
+                                    <state key="normal" image="187-pencil">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="258-checkmark"/>
+                                    <connections>
+                                        <action selector="editButtonTouched:" destination="-1" eventType="touchUpInside" id="3F9-l3-Pmh"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -324,7 +325,9 @@
                                 <constraint firstItem="L0t-Tv-iYe" firstAttribute="bottom" secondItem="xg5-xR-mJ2" secondAttribute="top" constant="-8" id="OrM-XL-GE0"/>
                                 <constraint firstAttribute="trailing" secondItem="JNr-z7-m8Z" secondAttribute="trailing" constant="8" id="PKi-NP-JbF"/>
                                 <constraint firstItem="JNr-z7-m8Z" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="QfF-4I-43o"/>
+                                <constraint firstAttribute="trailing" secondItem="LaC-JA-tXk" secondAttribute="trailing" id="QgO-Qx-YSm"/>
                                 <constraint firstItem="hhq-me-L4d" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="TSi-4W-tzU"/>
+                                <constraint firstItem="LaC-JA-tXk" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" id="Tdi-EO-FtB"/>
                                 <constraint firstItem="L0t-Tv-iYe" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="Tnv-bh-LGT"/>
                                 <constraint firstItem="HEG-LM-4aY" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="Up1-te-9cP"/>
                                 <constraint firstItem="VmF-hs-0LI" firstAttribute="height" secondItem="JNr-z7-m8Z" secondAttribute="height" multiplier="2" id="V2f-07-d1h"/>
@@ -332,6 +335,7 @@
                                 <constraint firstItem="ODE-h4-QYm" firstAttribute="top" secondItem="7y7-cC-lpA" secondAttribute="top" id="Xuy-YQ-U6f"/>
                                 <constraint firstItem="P7D-V8-ldX" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="Y41-sp-P0y"/>
                                 <constraint firstItem="0Fc-ui-seG" firstAttribute="bottom" secondItem="JNr-z7-m8Z" secondAttribute="top" constant="-8" id="Ynq-VW-pb4"/>
+                                <constraint firstItem="t84-1k-GFK" firstAttribute="top" secondItem="LaC-JA-tXk" secondAttribute="bottom" id="Z8I-en-mnj"/>
                                 <constraint firstItem="0Fc-ui-seG" firstAttribute="height" secondItem="JNr-z7-m8Z" secondAttribute="height" id="aH5-xR-638"/>
                                 <constraint firstItem="P7D-V8-ldX" firstAttribute="top" secondItem="HEG-LM-4aY" secondAttribute="bottom" constant="8" id="bHC-h5-PWj"/>
                                 <constraint firstItem="L0t-Tv-iYe" firstAttribute="leading" secondItem="7y7-cC-lpA" secondAttribute="leading" constant="8" id="cPD-uK-ewx"/>
@@ -352,6 +356,7 @@
                                 <constraint firstItem="xg5-xR-mJ2" firstAttribute="top" secondItem="JNr-z7-m8Z" secondAttribute="bottom" constant="8" id="qIB-aO-Tth"/>
                                 <constraint firstAttribute="trailing" secondItem="L0t-Tv-iYe" secondAttribute="trailing" constant="8" id="ql7-Sk-qaj"/>
                                 <constraint firstAttribute="trailing" secondItem="xg5-xR-mJ2" secondAttribute="trailing" constant="8" id="uLc-W2-0AB"/>
+                                <constraint firstItem="LaC-JA-tXk" firstAttribute="top" secondItem="7y7-cC-lpA" secondAttribute="top" id="unG-b1-tBs"/>
                                 <constraint firstAttribute="trailing" secondItem="P7D-V8-ldX" secondAttribute="trailing" constant="8" id="zcF-sL-AfY"/>
                             </constraints>
                             <variation key="default">
@@ -416,9 +421,14 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="bigEditButton" destination="lwW-zm-B82" id="EM2-7I-tcn"/>
+                <outlet property="bigEditButtonContainerView" destination="LaC-JA-tXk" id="JGt-dj-VKZ"/>
                 <outlet property="cardImageButton" destination="cSn-PD-ktk" id="ASI-Vf-9cb"/>
                 <outlet property="cardView" destination="Gwg-OD-MYc" id="4nN-jI-8fC"/>
                 <outlet property="contactInfoLabel" destination="L0t-Tv-iYe" id="ag9-Um-wN1"/>
+                <outlet property="dividerViewBottom" destination="t84-1k-GFK" id="9uB-i9-jSH"/>
+                <outlet property="dividerViewTop" destination="hhq-me-L4d" id="izi-dP-cSw"/>
+                <outlet property="editButton" destination="ODE-h4-QYm" id="1WR-JN-ge9"/>
                 <outlet property="emailTextField" destination="xg5-xR-mJ2" id="B2Q-ma-uZI"/>
                 <outlet property="firstNameTextField" destination="5Lv-Ny-6oW" id="nhl-gM-mOn"/>
                 <outlet property="fullNameTextField" destination="k5f-kl-YI7" id="LIT-Xo-Vqg"/>
@@ -431,14 +441,13 @@
                 <outlet property="positionAndOrgTextField" destination="K5H-UN-x6Y" id="Ycf-on-ZjW"/>
                 <outlet property="positionTextField" destination="oeP-5o-E3d" id="AiL-VH-mvM"/>
                 <outlet property="websiteTextField" destination="P7D-V8-ldX" id="dA7-b4-YNh"/>
-                <outletCollection property="dividers" destination="hhq-me-L4d" id="seK-A6-mFV"/>
-                <outletCollection property="dividers" destination="t84-1k-GFK" id="sdr-CU-NSZ"/>
             </connections>
             <point key="canvasLocation" x="281" y="378.5"/>
         </view>
     </objects>
     <resources>
         <image name="187-pencil" width="23" height="23"/>
+        <image name="258-checkmark" width="19" height="18"/>
         <image name="Instagram" width="80" height="80"/>
         <image name="facebook" width="80" height="80"/>
         <image name="linkedin" width="80" height="80"/>

@@ -140,12 +140,14 @@
 - (void)didEnterEditMode
 {
     [self.selectedCardView setUpTextFontsAndColorsWithEditMode:YES];
+    [self.selectedCardView setUpCardImageViewWithEditMode:YES];
     self.shareButton.enabled = NO;
 }
 
 - (void)didEndEditMode
 {
     [self.selectedCardView setUpTextFontsAndColorsWithEditMode:NO];
+    [self.selectedCardView setUpCardImageViewWithEditMode:NO];
     [self.view endEditing:YES];
     self.shareButton.enabled = YES;
 }
@@ -192,7 +194,7 @@
     [self updateNavigationViewUI];
     [self setCardViewDelegates];
     [self updateEmailManager];
-    self.isEditModeOn = ![[AFEmailManager sharedInstance] hasRequiredFields];
+    //self.isEditModeOn = ![[AFEmailManager sharedInstance] hasRequiredFields];
 }
 
 -(CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform

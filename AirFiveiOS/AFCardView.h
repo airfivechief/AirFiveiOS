@@ -23,20 +23,24 @@
 @property (weak, nonatomic) IBOutlet UITextField *positionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *organizationTextField;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UILabel *industryLabel;
 @property (weak, nonatomic) IBOutlet UITextField *industryTextField;
 @property (weak, nonatomic) IBOutlet UILabel *contactInfoLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
-@property (weak, nonatomic) IBOutlet UILabel *socialMediaLabel;
-@property (weak, nonatomic) IBOutlet UIView *socialMediaContainerView;
 @property (strong, nonatomic) NSString *linkedInURLString;
+@property (weak, nonatomic) IBOutlet UIView *dividerViewTop;
+@property (weak, nonatomic) IBOutlet UIView *dividerViewBottom;
+@property (weak, nonatomic) IBOutlet UIView *bigEditButtonContainerView;
+@property (weak, nonatomic) IBOutlet UIButton *bigEditButton;
 
-@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *dividers;
+
 
 - (void)updatePositionAndOrgTextField;
 - (void)updateFullNameTextField;
 - (void)setUpTextFontsAndColorsWithEditMode:(bool)editMode;
+- (void)setUpCardImageViewWithEditMode:(bool)editMode;
 
 @end
