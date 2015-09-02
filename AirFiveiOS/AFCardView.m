@@ -463,6 +463,38 @@ typedef NS_ENUM(NSInteger, AFAlertViewType){
                     default: break;
                 }
             }
+            else{
+                switch (alertView.tag) {
+                    case kAlertViewTypeLinkedIn:
+                    {
+                        self.card.linkedInURLString = @"";
+                        self.card.linkedInEnabled = @(NO);
+                        [self updateLinkedInButton];
+                        break;
+                    }
+                    case kAlertViewTypeInstagram:
+                    {
+                        self.card.instagramUserNameString = @"";
+                        self.card.instagramEnabled = @(NO);
+                        [self updateInstagramButton];
+                        break;
+                    }
+                    case kAlertViewTypeFacebook:
+                    {
+                        self.card.facebookUserNameString = @"";                        self.card.facebookEnabled = @(NO);
+                        [self updateFacebookButton];
+                        break;
+                    }
+                    case kAlertViewTypeTwitter:
+                    {
+                        self.card.twitterUserNameString = @"";
+                        self.card.twitterEnabled = @(NO);
+                        [self updateTwitterButton];
+                        break;
+                    }
+                    default: break;
+                }
+            }
             break;
         }
         default: break;

@@ -16,7 +16,7 @@
 #import "AFCard.h"
 #import "UIImage+Recolor.h"
 
-@interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
+@interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate>
 
 //Navigation View
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *navigationButtons;
@@ -356,11 +356,11 @@
 {
     self.selectedTextField = textField;
     if(textField == self.selectedCardView.firstNameTextField || textField == self.selectedCardView.lastNameTextField){
-        self.selectedCardView.firstNameTextField.textColor = self.selectedCardView.fullNameTextField.textColor;
+        self.selectedCardView.firstNameTextField.textColor = [UIColor whiteColor];
         self.selectedCardView.firstNameTextField.font = self.selectedCardView.fullNameTextField.font;
         self.selectedCardView.firstNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.firstNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
         
-        self.selectedCardView.lastNameTextField.textColor = self.selectedCardView.fullNameTextField.textColor;
+        self.selectedCardView.lastNameTextField.textColor = [UIColor whiteColor];
         self.selectedCardView.lastNameTextField.font = self.selectedCardView.fullNameTextField.font;
         self.selectedCardView.lastNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.lastNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
         
@@ -368,11 +368,11 @@
         self.selectedCardView.fullNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.fullNameTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.selectedCardView.fullNameTextField.font}];
     }
     else if(textField == self.selectedCardView.positionTextField || textField == self.selectedCardView.organizationTextField){
-        self.selectedCardView.positionTextField.textColor = self.selectedCardView.positionAndOrgTextField.textColor;
+        self.selectedCardView.positionTextField.textColor = [UIColor whiteColor];
         self.selectedCardView.positionTextField.font = self.selectedCardView.positionAndOrgTextField.font;
         self.selectedCardView.positionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.positionTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
         
-        self.selectedCardView.organizationTextField.textColor = self.selectedCardView.positionAndOrgTextField.textColor;
+        self.selectedCardView.organizationTextField.textColor = [UIColor whiteColor];
         self.selectedCardView.organizationTextField.font = self.selectedCardView.positionAndOrgTextField.font;
         self.selectedCardView.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.selectedCardView.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : self.selectedCardView.positionAndOrgTextField.font}];
         
@@ -386,9 +386,9 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self setUpTextFontsAndColors];
     [self.selectedCardView updateFullNameTextField];
     [self.selectedCardView updatePositionAndOrgTextField];
+    [self setUpTextFontsAndColors];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -524,14 +524,16 @@
 - (IBAction)cardImageButtonTapped:(UIButton *)sender
 {
     [self resignFirstResponder];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Edit Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose From Library", nil];
-    [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Edit Picture" message:@"Select a Method" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Take Photo", @"Choose From Library", nil];
+    
+    [alertView show];
 }
 
-- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch(buttonIndex){
-        case 0:
+        case 1:
         {
             self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
             [self presentViewController:self.imagePickerController animated:YES completion:^{
@@ -539,7 +541,7 @@
             }];
             break;
         }
-        case 1:
+        case 2:
         {
             self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:self.imagePickerController animated:YES completion:^{
@@ -557,6 +559,7 @@
 - (UIImagePickerController *) imagePickerController{
     if(!_imagePickerController){
         _imagePickerController = [[UIImagePickerController alloc] init];
+        _imagePickerController.allowsEditing = YES;
         _imagePickerController.delegate = self;
     }
     return _imagePickerController;
@@ -564,19 +567,16 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    if([self.imagePickerController.view isDescendantOfView:self.navigationController.view]){
-        [self.imagePickerController.view removeFromSuperview];
-    }
-    else if([self.imagePickerController.view isDescendantOfView:[[[UIApplication sharedApplication] delegate] window]]){
-        [self.imagePickerController.view removeFromSuperview];
-    }
+    [self.imagePickerController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
-        UIImage *buttonImage = (UIImage *)[info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        [self.selectedCardView.cardImageButton setBackgroundImage:buttonImage  forState:UIControlStateNormal];
+        UIImage *buttonImage = (UIImage *)[info objectForKey:@"UIImagePickerControllerEditedImage"];
+        [self.selectedCardView.cardImageButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
         self.selectedCardView.cardImageButton.layer.masksToBounds = YES;
     }];
 }
