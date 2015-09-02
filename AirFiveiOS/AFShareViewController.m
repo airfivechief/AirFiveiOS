@@ -291,8 +291,11 @@
         [UIView setAnimationBeginsFromCurrentState:YES];
         CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
         int keyboardHeight = MIN(keyboardSize.height,keyboardSize.width);
-        self.logoVerticalConstraint.constant = -keyboardHeight;
-        self.shareViewBottomConstraint.constant = -keyboardHeight;
+        
+        [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-keyboardHeight, self.view.frame.size.width, self.view.frame.size.height)];
+        
+        //self.logoVerticalConstraint.constant = -keyboardHeight;
+        //self.shareViewBottomConstraint.constant = -keyboardHeight;
         [self.view layoutIfNeeded];
         [UIView commitAnimations];
     }
@@ -300,12 +303,12 @@
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
+    self.selectedTextField = nil;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:[notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
     [UIView setAnimationCurve:[notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    self.logoVerticalConstraint.constant = 20;
-    self.shareViewBottomConstraint.constant = 0;
+    [self.view setFrame:CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view layoutIfNeeded];
     [UIView commitAnimations];
 }

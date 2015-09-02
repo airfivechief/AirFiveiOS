@@ -223,10 +223,10 @@ typedef NS_ENUM(NSInteger, AFAlertViewType){
     self.lastNameTextField.userInteractionEnabled = self.isEditModeOn;
     self.positionTextField.userInteractionEnabled = self.isEditModeOn;
     self.organizationTextField.userInteractionEnabled = self.isEditModeOn;
-    self.industryTextField.userInteractionEnabled = self.isEditModeOn;
-    self.emailTextField.userInteractionEnabled = self.isEditModeOn;
-    self.phoneTextField.userInteractionEnabled = self.isEditModeOn;
-    self.websiteTextField.userInteractionEnabled = self.isEditModeOn;
+    //self.industryTextField.userInteractionEnabled = self.isEditModeOn;
+    //self.emailTextField.userInteractionEnabled = self.isEditModeOn;
+    //self.phoneTextField.userInteractionEnabled = self.isEditModeOn;
+    //self.websiteTextField.userInteractionEnabled = self.isEditModeOn;
     
     [self setUpInfoView];
 }
