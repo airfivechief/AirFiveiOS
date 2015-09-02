@@ -14,9 +14,14 @@
 
 #define LINKED_IN_URL @"https://www.linkedin.com/in/"
 
-@interface AFCardView() <UIAlertViewDelegate>
+typedef NS_ENUM(NSInteger, AFAlertViewType){
+    kAlertViewTypeLinkedIn = 0,
+    kAlertViewTypeInstagram,
+    kAlertViewTypeFacebook,
+    kAlertViewTypeTwitter
+};
 
-@property (assign, nonatomic) bool hasSocialMedia;
+@interface AFCardView() <UIAlertViewDelegate>
 
 @end
 
@@ -24,10 +29,19 @@
 
 #pragma mark - Card View
 
+- (void)setIsEditModeOn:(bool)isEditModeOn
+{
+    if(_isEditModeOn != isEditModeOn){
+        _isEditModeOn = isEditModeOn;
+        [self setUpTextFontsAndColors];
+        [self setUpCardImageView];
+    }
+}
+
 - (void)didMoveToSuperview
 {
     [super didMoveToSuperview];
-    [self setUpTextFontsAndColorsWithEditMode:YES];
+    self.isEditModeOn = YES;
 }
 
 - (void)setCard:(AFCard *)card
@@ -58,13 +72,12 @@
     self.cardView.layer.shadowOpacity = 0.20;
     self.cardView.layer.shadowRadius = 3.0;
     self.cardView.layer.masksToBounds = NO;
-    [self setUpCardImageViewWithEditMode:NO];
-    [self setUpInfoViewWithEditMode:NO];
+    self.isEditModeOn = NO;
 }
 
-- (void)setUpCardImageViewWithEditMode:(bool)editMode
+- (void)setUpCardImageView
 {
-    if(editMode){
+    if(self.isEditModeOn){
         self.cardImageButton.userInteractionEnabled = YES;
     }
     else{
@@ -76,13 +89,13 @@
     [self.cardImageButton.layer setBorderWidth: 5.0];
 }
 
-- (void)setUpInfoViewWithEditMode:(bool)editMode;
+- (void)setUpInfoView;
 {
     [self setUpDividers];
     [self setUpTextFieldIcons];
     self.infoView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    if(editMode){
+    [self updateSocialMediaButtons];
+    if(self.isEditModeOn){
         self.industryLabel.hidden = NO;
         self.industryTextField.hidden = NO;
         self.dividerViewTop.hidden = NO;
@@ -93,7 +106,6 @@
         self.websiteTextField.hidden = NO;
         self.editButton.selected = YES;
         self.bigEditButtonContainerView.hidden = YES;
-        //self.socialMediaContainerView.hidden = NO;
         if(self.emailTextField.text && ![[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
             [self.emailTextField.leftView setTintColor:[UIColor airFiveGray]];
         }
@@ -126,9 +138,6 @@
         }
         if(self.industryLabel.hidden && self.contactInfoLabel.hidden){
             self.bigEditButtonContainerView.hidden = NO;
-        }
-        if(!self.hasSocialMedia){
-            //self.socialMediaContainerView.hidden = YES;
         }
     }
 }
@@ -165,9 +174,9 @@
     self.dividerViewBottom.backgroundColor = [UIColor airFiveLightGray];
 }
 
-- (void)setUpTextFontsAndColorsWithEditMode:(bool)editMode
+- (void)setUpTextFontsAndColors
 {
-    UIColor *mainInfoPlaceHolderColor = editMode ? [UIColor whiteColor] : [UIColor clearColor];
+    UIColor *mainInfoPlaceHolderColor = self.isEditModeOn ? [UIColor whiteColor] : [UIColor clearColor];
     
     self.fullNameTextField.font = [UIFont airFiveFontMediumWithSize:21.0];
     self.fullNameTextField.textColor = [UIColor whiteColor];
@@ -189,7 +198,7 @@
     self.organizationTextField.textColor = [UIColor clearColor];
     self.organizationTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.organizationTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor clearColor], NSFontAttributeName : self.positionAndOrgTextField.font}];
     
-    UIColor *infoPlaceHolderColor = editMode ? [UIColor airFiveLightGray] : [UIColor clearColor];
+    UIColor *infoPlaceHolderColor = self.isEditModeOn ? [UIColor airFiveLightGray] : [UIColor clearColor];
     
     self.industryTextField.textColor = [UIColor airFiveBlue];
     self.industryTextField.font = [UIFont airFiveFontSlabRegularWithSize:16.0];
@@ -210,17 +219,16 @@
     NSAttributedString *bigEditButtonTitle = [[NSAttributedString alloc] initWithString:@"Tap to Edit" attributes:@{NSForegroundColorAttributeName : [UIColor airFiveBlue], NSFontAttributeName :self.bigEditButton.titleLabel.font}];
     [self.bigEditButton setAttributedTitle:bigEditButtonTitle forState:UIControlStateNormal];
     
+    self.firstNameTextField.userInteractionEnabled = self.isEditModeOn;
+    self.lastNameTextField.userInteractionEnabled = self.isEditModeOn;
+    self.positionTextField.userInteractionEnabled = self.isEditModeOn;
+    self.organizationTextField.userInteractionEnabled = self.isEditModeOn;
+    self.industryTextField.userInteractionEnabled = self.isEditModeOn;
+    self.emailTextField.userInteractionEnabled = self.isEditModeOn;
+    self.phoneTextField.userInteractionEnabled = self.isEditModeOn;
+    self.websiteTextField.userInteractionEnabled = self.isEditModeOn;
     
-    self.firstNameTextField.userInteractionEnabled = editMode;
-    self.lastNameTextField.userInteractionEnabled = editMode;
-    self.positionTextField.userInteractionEnabled = editMode;
-    self.organizationTextField.userInteractionEnabled = editMode;
-    self.industryTextField.userInteractionEnabled = editMode;
-    self.emailTextField.userInteractionEnabled = editMode;
-    self.phoneTextField.userInteractionEnabled = editMode;
-    self.websiteTextField.userInteractionEnabled = editMode;
-    
-    [self setUpInfoViewWithEditMode:editMode];
+    [self setUpInfoView];
 }
 
 - (void)updatePositionAndOrgTextField
@@ -255,35 +263,209 @@
 
 #pragma mark - Social Media Buttons
 
+- (void)updateSocialMediaButtons
+{
+    [self updateLinkedInButton];
+    [self updateInstagramButton];
+    [self updateFacebookButton];
+    [self updateTwitterButton];
+}
+
+- (void)updateLinkedInButton
+{
+    if([self.card.linkedInEnabled boolValue] && (self.card.linkedInURLString && ![[self.card.linkedInURLString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""])){
+        self.linkedInButton.selected = YES;
+    }
+    else{
+        self.linkedInButton.selected = NO;
+    }
+}
+
+- (void)updateInstagramButton
+{
+    if([self.card.instagramEnabled boolValue] && (self.card.instagramUserNameString && ![[self.card.instagramUserNameString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""])){
+        self.instagramButton.selected = YES;
+    }
+    else{
+        self.instagramButton.selected = NO;
+    }
+}
+
+- (void)updateFacebookButton
+{
+    if([self.card.facebookEnabled boolValue] && (self.card.facebookUserNameString && ![[self.card.facebookUserNameString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""])){
+        self.facebookButton.selected = YES;
+    }
+    else{
+        self.facebookButton.selected = NO;
+    }
+}
+
+- (void)updateTwitterButton
+{
+    if([self.card.twitterEnabled boolValue] && (self.card.twitterUserNameString && ![[self.card.twitterUserNameString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""])){
+        self.twitterButton.selected = YES;
+    }
+    else{
+        self.twitterButton.selected = NO;
+    }
+}
+
 - (IBAction)linkedInButtonTouched:(UIButton *)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Linkedin" message:[NSString stringWithFormat:@"%@...\nenter username", LINKED_IN_URL] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
-    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alertView show];
+    if(self.isEditModeOn){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Linkedin" message:[NSString stringWithFormat:@"%@...\nenter username", LINKED_IN_URL] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
+        alertView.tag = kAlertViewTypeLinkedIn;
+        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        textField.text = [self.card.linkedInURLString stringByReplacingOccurrencesOfString:LINKED_IN_URL withString:@""];
+        [alertView show];
+    }
+    else{
+        if(![self.card.linkedInEnabled boolValue]){ //Enabled
+            if(self.card.linkedInURLString && ![self.card.linkedInURLString isEqualToString:@""]){ //Has info on file
+                self.card.linkedInEnabled = @(![self.card.linkedInEnabled boolValue]);
+                [self updateLinkedInButton];
+            }
+            else{ //Does not have info on file
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"LinkedIn Not on File" message:[NSString stringWithFormat:@"Tap the edit button and then tap the LinkedIn button again to add your info."] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }
+        else{ //Disabled
+            self.card.linkedInEnabled = @(![self.card.linkedInEnabled boolValue]);
+            [self updateLinkedInButton];
+        }
+    }
 }
 
 - (IBAction)instagramButtonTouched:(UIButton *)sender
 {
-    
+    if(self.isEditModeOn){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Instagram" message:[NSString stringWithFormat:@"Enter username"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
+        alertView.tag = kAlertViewTypeInstagram;
+        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        textField.text = self.card.instagramUserNameString;
+        [alertView show];
+    }
+    else{
+        if(![self.card.instagramEnabled boolValue]){ //Enabled
+            if(self.card.instagramUserNameString && ![self.card.instagramUserNameString isEqualToString:@""]){ //Has info on file
+                self.card.instagramEnabled = @(![self.card.instagramEnabled boolValue]);
+                [self updateInstagramButton];
+            }
+            else{ //Does not have info on file
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Instagram Not on File" message:[NSString stringWithFormat:@"Tap the edit button and then tap the Instagram button again to add your info."] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }
+        else{ //Disabled
+            self.card.instagramEnabled = @(![self.card.instagramEnabled boolValue]);
+            [self updateInstagramButton];
+        }
+    }
+}
+
+- (IBAction)facebookButtonTouched:(UIButton *)sender
+{
+    if(self.isEditModeOn){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"facebook" message:[NSString stringWithFormat:@"Enter username"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
+        alertView.tag = kAlertViewTypeFacebook;
+        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        textField.text = self.card.facebookUserNameString;
+        [alertView show];
+    }
+    else{
+        if(![self.card.facebookEnabled boolValue]){ //Enabled
+            if(self.card.facebookUserNameString && ![self.card.facebookUserNameString isEqualToString:@""]){ //Has info on file
+                self.card.facebookEnabled = @(![self.card.facebookEnabled boolValue]);
+                [self updateFacebookButton];
+            }
+            else{ //Does not have info on file
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"facebook Not on File" message:[NSString stringWithFormat:@"Tap the edit button and then tap the facebook button again to add your info."] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }
+        else{ //Disabled
+            self.card.facebookEnabled = @(![self.card.facebookEnabled boolValue]);
+            [self updateFacebookButton];
+        }
+    }
+}
+
+- (IBAction)twitterButtonTouched:(UIButton *)sender
+{
+    if(self.isEditModeOn){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"twitter" message:[NSString stringWithFormat:@"Enter username"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
+        alertView.tag = kAlertViewTypeTwitter;
+        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        textField.text = self.card.twitterUserNameString;
+        [alertView show];
+    }
+    else{
+        if(![self.card.twitterEnabled boolValue]){ //Enabled
+            if(self.card.twitterUserNameString && ![self.card.twitterUserNameString isEqualToString:@""]){ //Has info on file
+                self.card.twitterEnabled = @(![self.card.twitterEnabled boolValue]);
+                [self updateTwitterButton];
+            }
+            else{ //Does not have info on file
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Twitter Not on File" message:[NSString stringWithFormat:@"Tap the edit button and then tap the Twitter button again to add your info."] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }
+        else{ //Disabled
+            self.card.twitterEnabled = @(![self.card.twitterEnabled boolValue]);
+            [self updateTwitterButton];
+        }
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
-        case 0: //Cancel
-        {
-            break;
-        }
+        case 0: break; //Cancel
         case 1: //Okay
         {
             UITextField *usernameTextField = [alertView textFieldAtIndex:0];
             if(usernameTextField.text && ![[usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
-                self.linkedInURLString = [NSString stringWithFormat:@"%@%@",LINKED_IN_URL,[usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+                switch (alertView.tag) {
+                    case kAlertViewTypeLinkedIn:
+                    {
+                        self.card.linkedInURLString = [NSString stringWithFormat:@"%@%@",LINKED_IN_URL,[usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+                        self.card.linkedInEnabled = @(YES);
+                        [self updateLinkedInButton];
+                        break;
+                    }
+                    case kAlertViewTypeInstagram:
+                    {
+                        self.card.instagramUserNameString = [usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        self.card.instagramEnabled = @(YES);
+                        [self updateInstagramButton];
+                        break;
+                    }
+                    case kAlertViewTypeFacebook:
+                    {
+                        self.card.facebookEnabled = @(YES);
+                        self.card.facebookUserNameString = [usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        [self updateFacebookButton];
+                        break;
+                    }
+                    case kAlertViewTypeTwitter:
+                    {
+                        self.card.twitterUserNameString = [usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        self.card.twitterEnabled = @(YES);
+                        [self updateTwitterButton];
+                        break;
+                    }
+                    default: break;
+                }
             }
             break;
         }
-        default:
-            break;
+        default: break;
     }
 }
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -235,7 +236,7 @@
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <action selector="instagramButtonTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="Wr2-9e-rxh"/>
+                                                <action selector="facebookButtonTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="GyN-ck-UXi"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpq-BN-M0i" userLabel="Twitter Button">
@@ -254,7 +255,7 @@
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <action selector="instagramButtonTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="AFw-CR-MQY"/>
+                                                <action selector="twitterButtonTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="gv2-Oa-2RP"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -430,16 +431,20 @@
                 <outlet property="dividerViewTop" destination="hhq-me-L4d" id="izi-dP-cSw"/>
                 <outlet property="editButton" destination="ODE-h4-QYm" id="1WR-JN-ge9"/>
                 <outlet property="emailTextField" destination="xg5-xR-mJ2" id="B2Q-ma-uZI"/>
+                <outlet property="facebookButton" destination="d0E-Sy-SC7" id="8bI-11-YAv"/>
                 <outlet property="firstNameTextField" destination="5Lv-Ny-6oW" id="nhl-gM-mOn"/>
                 <outlet property="fullNameTextField" destination="k5f-kl-YI7" id="LIT-Xo-Vqg"/>
                 <outlet property="industryLabel" destination="0Fc-ui-seG" id="cdA-Ei-kqC"/>
                 <outlet property="industryTextField" destination="JNr-z7-m8Z" id="vyf-bk-8cn"/>
                 <outlet property="infoView" destination="7y7-cC-lpA" id="mGu-bS-mxf"/>
+                <outlet property="instagramButton" destination="v07-gP-Vyc" id="qN7-Cx-alg"/>
                 <outlet property="lastNameTextField" destination="Vfj-3f-PqE" id="u58-hc-kaA"/>
+                <outlet property="linkedInButton" destination="VmF-hs-0LI" id="61w-lq-gYW"/>
                 <outlet property="organizationTextField" destination="yjQ-zz-Wc2" id="H2U-kT-2tE"/>
                 <outlet property="phoneTextField" destination="HEG-LM-4aY" id="FCf-ac-ZPa"/>
                 <outlet property="positionAndOrgTextField" destination="K5H-UN-x6Y" id="Ycf-on-ZjW"/>
                 <outlet property="positionTextField" destination="oeP-5o-E3d" id="AiL-VH-mvM"/>
+                <outlet property="twitterButton" destination="Cpq-BN-M0i" id="JDo-Ac-2c4"/>
                 <outlet property="websiteTextField" destination="P7D-V8-ldX" id="dA7-b4-YNh"/>
             </connections>
             <point key="canvasLocation" x="281" y="378.5"/>

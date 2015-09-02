@@ -19,7 +19,13 @@
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSString *website;
 @property (strong, nonatomic) NSString *linkedInURLString;
-@property (strong, nonatomic) NSString *instagramURLString;
+@property (strong, nonatomic) NSString *instagramUserNameString;
+@property (strong, nonatomic) NSString *facebookUserNameString;
+@property (strong, nonatomic) NSString *twitterUserNameString;
 
+@property (strong, nonatomic) NSNumber *linkedInEnabled; //bool value
+@property (strong, nonatomic) NSNumber *instagramEnabled; //bool value
+@property (strong, nonatomic) NSNumber *facebookEnabled; //bool value
+@property (strong, nonatomic) NSNumber *twitterEnabled; //bool value
 
 @end

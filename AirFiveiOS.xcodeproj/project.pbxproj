@@ -16,6 +16,7 @@
 		5F832E011B6C02E100D9AD2E /* AirFiveiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F832E001B6C02E100D9AD2E /* AirFiveiOSTests.m */; };
 		8B039F871B7189D300516B9A /* AFCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B039F861B7189D300516B9A /* AFCardView.xib */; };
 		8B039F8D1B7196DD00516B9A /* AFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B039F8C1B7196DD00516B9A /* AFCardView.m */; };
+		8B19AAC81B97795F009DF758 /* UIImage+Recolor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B19AAC71B97795F009DF758 /* UIImage+Recolor.m */; settings = {ASSET_TAGS = (); }; };
 		8B2D19FB1B6C1C8600C62B49 /* AFEmailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */; };
 		8B2D19FE1B6C3E5D00C62B49 /* Contactcard.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D19FC1B6C3E5D00C62B49 /* Contactcard.html */; };
 		8B2D19FF1B6C3E5D00C62B49 /* contactInfo.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D19FD1B6C3E5D00C62B49 /* contactInfo.vcf */; };
@@ -79,6 +80,8 @@
 		8B039F861B7189D300516B9A /* AFCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AFCardView.xib; sourceTree = "<group>"; };
 		8B039F8B1B7196DD00516B9A /* AFCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCardView.h; sourceTree = "<group>"; };
 		8B039F8C1B7196DD00516B9A /* AFCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFCardView.m; sourceTree = "<group>"; };
+		8B19AAC61B97795F009DF758 /* UIImage+Recolor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Recolor.h"; sourceTree = "<group>"; };
+		8B19AAC71B97795F009DF758 /* UIImage+Recolor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Recolor.m"; sourceTree = "<group>"; };
 		8B2D19F91B6C1C8600C62B49 /* AFEmailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFEmailManager.h; sourceTree = "<group>"; };
 		8B2D19FA1B6C1C8600C62B49 /* AFEmailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFEmailManager.m; sourceTree = "<group>"; };
 		8B2D19FC1B6C3E5D00C62B49 /* Contactcard.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Contactcard.html; sourceTree = "<group>"; };
@@ -273,6 +276,8 @@
 				8B2D1A011B6C59CB00C62B49 /* UIColor+AirFive.m */,
 				8B2D1A031B6D6ECC00C62B49 /* UIFont+AirFive.h */,
 				8B2D1A041B6D6ECC00C62B49 /* UIFont+AirFive.m */,
+				8B19AAC61B97795F009DF758 /* UIImage+Recolor.h */,
+				8B19AAC71B97795F009DF758 /* UIImage+Recolor.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2D1A021B6C59CB00C62B49 /* UIColor+AirFive.m in Sources */,
+				8B19AAC81B97795F009DF758 /* UIImage+Recolor.m in Sources */,
 				8B5EC8601B6F70B30054C9ED /* AFCard.m in Sources */,
 				8B039F8D1B7196DD00516B9A /* AFCardView.m in Sources */,
 				8B5EC8501B6F5F810054C9ED /* AFShareViewController.m in Sources */,

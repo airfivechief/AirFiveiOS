@@ -13,6 +13,7 @@
 @interface AFCardView : UIView
 
 @property (strong, nonatomic) AFCard *card;
+@property (assign, nonatomic) bool isEditModeOn;
 
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UIButton *cardImageButton;
@@ -30,17 +31,16 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
-@property (strong, nonatomic) NSString *linkedInURLString;
 @property (weak, nonatomic) IBOutlet UIView *dividerViewTop;
 @property (weak, nonatomic) IBOutlet UIView *dividerViewBottom;
 @property (weak, nonatomic) IBOutlet UIView *bigEditButtonContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *bigEditButton;
-
-
+@property (weak, nonatomic) IBOutlet UIButton *linkedInButton;
+@property (weak, nonatomic) IBOutlet UIButton *instagramButton;
+@property (weak, nonatomic) IBOutlet UIButton *facebookButton;
+@property (weak, nonatomic) IBOutlet UIButton *twitterButton;
 
 - (void)updatePositionAndOrgTextField;
 - (void)updateFullNameTextField;
-- (void)setUpTextFontsAndColorsWithEditMode:(bool)editMode;
-- (void)setUpCardImageViewWithEditMode:(bool)editMode;
 
 @end

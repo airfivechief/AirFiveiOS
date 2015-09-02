@@ -14,6 +14,7 @@
 #import "iCarousel.h"
 #import "AFCardView.h"
 #import "AFCard.h"
+#import "UIImage+Recolor.h"
 
 @interface AFShareViewController() <iCarouselDataSource, iCarouselDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
 
@@ -139,15 +140,13 @@
 
 - (void)didEnterEditMode
 {
-    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:YES];
-    [self.selectedCardView setUpCardImageViewWithEditMode:YES];
+    self.selectedCardView.isEditModeOn = YES;
     self.shareButton.enabled = NO;
 }
 
 - (void)didEndEditMode
 {
-    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:NO];
-    [self.selectedCardView setUpCardImageViewWithEditMode:NO];
+    self.selectedCardView.isEditModeOn = NO;
     [self.view endEditing:YES];
     self.shareButton.enabled = YES;
 }
@@ -181,6 +180,22 @@
     if (cardView == nil){
         cardView = [[[NSBundle mainBundle] loadNibNamed:@"AFCardView" owner:self options:nil] lastObject];
         [cardView setFrame:self.carousel.bounds];
+        UIImage *linkedInImage = [[[UIImage imageNamed:@"linkedin"] copy] recoloredWithColor:[UIColor lightGrayColor]];
+        [cardView.linkedInButton setImage:linkedInImage forState:UIControlStateNormal];
+        [cardView.linkedInButton setImage:[UIImage imageNamed:@"linkedin"] forState:UIControlStateSelected];
+        
+        UIImage *instagramImage = [[[UIImage imageNamed:@"Instagram"] copy] recoloredWithColor:[UIColor lightGrayColor]];
+        [cardView.instagramButton setImage:instagramImage forState:UIControlStateNormal];
+        [cardView.instagramButton setImage:[UIImage imageNamed:@"Instagram"] forState:UIControlStateSelected];
+        
+        UIImage *facebookImage = [[[UIImage imageNamed:@"facebook"] copy] recoloredWithColor:[UIColor lightGrayColor]];
+        [cardView.facebookButton setImage:facebookImage forState:UIControlStateNormal];
+        [cardView.facebookButton setImage:[UIImage imageNamed:@"facebook"] forState:UIControlStateSelected];
+        
+        UIImage *twitterImage = [[[UIImage imageNamed:@"twitter"] copy] recoloredWithColor:[UIColor lightGrayColor]];
+        [cardView.twitterButton setImage:twitterImage forState:UIControlStateNormal];
+        [cardView.twitterButton setImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateSelected];
+
     }
 
     cardView.card = [self.cards objectAtIndex:index];
@@ -230,7 +245,7 @@
 
 - (void)setUpTextFontsAndColors
 {
-    [self.selectedCardView setUpTextFontsAndColorsWithEditMode:self.isEditModeOn];
+    self.selectedCardView.isEditModeOn = self.isEditModeOn;
     self.recipientEmailTextField.textColor = [UIColor blackColor];
     self.recipientEmailTextField.font = [UIFont airFiveFontMediumWithSize:16.0];
     self.recipientEmailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.recipientEmailTextField.placeholder attributes:@{NSForegroundColorAttributeName : [UIColor airFivePink], NSFontAttributeName : self.recipientEmailTextField.font}];
@@ -372,7 +387,6 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [self setUpTextFontsAndColors];
-    //[self.selectedCardView setUpTextFontsAndColorsWithEditMode:NO];
     [self.selectedCardView updateFullNameTextField];
     [self.selectedCardView updatePositionAndOrgTextField];
 }
